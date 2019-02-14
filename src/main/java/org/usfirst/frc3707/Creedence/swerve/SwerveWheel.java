@@ -36,7 +36,6 @@ public class SwerveWheel {
         }
         else if (newAngle >360) {
             rotation.setSetpoint(newAngle -360);
-            
         }
         else {
             rotation.setSetpoint(newAngle);

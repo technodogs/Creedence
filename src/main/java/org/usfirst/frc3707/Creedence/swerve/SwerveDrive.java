@@ -66,10 +66,10 @@ public class SwerveDrive implements PIDOutput {
         double c = directionY - rotation * (W / diameter); //left track
         double d = directionY + rotation * (W / diameter); //right track
         
-        SmartDashboard.putNumber("a", a);
-        SmartDashboard.putNumber("b", b);
-        SmartDashboard.putNumber("c", c);
-        SmartDashboard.putNumber("d", d);
+        // SmartDashboard.putNumber("a", a);
+        // SmartDashboard.putNumber("b", b);
+        // SmartDashboard.putNumber("c", c);
+        // SmartDashboard.putNumber("d", d);
         
         
         // System.out.println("A, B, C, and D");
@@ -109,6 +109,12 @@ public class SwerveDrive implements PIDOutput {
         double backLeftAngle = (Math.atan2 (a, c) / Math.PI) * 180;
         double frontRightAngle = (Math.atan2 (b, d) / Math.PI) * 180;
         double frontLeftAngle = (Math.atan2 (b, c) / Math.PI) * 180;
+
+        // SmartDashboard.putNumber("frontLeft@", frontLeftAngle);
+        // SmartDashboard.putNumber("frontRight@", frontRightAngle);
+        // SmartDashboard.putNumber("backLeft@", backLeftAngle);
+        // SmartDashboard.putNumber("backRight@", backRightAngle);
+
         
         
 
@@ -142,11 +148,16 @@ public class SwerveDrive implements PIDOutput {
         	frontLeftSpeed *= 0.5;
         }
         
+        // SmartDashboard.putNumber("frontRightAngleXX", frontRightAngle);
+    	// SmartDashboard.putNumber("frontLeftAngleXX", frontLeftAngle);
+    	// SmartDashboard.putNumber("backRightAngleXX", backRightAngle);
+        // SmartDashboard.putNumber("backLeftAngleXX", backLeftAngle);
+        
         //update the actual motors
     	this.rightFrontWheel.drive(frontRightSpeed, frontRightAngle);
     	this.leftFrontWheel.drive(frontLeftSpeed, frontLeftAngle);
-    	this.leftBackWheel.drive(backLeftSpeed, backLeftAngle);
-    	this.rightBackWheel.drive(backRightSpeed, backRightAngle);
+        this.leftBackWheel.drive(backLeftSpeed, backLeftAngle);
+        this.rightBackWheel.drive(backRightSpeed, backRightAngle);
         
     }
 

@@ -10,12 +10,10 @@
 
 package org.usfirst.frc3707.Creedence.subsystems;
 
-//import com.sun.org.apache.bcel.internal.Const;
-
 import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.PIDInts.Constants;
 import org.usfirst.frc3707.Creedence.commands.Drive;
-//import org.usfirst.frc3707.Creedence.lidar.Lidar;
+import org.usfirst.frc3707.Creedence.lidar.Lidar;
 import org.usfirst.frc3707.Creedence.swerve.SwerveDrive;
 import org.usfirst.frc3707.Creedence.swerve.SwerveWheel;
 
@@ -24,23 +22,14 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.Victor;
-import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-
-
-
-/**
- * @param <Victor>
- *
- */
 public class DriveTrain extends Subsystem {
-
- 
-
+    
     private AnalogPotentiometer frontRightEncoder = new AnalogPotentiometer(Constants.FREncoder, 360.0, 0.0);
     private Victor frontRightSwerve = new Victor(Constants.FRSwerve);
     private PIDController frontRightTwist = new PIDController(0.05, 0.0, 0.0, 0.0, frontRightEncoder, frontRightSwerve, 0.02);
@@ -53,27 +42,27 @@ public class DriveTrain extends Subsystem {
     private AnalogPotentiometer backLeftEncoder = new AnalogPotentiometer(Constants.BLEncoder, 360.0, 0.0);
     private Victor backLeftSwerve = new Victor(Constants.BLSwerve);
     private PIDController backLeftTwist = new PIDController(0.05, 0.0, 0.0, 0.0, backLeftEncoder, backLeftSwerve, 0.02);
-    private VictorSP frontRightDrive = new VictorSP(Constants.FRDrive);
-    private VictorSP frontLeftDrive = new VictorSP(Constants.FLDrive);
-    private VictorSP backRightDrive= new VictorSP(Constants.BRDrive);
-    private VictorSP backLeftDrive= new VictorSP(Constants.BLDrive);
+    private Victor frontRightDrive = new Victor(Constants.FRDrive);
+    private Victor frontLeftDrive = new Victor(Constants.FLDrive);
+    private Victor backRightDrive= new Victor(Constants.BRDrive);
+    private Victor backLeftDrive= new Victor(Constants.BLDrive);
 
     private ADXRS450_Gyro gyro = new ADXRS450_Gyro();
-  //  Lidar lidarCrab = new Lidar(new DigitalInput(10));
+    Lidar lidarCrab = new Lidar(new DigitalInput(0));
 
 
     
-    private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive, 18-15);
-    private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, 204-15);
-    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, -40-15);
-    private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, 108-15);
+    private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive, 200);
+    private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, 320);
+    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, 30);
+    private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, 350);
     public SwerveDrive swerve = new SwerveDrive(frontRightWheel, frontLeftWheel, backLeftWheel, backRightWheel, gyro);
     
    // LiveWindow.addSensor("Sensors", "gyro", gyro);
 
     
     public void init() {
-        
+
         frontRightTwist.setInputRange(0.0, 360.0);
         frontRightTwist.setOutputRange(-1.0, 1.0);
         frontRightTwist.setContinuous(true);
@@ -89,6 +78,9 @@ public class DriveTrain extends Subsystem {
         backRightTwist.setInputRange(0.0, 360.0);
         backRightTwist.setOutputRange(-1.0, 1.0);
         backRightTwist.setContinuous(true);
+
+        backRightSwerve.isAlive();
+        backLeftSwerve.isAlive();
 
         gyro.reset();
 
@@ -114,15 +106,16 @@ public class DriveTrain extends Subsystem {
     }
     public void drive(double directionX, double directionY, double rotation, boolean useGyro, boolean slowSpeed) {
     	swerve.drive(directionX, directionY, rotation, useGyro, slowSpeed);
-    	SmartDashboard.putNumber("frontRightAngle", frontRightEncoder.get());
-    	SmartDashboard.putNumber("frontLeftAngle", frontLeftEncoder.get());
-    	SmartDashboard.putNumber("backRightAngle", backRightEncoder.get());
-    	SmartDashboard.putNumber("backLeftAngle", backLeftEncoder.get());
+
 
       
     }
     public void readGyro(){
         SmartDashboard.putData(gyro);
+    }
+    public void setTolerances(){
+        //.setPercentTolerance(0);
+
     }
 
 public void setLastTime(long x) {
@@ -183,14 +176,18 @@ public void moveLeftOrRight(double power){
         // setDefaultCommand(new MySpecialCommand());
     }
 
-
-    
+    public double lidarDistance() {
+        return lidarCrab.getDistance();
+    }
 
     @Override
     public void periodic() {
         // Put code here to be run every loop
-
-        //System.out.println(lidarCrab.getDistance());
+        SmartDashboard.putNumber("Front Right Encoder", frontRightEncoder.get());
+        SmartDashboard.putNumber("Front Left Encoder", frontLeftEncoder.get());
+        SmartDashboard.putNumber("Back Right Encoder", backRightEncoder.get());
+        SmartDashboard.putNumber("Back Left Encoder", backLeftEncoder.get());
+        SmartDashboard.putNumber("LIDAR Value", lidarCrab.getDistance());
 
     }
     
@@ -329,10 +326,10 @@ public void moveLeftOrRight(double power){
         return 0;
     }
 
-    public boolean getSee ()
-    {
+    public boolean getSee (){
         NetworkTableEntry seeHolder = pixyData.getEntry("object_detected");
         boolean see = seeHolder.getBoolean(false);
         return see;
     }
 }
+
