@@ -24,38 +24,36 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveTrain extends Subsystem {
     
     private AnalogPotentiometer frontRightEncoder = new AnalogPotentiometer(Constants.FREncoder, 360.0, 0.0);
-    private Victor frontRightSwerve = new Victor(Constants.FRSwerve);
+    private VictorSP frontRightSwerve = new VictorSP(Constants.FRSwerve);
     private PIDController frontRightTwist = new PIDController(0.05, 0.0, 0.0, 0.0, frontRightEncoder, frontRightSwerve, 0.02);
     private AnalogPotentiometer frontLeftEncoder = new AnalogPotentiometer(Constants.FLEncoder, 360.0, 0.0);;
-    private Victor frontLeftSwerve = new Victor(Constants.FLSwerve);
+    private VictorSP frontLeftSwerve = new VictorSP(Constants.FLSwerve);
     private PIDController frontLeftTwist = new PIDController(0.05, 0.0, 0.0, 0.0, frontLeftEncoder, frontLeftSwerve, 0.02);;
     private AnalogPotentiometer backRightEncoder = new AnalogPotentiometer(Constants.BREncoder, 360.0, 0.0);
-    private Victor backRightSwerve = new Victor(Constants.BrSwerve);
+    private VictorSP backRightSwerve = new VictorSP(Constants.BrSwerve);
     private PIDController backRightTwist = new PIDController(0.05, 0.0, 0.0, 0.0, backRightEncoder, backRightSwerve, 0.02);
     private AnalogPotentiometer backLeftEncoder = new AnalogPotentiometer(Constants.BLEncoder, 360.0, 0.0);
-    private Victor backLeftSwerve = new Victor(Constants.BLSwerve);
+    private VictorSP backLeftSwerve = new VictorSP(Constants.BLSwerve);
     private PIDController backLeftTwist = new PIDController(0.05, 0.0, 0.0, 0.0, backLeftEncoder, backLeftSwerve, 0.02);
-    private Victor frontRightDrive = new Victor(Constants.FRDrive);
-    private Victor frontLeftDrive = new Victor(Constants.FLDrive);
-    private Victor backRightDrive= new Victor(Constants.BRDrive);
-    private Victor backLeftDrive= new Victor(Constants.BLDrive);
+    private VictorSP frontRightDrive = new VictorSP(Constants.FRDrive);
+    private VictorSP frontLeftDrive = new VictorSP(Constants.FLDrive);
+    private VictorSP backRightDrive= new VictorSP(Constants.BRDrive);
+    private VictorSP backLeftDrive= new VictorSP(Constants.BLDrive);
 
     private ADXRS450_Gyro gyro = new ADXRS450_Gyro();
-    Lidar lidarCrab = new Lidar(new DigitalInput(0));
-
-
+    Lidar lidarCrab = new Lidar(new DigitalInput(Constants.lidar1));
     
-    private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive, 200);
-    private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, 320);
-    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, 30);
-    private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, 350);
+    private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive, 117);
+    private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, 302);
+    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, 312);
+    private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, 278);
     public SwerveDrive swerve = new SwerveDrive(frontRightWheel, frontLeftWheel, backLeftWheel, backRightWheel, gyro);
     
    // LiveWindow.addSensor("Sensors", "gyro", gyro);
@@ -189,6 +187,7 @@ public void moveLeftOrRight(double power){
         SmartDashboard.putNumber("Back Left Encoder", backLeftEncoder.get());
         SmartDashboard.putNumber("LIDAR Value", lidarCrab.getDistance());
 
+        //System.out.println(lidarCrab.getDistance());
     }
     
 

@@ -56,9 +56,13 @@ public class roboClimb extends Subsystem {
         winch.set(Robot.oi.joystick2.getRawAxis(5));
         if (Robot.oi.joystick2.getRawButton(1) == true){
             grabber.set(1);
+        }else{
+            grabber.set(0);
         }
         if (Robot.oi.joystick2.getRawButton(3) == true){
             grabber.set(-1);
+        }else {
+            grabber.set(0);
         }
 
     }
