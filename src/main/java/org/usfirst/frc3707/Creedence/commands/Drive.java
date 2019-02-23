@@ -54,13 +54,13 @@ public class Drive extends Command {
         {
             Robot.driveTrain.drive(-Robot.oi.joystick1.getRawAxis(0), -Robot.driveTrain.lidarMove(), -Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2), Robot.oi.joystick1.getRawButton(3));     
         }*/
-        if (Robot.oi.joystick1.getRawButton(6))
+        if (Robot.oi.joystick1.getRawButton(5))
         {
-            Robot.driveTrain.drive(-Robot.driveTrain.getError2(), -Robot.oi.joystick1.getRawAxis(1), -Robot.driveTrain.getSpinValue(), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2), Robot.oi.joystick1.getRawButton(3));
+            Robot.driveTrain.drive(-Robot.driveTrain.getError2(), -Robot.oi.joystick1.getRawAxis(1), -Robot.driveTrain.getSpinValue(), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(6), Robot.oi.joystick1.getRawButton(3));
         }
         else
         {
-            Robot.driveTrain.drive(-Robot.oi.joystick1.getRawAxis(0), -Robot.oi.joystick1.getRawAxis(1), -Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2), Robot.oi.joystick1.getRawButton(3));
+            Robot.driveTrain.drive(-Robot.oi.joystick1.getRawAxis(0), -Robot.oi.joystick1.getRawAxis(1), -Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(6), Robot.oi.joystick1.getRawButton(3));
         }
         
        // Robot.driveTrain.drive(Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawAxis(1), Robot.oi.joystick1.getRawAxis(0), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2));

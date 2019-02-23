@@ -54,7 +54,7 @@ public class SwerveDrive implements PIDOutput {
         
     	
     	//if BOTH joystick in the center
-    	if((directionX < 0.2 && directionX > -0.2) && (directionY < 0.2 && directionY > -0.2) && (rotation < 0.2 && rotation > -0.2)) {
+    	if((directionX < 0.15 && directionX > -0.15) && (directionY < 0.15 && directionY > -0.15) && (rotation < 0.2 && rotation > -0.2)) {
     		this.rightFrontWheel.updateSpeed(0);
         	this.leftFrontWheel.updateSpeed(0);
         	this.leftBackWheel.updateSpeed(0);
