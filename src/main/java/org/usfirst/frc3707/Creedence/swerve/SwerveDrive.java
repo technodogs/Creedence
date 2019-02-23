@@ -29,7 +29,7 @@ public class SwerveDrive implements PIDOutput {
         this.gyro = gyro;
     }
     
-    public void drive(double directionX, double directionY, double rotation, boolean useGyro, boolean slowSpeed) {
+    public void drive(double directionX, double directionY, double rotation, boolean useGyro, boolean slowSpeed, boolean noPush) {
     	
     	SmartDashboard.putNumber("directionX", directionX);
     	SmartDashboard.putNumber("directionY", directionY);
@@ -37,7 +37,21 @@ public class SwerveDrive implements PIDOutput {
         // System.out.println(rotation);
         // System.out.println(directionX);
         // System.out.println(directionY);
-
+        
+        if(noPush){
+            //Puts Motors into X formation and disables motors
+            this.rightFrontWheel.updateSpeed(0);
+        	this.leftFrontWheel.updateSpeed(0);
+        	this.leftBackWheel.updateSpeed(0);
+            this.rightBackWheel.updateSpeed(0);
+            
+            this.rightFrontWheel.updateRotation(45+90);
+        	this.leftFrontWheel.updateRotation(315+90);
+        	this.leftBackWheel.updateRotation(225+90);
+        	this.rightBackWheel.updateRotation( 135+90);
+        	return;
+        }
+        
     	
     	//if BOTH joystick in the center
     	if((directionX < 0.2 && directionX > -0.2) && (directionY < 0.2 && directionY > -0.2) && (rotation < 0.2 && rotation > -0.2)) {
@@ -147,6 +161,21 @@ public class SwerveDrive implements PIDOutput {
         	frontRightSpeed *= 0.5;
         	frontLeftSpeed *= 0.5;
         }
+        if(noPush){
+            //Puts Motors into X formation and disables motors
+            frontRightAngle = 45+90;
+            frontLeftAngle = 315+90;
+            backLeftAngle = 225+90;
+            backRightAngle = 135+90;
+            
+            backRightSpeed = 0;
+            backLeftSpeed = 0;
+            frontRightSpeed = 0;
+            frontLeftSpeed = 0;
+
+        }
+        
+
         
         // SmartDashboard.putNumber("frontRightAngleXX", frontRightAngle);
     	// SmartDashboard.putNumber("frontLeftAngleXX", frontLeftAngle);
@@ -160,12 +189,13 @@ public class SwerveDrive implements PIDOutput {
         this.rightBackWheel.drive(backRightSpeed, backRightAngle);
         
     }
+    
 
 	@Override
 	public void pidWrite(double output) {
 		System.out.println("X");
 		System.out.println(output);
-        drive(output, 0, 0, false, false);
+        drive(output, 0, 0, false, false, false);
 	}
 
     public double normalizeGyroAngle(double angle){

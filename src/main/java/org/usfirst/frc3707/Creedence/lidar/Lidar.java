@@ -1,9 +1,15 @@
 package org.usfirst.frc3707.Creedence.lidar;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalSource;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import java.util.ArrayDeque;
+import java.math.*;
 
 public class Lidar implements PIDSource {
 /*
@@ -29,28 +35,61 @@ public Lidar (DigitalSource source) {
     counter.reset();
 }
 
+public ArrayList<Double> distanceArray = new ArrayList<Double>();
+
 /**
  * Take a measurement and return the distance in cm
  * 
  * @return Distance in cm
  */
 public double getDistance() {
-	double cm;
-	/* If we haven't seen the first rising to falling pulse, then we have no measurement.
-	 * This happens when there is no LIDAR-Lite plugged in, btw.
-	 */
-	if (counter.get() < 1) {
-		if (printedWarningCount-- > 0) {
-			System.out.println("LidarLitePWM: waiting for distance measurement");
+	distanceArray.clear();
+	for (int i = 0; i < 80; i++) {
+		double cm;
+		/* If we haven't seen the first rising to falling pulse, then we have no measurement.
+		* This happens when there is no LIDAR-Lite plugged in, btw.
+		*/
+		if (counter.get() < 1) {
+			if (printedWarningCount-- > 0) {
+				System.out.println("LidarLitePWM: waiting for distance measurement");
+			}
+			return 0;
 		}
-		return 0;
+		/* getPeriod returns time in seconds. The hardware resolution is microseconds.
+		* The LIDAR-Lite unit sends a high signal for 10 microseconds per cm of distance.
+		*/
+		cm = (counter.getPeriod() * 1000000.0 / 10.0) + CALIBRATION_OFFSET;
+		//converts cm to inches #america
+		cm = cm/2.54;
+		
+		//distanceArray.add(i, cm);
 	}
-	/* getPeriod returns time in seconds. The hardware resolution is microseconds.
-	 * The LIDAR-Lite unit sends a high signal for 10 microseconds per cm of distance.
-	 */
-	cm = (counter.getPeriod() * 1000000.0 / 10.0) + CALIBRATION_OFFSET;
-	return cm;
+	
+	Collections.sort(distanceArray);
+	double sum = 0;
+	for (int i = 0; i < distanceArray.size(); i++) {
+		sum += distanceArray.get(i);
+	}
+	double average = sum / distanceArray.size();
+	return average;
 }
+
+public ArrayDeque<Double> errorArrayDeque= new ArrayDeque<Double>();
+
+public double getLidarError(){
+	errorArrayDeque.push(getDistance());
+	if (errorArrayDeque.size() > 10){
+		errorArrayDeque.pop();
+
+	}
+	return(Math.abs(errorArrayDeque.getFirst()-errorArrayDeque.getLast()));
+		
+}
+	
+
+
+
+
 
 @Override
 public void setPIDSourceType(PIDSourceType pidSource) {
@@ -64,9 +103,24 @@ public PIDSourceType getPIDSourceType() {
 
 @Override
 public double pidGet() {
-	double distance = getDistance();
-	System.out.println("DISTANCE");
-	System.out.println(distance);
+	double distance = (getDistance());
 	return distance;
 }
+
+	public boolean at(double hite)
+	{
+		double amount = 0;
+		for (int x = 0; x < distanceArray.size(); x++)
+		{
+			amount += distanceArray.get(x);
+		}
+		amount = amount / distanceArray.size();
+
+		if (Math.abs(hite - amount) < .5)
+		{
+			return true;
+		}
+		return false;
+	}
+
 }

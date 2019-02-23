@@ -60,7 +60,11 @@ public class ballIntake extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     public void succ(){
-        cargoSucc.set(Robot.oi.joystick2.getRawAxis(2));
+        if (Robot.oi.joystick2.getRawButton(5) == true){
+            cargoSucc.set(1);
+        }else {
+            cargoSucc.set(0);
+        }
     }
 
     @Override

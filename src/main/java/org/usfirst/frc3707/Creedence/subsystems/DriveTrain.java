@@ -10,19 +10,16 @@
 
 package org.usfirst.frc3707.Creedence.subsystems;
 
-import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.PIDInts.Constants;
 import org.usfirst.frc3707.Creedence.commands.Drive;
-import org.usfirst.frc3707.Creedence.lidar.Lidar;
 import org.usfirst.frc3707.Creedence.swerve.SwerveDrive;
 import org.usfirst.frc3707.Creedence.swerve.SwerveWheel;
 
-import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -47,17 +44,22 @@ public class DriveTrain extends Subsystem {
     private VictorSP backRightDrive= new VictorSP(Constants.BRDrive);
     private VictorSP backLeftDrive= new VictorSP(Constants.BLDrive);
 
-    private ADXRS450_Gyro gyro = new ADXRS450_Gyro();
-    Lidar lidarCrab = new Lidar(new DigitalInput(Constants.lidar1));
-    
+    //private ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+   //Practice Bot Offsets
+    // double FRO = 302;
+    // double FLO = 117;
+    // double BRP = 278;
+    // double BLO = 312;
+
     private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive, 117);
     private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, 302);
     private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, 312);
     private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, 278);
-    public SwerveDrive swerve = new SwerveDrive(frontRightWheel, frontLeftWheel, backLeftWheel, backRightWheel, gyro);
+    public SwerveDrive swerve = new SwerveDrive(frontRightWheel, frontLeftWheel, backLeftWheel, backRightWheel, null);
     
    // LiveWindow.addSensor("Sensors", "gyro", gyro);
 
+   double lidarInches = 0;
     
     public void init() {
 
@@ -80,7 +82,7 @@ public class DriveTrain extends Subsystem {
         backRightSwerve.isAlive();
         backLeftSwerve.isAlive();
 
-        gyro.reset();
+       // gyro.reset();
 
     }
 
@@ -102,51 +104,19 @@ public class DriveTrain extends Subsystem {
     	backLeftWheel.disable();
     	backRightWheel.disable();
     }
-    public void drive(double directionX, double directionY, double rotation, boolean useGyro, boolean slowSpeed) {
-    	swerve.drive(directionX, directionY, rotation, useGyro, slowSpeed);
+    public void drive(double directionX, double directionY, double rotation, boolean useGyro, boolean slowSpeed, boolean noPush) {
+    	swerve.drive(directionX, directionY, rotation, false, slowSpeed, noPush);
 
 
       
     }
     public void readGyro(){
-        SmartDashboard.putData(gyro);
+        //SmartDashboard.putData(gyro);
     }
     public void setTolerances(){
         //.setPercentTolerance(0);
 
     }
-
-public void setLastTime(long x) {
-    lastTime = x;
-}
-
-long lastTime;
-public double output = 0;
-public double errSum, lastErr = 0;
-double kp = 0.003;
-double ki = 0;
-public double computePIDPower(double input, double setpoint) {
-   /*How long since we last calculated*/
-   long now = System.currentTimeMillis();
-   double timeChange = (double)(now - lastTime);
-   /*Compute all the working error variables*/
-   double error = setpoint - input;
-   errSum += (error * timeChange);
-  
-   /*Compute PID Output*/
-   output = kp * error + ki * errSum;
-  
-   /*Remember some variables for next time*/
-   lastErr = error;
-   lastTime = now;
-
-    return output;
-}
-  
-void SetTunings(double Kp, double Ki) {
-   kp = Kp;
-   ki = Ki;
-}
 
 public void moveLeftOrRight(double power){
     swerve.driveSimple(power, 270);
@@ -174,10 +144,6 @@ public void moveLeftOrRight(double power){
         // setDefaultCommand(new MySpecialCommand());
     }
 
-    public double lidarDistance() {
-        return lidarCrab.getDistance();
-    }
-
     @Override
     public void periodic() {
         // Put code here to be run every loop
@@ -185,14 +151,43 @@ public void moveLeftOrRight(double power){
         SmartDashboard.putNumber("Front Left Encoder", frontLeftEncoder.get());
         SmartDashboard.putNumber("Back Right Encoder", backRightEncoder.get());
         SmartDashboard.putNumber("Back Left Encoder", backLeftEncoder.get());
-        SmartDashboard.putNumber("LIDAR Value", lidarCrab.getDistance());
-
+        
+        // lidarInches = lidarCrab.getDistance()*.4162533814 - 2.108536219;
+        // System.out.println(lidarInches);
         //System.out.println(lidarCrab.getDistance());
     }
     
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+
+    double distanceFromWall = 7.5;
+
+    public double lidarMove ()
+    {
+        //System.out.println(currentDistance);
+        
+        if (lidarInches > distanceFromWall + 20)
+        {
+            System.out.println(-.35);
+            return -.25;
+        }
+        else if (lidarInches > distanceFromWall)
+        {
+            System.out.println(-.25);
+            return -.15;
+        }
+        else if (lidarInches < distanceFromWall - 3.5)
+        {
+            System.out.println(.25);
+            return .15;
+        }
+        return 0;
+    }
+    public void noPush (){
+        
+        
+    }
 
     NetworkTableEntry x_pos;
     NetworkTableEntry y_pos;
@@ -264,12 +259,12 @@ public void moveLeftOrRight(double power){
             }
         }
 
-        if (mid0 < mid1 && Math.abs(mid0 - mid1) > 4)
+        if (mid0 < mid1 && Math.abs(mid0 - mid1) > 3)
         {
             System.out.println("Right");
             return (.25);
         }
-        else if (Math.abs(mid0 - mid1) > 4)
+        else if (Math.abs(mid0 - mid1) > 3)
         {
             System.out.println("Left");
             return (-.25);
@@ -315,20 +310,50 @@ public void moveLeftOrRight(double power){
 
         double x_difference = ((mid0 + mid1) / 2);
 
-        if (x_difference > 5)
+        if (x_difference > 3)
         {
-            error = Robot.driveTrain.computePIDPower(x_difference, 50);
+            error = computePIDPower(x_difference, 50);
             System.out.println(-error * 3);
-            return -error * 3;
+            return -error * 3.75;
         }
         System.out.println(error);
         return 0;
     }
 
-    public boolean getSee (){
-        NetworkTableEntry seeHolder = pixyData.getEntry("object_detected");
-        boolean see = seeHolder.getBoolean(false);
-        return see;
+    public boolean getSee ()
+    {
+        NetworkTableEntry canSee = pixyData.getEntry("x0");
+        double[] canSee2 = canSee.getDoubleArray(defaultValue);
+        if (canSee2.length == 0)
+        {
+            System.out.println("See no");
+            return false;
+        }
+        return true;
     }
+
+    long lastTime;
+    public double output = 0;
+    public double errSum, lastErr = 0;
+    double kp = 0.003;
+    double ki = 0;
+
+    public double computePIDPower(double input, double setpoint) {
+        /*How long since we last calculated*/
+        long now = System.currentTimeMillis();
+        double timeChange = (double)(now - lastTime);
+        /*Compute all the working error variables*/
+        double error = setpoint - input;
+        errSum += (error * timeChange);
+       
+        /*Compute PID Output*/
+        output = kp * error + ki * errSum;
+       
+        /*Remember some variables for next time*/
+        lastErr = error;
+        lastTime = now;
+     
+         return output;
+     }
 }
 

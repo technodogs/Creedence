@@ -12,9 +12,8 @@
 package org.usfirst.frc3707.Creedence.commands;
 
 import org.usfirst.frc3707.Creedence.Robot;
-//import org.usfirst.frc3707.Creedence.lidar.Lidar;
+import org.usfirst.frc3707.Creedence.subsystems.DriveTrain;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -51,15 +50,19 @@ public class Drive extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-
-        if (Robot.oi.joystick1.getRawButton(6) == true)
+        /*if (Robot.oi.joystick1.getRawButton(5))
         {
-            Robot.driveTrain.drive(Robot.driveTrain.getError2(), Robot.oi.joystick1.getRawAxis(1), Robot.driveTrain.getSpinValue(), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2)); 
+            Robot.driveTrain.drive(-Robot.oi.joystick1.getRawAxis(0), -Robot.driveTrain.lidarMove(), -Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2), Robot.oi.joystick1.getRawButton(3));     
+        }*/
+        if (Robot.oi.joystick1.getRawButton(6))
+        {
+            Robot.driveTrain.drive(-Robot.driveTrain.getError2(), -Robot.oi.joystick1.getRawAxis(1), -Robot.driveTrain.getSpinValue(), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2), Robot.oi.joystick1.getRawButton(3));
         }
         else
         {
-            Robot.driveTrain.drive(-Robot.oi.joystick1.getRawAxis(0), -Robot.oi.joystick1.getRawAxis(1), -Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2));
+            Robot.driveTrain.drive(-Robot.oi.joystick1.getRawAxis(0), -Robot.oi.joystick1.getRawAxis(1), -Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2), Robot.oi.joystick1.getRawButton(3));
         }
+        
        // Robot.driveTrain.drive(Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawAxis(1), Robot.oi.joystick1.getRawAxis(0), Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2));
     }
     // Make this return true when this Command no longer needs to run execute()

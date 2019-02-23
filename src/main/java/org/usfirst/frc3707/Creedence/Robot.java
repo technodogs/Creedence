@@ -11,6 +11,7 @@
 
 package org.usfirst.frc3707.Creedence;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -53,6 +54,8 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
 
+        CameraServer.getInstance().startAutomaticCapture();
+        //CameraServer.getInstance().startAutomaticCapture();
 
         driveTrain = new DriveTrain();
         liftSystem = new liftSystem();
@@ -61,6 +64,7 @@ public class Robot extends TimedRobot {
         roboClimb = new roboClimb();
         driveTrain.init();
         hatchGrabber = new hatchGrabber();
+        
 
         // OI must be constructed after subsystems. If the OI creates Commands
         //(which it very likely will), subsystems are not guaranteed to be

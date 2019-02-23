@@ -43,7 +43,7 @@ public class hatchGrabber extends Subsystem {
 
     public hatchGrabber() {
      
-        //addChild("Compressor ",compressor);
+        addChild("Compressor ",compressor);
         
         
 
@@ -57,7 +57,7 @@ public class hatchGrabber extends Subsystem {
             }
         }
     }
-    public void grab(){
+    public void spread(){
         if (Robot.oi.joystick2.getRawButton(4) == true){
             if (clawClamp.get() == Value.kReverse) {
                 clawClamp.set(Value.kForward);
