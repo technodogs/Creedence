@@ -3,54 +3,53 @@ package org.usfirst.frc3707.Creedence.swerve;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.SpeedController;
 
-
 public class SwerveWheel {
     private PIDController rotation;
     private SpeedController speed;
     private double offset;
 
-    public SwerveWheel(PIDController rotation, SpeedController speed, double offset){
+    public SwerveWheel(PIDController rotation, SpeedController speed, double offset) {
         System.out.println("wheel Initialized");
-        this.rotation  = rotation;
+        this.rotation = rotation;
         this.speed = speed;
         this.offset = offset;
     }
-    
+
     /**
-     * Drives a single swerve wheel. 
+     * Drives a single swerve wheel.
+     * 
      * @param newSpeed The speed at which to drive the drive wheel
      * @param newAngle The angle at which to position the drive wheel
      */
     public void drive(double newSpeed, double newAngle) {
-    	updateSpeed(newSpeed);
+        updateSpeed(newSpeed);
         updateRotation(newAngle);
     }
 
     /**
      * Update the speed at which to drive the wheel
+     * 
      * @param newSpeed The speed at which to drive the drive wheel
      */
-    public void updateSpeed(double newSpeed){
+    public void updateSpeed(double newSpeed) {
         speed.set(newSpeed);
     }
 
     /**
      * Update the angle at which to position the drive wheel
+     * 
      * @param newAngle The angle at which to position the drive wheel
      */
-    public void updateRotation(double newAngle){
-    	newAngle = newAngle + offset;
+    public void updateRotation(double newAngle) {
+        newAngle = newAngle + offset;
 
-	    	
-        if(newAngle < 0) {
+        if (newAngle < 0) {
             rotation.setSetpoint(360 - (newAngle * -1));
-        }
-        else if (newAngle >360) {
-            rotation.setSetpoint(newAngle -360);
-        }
-        else {
+        } else if (newAngle > 360) {
+            rotation.setSetpoint(newAngle - 360);
+        } else {
             rotation.setSetpoint(newAngle);
-            
+
         }
     }
 
