@@ -97,12 +97,21 @@ public class SwerveDrive implements PIDOutput {
         /* SWERVE MATH */
         /* !!!!!!!!!!! */
         /*
-         * FRONT
+         *                FRONT
          * 
-         * c d | | b ------------------ b | | | | LEFT | | RIGHT | | | | a
-         * ------------------ a | | c d
+         *            c          d
+         *            | 		 |
+         *       b ------------------ b
+         *            |          |
+         *            |          |
+         * LEFT       |          |      RIGHT
+         *            |          |
+         *            |          |
+         *       a ------------------ a
+         *            |          |
+         *            c          d
          * 
-         * BACK
+         *                BACK
          */
 
         // set motor speeds for each wheel
