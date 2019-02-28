@@ -112,9 +112,9 @@ public class DriveTrain extends Subsystem {
      */
     public void enable() {
         frontLeftTwist.enable();
-        frontRightWheel.enable();
-        backLeftWheel.enable();
-        backRightWheel.enable();
+        frontRightTwist.enable();
+        backLeftTwist.enable();
+        backRightTwist.enable();
         System.out.println("Enable Twist");
     }
 
@@ -123,9 +123,9 @@ public class DriveTrain extends Subsystem {
      */
     public void disable() {
         frontLeftTwist.disable();
-        frontRightWheel.disable();
-        backLeftWheel.disable();
-        backRightWheel.disable();
+        frontRightTwist.disable();
+        backLeftTwist.disable();
+        backRightTwist.disable();
     }
 
     /**
@@ -178,6 +178,9 @@ public class DriveTrain extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
 
+    /**
+     * The function which executes periodically to run the DriveTrain subsystem
+     */
     @Override
     public void periodic() {
         // Put code here to be run every loop
