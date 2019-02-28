@@ -1,0 +1,11 @@
+<map id="org.usfirst.frc3707.Creedence.swerve.SwerveWheel.updateSpeed" name="org.usfirst.frc3707.Creedence.swerve.SwerveWheel.updateSpeed">
+<area shape="rect" id="node1" title=" " alt="" coords="897,100,1136,141"/>
+<area shape="rect" id="node2" href="$classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive.html#a7cc64894af097683d35c98c26dd7b002" title=" " alt="" coords="324,71,563,112"/>
+<area shape="rect" id="node5" href="$classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_wheel.html#aa65ea2f7221e642cd1d62992dc9b1e7b" title=" " alt="" coords="611,129,849,171"/>
+<area shape="rect" id="node3" href="$classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train.html#a031616877c101a96e107705b01027032" title=" " alt="" coords="5,5,276,47"/>
+<area shape="rect" id="node4" href="$classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive.html#a887fecd8715cfa4d5576a3ea829bf6cb" title=" " alt="" coords="21,71,260,112"/>
+<area shape="rect" id="node6" href="$classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive.html#aa3f4d7f38e0a6a511d5ea4fa1871dbe4" title=" " alt="" coords="324,169,563,211"/>
+<area shape="rect" id="node7" href="$classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train.html#aa9afbafaafe780ed7ca59d60a67a6629" title=" " alt="" coords="5,136,276,177"/>
+<area shape="rect" id="node8" href="$classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train.html#a1477ebe4464af5feaf76a67513a9063d" title=" " alt="" coords="5,201,276,243"/>
+<area shape="rect" id="node9" href="$classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train.html#a42e63c6914b8fb47374339004cfbd229" title=" " alt="" coords="5,267,276,308"/>
+</map>
