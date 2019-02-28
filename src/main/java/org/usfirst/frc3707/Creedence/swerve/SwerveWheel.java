@@ -16,17 +16,28 @@ public class SwerveWheel {
         this.offset = offset;
     }
     
+    /**
+     * Drives a single swerve wheel. 
+     * @param newSpeed The speed at which to drive the drive wheel
+     * @param newAngle The angle at which to position the drive wheel
+     */
     public void drive(double newSpeed, double newAngle) {
     	updateSpeed(newSpeed);
         updateRotation(newAngle);
-
-        
     }
 
+    /**
+     * Update the speed at which to drive the wheel
+     * @param newSpeed The speed at which to drive the drive wheel
+     */
     public void updateSpeed(double newSpeed){
         speed.set(newSpeed);
     }
 
+    /**
+     * Update the angle at which to position the drive wheel
+     * @param newAngle The angle at which to position the drive wheel
+     */
     public void updateRotation(double newAngle){
     	newAngle = newAngle + offset;
 
@@ -43,11 +54,11 @@ public class SwerveWheel {
         }
     }
 
-    public void disable() {
+    public void disableRotation() {
         rotation.disable();
     }
 
-    public void enable() {
+    public void enableRotation() {
         rotation.enable();
     }
 }

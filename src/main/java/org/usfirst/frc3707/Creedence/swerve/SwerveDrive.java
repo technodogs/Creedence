@@ -29,6 +29,15 @@ public class SwerveDrive implements PIDOutput {
         this.gyro = gyro;
     }
     
+    /**
+     * Drives the robot based on parameter values
+     * @param directionX Proportional speed at which to move left to right
+     * @param directionY Proportional speed at which to move front to back
+     * @param rotation Proportional speed at which to rotate
+     * @param useGyro Boolean for field-oriented driving
+     * @param slowSpeed Boolean for slow mode to make the robot drive slower.
+     * @param noPush Boolean to lock wheels at 45 degree angles, to prevent the robot from being pushed in any direction
+     */
     public void drive(double directionX, double directionY, double rotation, boolean useGyro, boolean slowSpeed, boolean noPush) {
     	
     	SmartDashboard.putNumber("directionX", directionX);
@@ -53,7 +62,7 @@ public class SwerveDrive implements PIDOutput {
         }
         
     	
-    	//if BOTH joystick in the center
+    	//Deadzone if BOTH joysticks are in the center
     	if((directionX < 0.15 && directionX > -0.15) && (directionY < 0.15 && directionY > -0.15) && (rotation < 0.2 && rotation > -0.2)) {
     		this.rightFrontWheel.updateSpeed(0);
         	this.leftFrontWheel.updateSpeed(0);
@@ -61,7 +70,7 @@ public class SwerveDrive implements PIDOutput {
         	this.rightBackWheel.updateSpeed(0);
         	return;
     	}
-    	//if ROTATION joystick only near the center (this fixes the rotation drift)
+    	//Deadzone if ROTATION joystick only near the center (this fixes the rotation drift)
     	else if (rotation < 0.2 && rotation > -0.2) {
     		rotation = 0;
     	}
@@ -79,21 +88,10 @@ public class SwerveDrive implements PIDOutput {
         double b = directionX + rotation * (L / diameter); //front axle
         double c = directionY - rotation * (W / diameter); //left track
         double d = directionY + rotation * (W / diameter); //right track
-        
-        // SmartDashboard.putNumber("a", a);
-        // SmartDashboard.putNumber("b", b);
-        // SmartDashboard.putNumber("c", c);
-        // SmartDashboard.putNumber("d", d);
-        
-        
-        // System.out.println("A, B, C, and D");
-        // System.out.println("A: " + a);
-        // System.out.println("B: " + b);
-        // System.out.println("C: "+c);
-        // System.out.println("D: " + d);
 
-
-
+        /* !!!!!!!!!!! */
+        /* SWERVE MATH */
+        /* !!!!!!!!!!! */
         /*
          *                FRONT
          * 
@@ -123,31 +121,8 @@ public class SwerveDrive implements PIDOutput {
         double backLeftAngle = (Math.atan2 (a, c) / Math.PI) * 180;
         double frontRightAngle = (Math.atan2 (b, d) / Math.PI) * 180;
         double frontLeftAngle = (Math.atan2 (b, c) / Math.PI) * 180;
-
-        // SmartDashboard.putNumber("frontLeft@", frontLeftAngle);
-        // SmartDashboard.putNumber("frontRight@", frontRightAngle);
-        // SmartDashboard.putNumber("backLeft@", backLeftAngle);
-        // SmartDashboard.putNumber("backRight@", backRightAngle);
-
         
-        
-
-        //System.out.println("backLeftAngle " + backLeftAngle);
-        // System.out.println("backRightAngle " + backRightAngle);
-        // System.out.println("frontRightAngle " + frontRightAngle);
-        // System.out.println("FrontLeftAngle " + frontLeftAngle );
-
-        
-        // System.out.println("Back Right Speed: " + backRightSpeed);
-        // System.out.println("Back Left Speed: " + backLeftSpeed);
-        // System.out.println("Front Right Speed: " + frontRightSpeed);
-        // System.out.println("Front Left Speed: " + frontLeftSpeed);
-        
-        // System.out.println("Back Right Angle: " + backRightAngle);
-        // System.out.println("Back Left Angle: " + backLeftAngle);
-        // System.out.println("Front Right Angle: " + frontRightAngle);
-        // System.out.println("Front Left Angle: " + frontLeftAngle);
-        
+        // Field oriented
         if(useGyro) {
             double gyroAngle = normalizeGyroAngle(gyro.getAngle()); 
             backRightAngle += gyroAngle;
@@ -155,12 +130,16 @@ public class SwerveDrive implements PIDOutput {
             frontRightAngle += gyroAngle;
             frontLeftAngle += gyroAngle;
         }
+
+        // Slow mode
         if(slowSpeed) {
         	backRightSpeed *= 0.5;
         	backLeftSpeed *= 0.5;
         	frontRightSpeed *= 0.5;
         	frontLeftSpeed *= 0.5;
         }
+
+        // Prevents robot from being pushed.
         if(noPush){
             //Puts Motors into X formation and disables motors
             frontRightAngle = 45+90;
@@ -175,14 +154,7 @@ public class SwerveDrive implements PIDOutput {
 
         }
         
-
-        
-        // SmartDashboard.putNumber("frontRightAngleXX", frontRightAngle);
-    	// SmartDashboard.putNumber("frontLeftAngleXX", frontLeftAngle);
-    	// SmartDashboard.putNumber("backRightAngleXX", backRightAngle);
-        // SmartDashboard.putNumber("backLeftAngleXX", backLeftAngle);
-        
-        //update the actual motors
+        //update the commands to the motors
     	this.rightFrontWheel.drive(frontRightSpeed, frontRightAngle);
     	this.leftFrontWheel.drive(frontLeftSpeed, frontLeftAngle);
         this.leftBackWheel.drive(backLeftSpeed, backLeftAngle);

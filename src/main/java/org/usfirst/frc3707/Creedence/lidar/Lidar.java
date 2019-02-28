@@ -61,8 +61,14 @@ public double getDistance() {
 		cm = (counter.getPeriod() * 1000000.0 / 10.0) + CALIBRATION_OFFSET;
 		//converts cm to inches #america
 		cm = cm/2.54;
+
+		try {
+			distanceArray.add(i, cm);
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("Yo, Out of Bounds happened in Lidar..." + e);
+		}
 		
-		//distanceArray.add(i, cm);
+		
 	}
 	
 	Collections.sort(distanceArray);
