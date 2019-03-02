@@ -10,8 +10,8 @@
 
 
 package org.usfirst.frc3707.Creedence.commands;
+
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc3707.Creedence.Robot;
 
 /**
  *

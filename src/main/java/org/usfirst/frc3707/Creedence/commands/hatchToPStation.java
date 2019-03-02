@@ -14,8 +14,6 @@ package org.usfirst.frc3707.Creedence.commands;
 import org.usfirst.frc3707.Creedence.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc3707.Creedence.lidar.*;
 
 /**
  *
