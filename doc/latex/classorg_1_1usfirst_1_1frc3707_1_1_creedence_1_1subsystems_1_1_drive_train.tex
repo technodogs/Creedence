@@ -1,0 +1,362 @@
+\hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train}{}\section{org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train Class Reference}
+\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train}\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+
+
+Inheritance diagram for org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a44d6db76496727831b99961ff9fa622f}{init}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a31349bde0f794f11ed737f92a5e92c97}{enable}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a492a2baf7f63ea3db90dd2608220c0af}{disable}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a031616877c101a96e107705b01027032}{drive}} (double directionX, double directionY, double rotation, boolean use\+Gyro, boolean slow\+Speed, boolean no\+Push)
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a4b7b4e43b7cdbdcad9ebc8434b3b3dd5}{read\+Gyro}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a17d2e7177847272a04ea3391dc56176c}{set\+Tolerances}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_aa9afbafaafe780ed7ca59d60a67a6629}{move\+Left\+Or\+Right}} (double power)
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a1477ebe4464af5feaf76a67513a9063d}{move\+Left}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a42e63c6914b8fb47374339004cfbd229}{move\+Right}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_acb736019b9ca7d8c15f9ed260ad70543}{init\+Default\+Command}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a9c6e1c93fe48fb89c2c57f11653a4827}{periodic}} ()
+\item 
+double \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_acd013f12431a4d3b05e36e35a966e244}{get\+Spin\+Value}} ()
+\item 
+double \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a0d86aea6052e1c19c0a7c3c9f263573b}{get\+Error}} ()
+\item 
+boolean \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_ae6525c4274d4545ce25525643e3cfd89}{get\+See}} ()
+\item 
+double \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_afb1ac8b5266985f7fb0232198da4d006}{compute\+P\+I\+D\+Power}} (double input, double setpoint)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive}{Swerve\+Drive}} \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a7954d8aff6e4d46fc583b9db0d82b896}{swerve}} = new \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive}{Swerve\+Drive}}(front\+Right\+Wheel, front\+Left\+Wheel, back\+Left\+Wheel, back\+Right\+Wheel, null)
+\item 
+double \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a7d940c415d3810efea233a1c4d8419d4}{output}} = 0
+\item 
+double \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_ab81cea65106ffd97ccd189b5d1f89d8c}{err\+Sum}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 28 of file Drive\+Train.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_afb1ac8b5266985f7fb0232198da4d006}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_afb1ac8b5266985f7fb0232198da4d006}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!computePIDPower@{computePIDPower}}
+\index{computePIDPower@{computePIDPower}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{computePIDPower()}{computePIDPower()}}
+{\footnotesize\ttfamily double org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+compute\+P\+I\+D\+Power (\begin{DoxyParamCaption}\item[{double}]{input,  }\item[{double}]{setpoint }\end{DoxyParamCaption})}
+
+A method to compute P\+ID motor power.
+
+\begin{DoxyReturn}{Returns}
+A double indicating how much to power a motor 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em input} & This is the current value being received from the sensor \\
+\hline
+{\em setpoint} & The desired setpoint \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 314 of file Drive\+Train.\+java.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_afb1ac8b5266985f7fb0232198da4d006_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a492a2baf7f63ea3db90dd2608220c0af}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a492a2baf7f63ea3db90dd2608220c0af}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!disable@{disable}}
+\index{disable@{disable}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{disable()}{disable()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+disable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Disables motors. bcuz it werkz? 
+
+Definition at line 124 of file Drive\+Train.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a031616877c101a96e107705b01027032}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a031616877c101a96e107705b01027032}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!drive@{drive}}
+\index{drive@{drive}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{drive()}{drive()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+drive (\begin{DoxyParamCaption}\item[{double}]{directionX,  }\item[{double}]{directionY,  }\item[{double}]{rotation,  }\item[{boolean}]{use\+Gyro,  }\item[{boolean}]{slow\+Speed,  }\item[{boolean}]{no\+Push }\end{DoxyParamCaption})}
+
+Drives the robot based on parameter values
+
+
+\begin{DoxyParams}{Parameters}
+{\em directionX} & Proportional speed at which to move left to right \\
+\hline
+{\em directionY} & Proportional speed at which to move front to back \\
+\hline
+{\em rotation} & Proportional speed at which to rotate \\
+\hline
+{\em use\+Gyro} & Boolean for field-\/oriented driving \\
+\hline
+{\em slow\+Speed} & Boolean for slow mode to make the robot drive slower. \\
+\hline
+{\em no\+Push} & Boolean to lock wheels at 45 degree angles, to prevent the robot from being pushed in any direction \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 142 of file Drive\+Train.\+java.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a031616877c101a96e107705b01027032_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a31349bde0f794f11ed737f92a5e92c97}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a31349bde0f794f11ed737f92a5e92c97}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!enable@{enable}}
+\index{enable@{enable}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{enable()}{enable()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+enable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Enables motors. bcuz it werkz? 
+
+Definition at line 113 of file Drive\+Train.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a0d86aea6052e1c19c0a7c3c9f263573b}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a0d86aea6052e1c19c0a7c3c9f263573b}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!getError@{getError}}
+\index{getError@{getError}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{getError()}{getError()}}
+{\footnotesize\ttfamily double org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+get\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the error of robot position versus white line position.
+
+\begin{DoxyReturn}{Returns}
+Translational motor speed based on the position error. 0 if the error is insignificant 
+\end{DoxyReturn}
+
+
+Definition at line 249 of file Drive\+Train.\+java.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a0d86aea6052e1c19c0a7c3c9f263573b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_ae6525c4274d4545ce25525643e3cfd89}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_ae6525c4274d4545ce25525643e3cfd89}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!getSee@{getSee}}
+\index{getSee@{getSee}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{getSee()}{getSee()}}
+{\footnotesize\ttfamily boolean org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+get\+See (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Checks to see if camera sees any objects
+
+\begin{DoxyReturn}{Returns}
+Boolean. true if camera sees an object. false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 291 of file Drive\+Train.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_acd013f12431a4d3b05e36e35a966e244}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_acd013f12431a4d3b05e36e35a966e244}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!getSpinValue@{getSpinValue}}
+\index{getSpinValue@{getSpinValue}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{getSpinValue()}{getSpinValue()}}
+{\footnotesize\ttfamily double org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+get\+Spin\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Indicates how much the robot needs to spin to align perpendicular to the white line.
+
+\begin{DoxyReturn}{Returns}
+Rotational motor speed based on angle error. 0 if error is insignificant. 
+\end{DoxyReturn}
+
+
+Definition at line 206 of file Drive\+Train.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a44d6db76496727831b99961ff9fa622f}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a44d6db76496727831b99961ff9fa622f}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!init@{init}}
+\index{init@{init}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file Drive\+Train.\+java.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a44d6db76496727831b99961ff9fa622f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_acb736019b9ca7d8c15f9ed260ad70543}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_acb736019b9ca7d8c15f9ed260ad70543}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!initDefaultCommand@{initDefaultCommand}}
+\index{initDefaultCommand@{initDefaultCommand}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{initDefaultCommand()}{initDefaultCommand()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+init\+Default\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 171 of file Drive\+Train.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a1477ebe4464af5feaf76a67513a9063d}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a1477ebe4464af5feaf76a67513a9063d}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!moveLeft@{moveLeft}}
+\index{moveLeft@{moveLeft}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{moveLeft()}{moveLeft()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+move\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 160 of file Drive\+Train.\+java.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a1477ebe4464af5feaf76a67513a9063d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_aa9afbafaafe780ed7ca59d60a67a6629}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_aa9afbafaafe780ed7ca59d60a67a6629}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!moveLeftOrRight@{moveLeftOrRight}}
+\index{moveLeftOrRight@{moveLeftOrRight}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{moveLeftOrRight()}{moveLeftOrRight()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+move\+Left\+Or\+Right (\begin{DoxyParamCaption}\item[{double}]{power }\end{DoxyParamCaption})}
+
+
+
+Definition at line 156 of file Drive\+Train.\+java.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_aa9afbafaafe780ed7ca59d60a67a6629_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a42e63c6914b8fb47374339004cfbd229}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a42e63c6914b8fb47374339004cfbd229}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!moveRight@{moveRight}}
+\index{moveRight@{moveRight}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{moveRight()}{moveRight()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+move\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 165 of file Drive\+Train.\+java.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a42e63c6914b8fb47374339004cfbd229_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a9c6e1c93fe48fb89c2c57f11653a4827}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a9c6e1c93fe48fb89c2c57f11653a4827}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!periodic@{periodic}}
+\index{periodic@{periodic}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{periodic()}{periodic()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+periodic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The function which executes periodically to run the \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train}{Drive\+Train}} subsystem 
+
+Definition at line 187 of file Drive\+Train.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a4b7b4e43b7cdbdcad9ebc8434b3b3dd5}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a4b7b4e43b7cdbdcad9ebc8434b3b3dd5}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!readGyro@{readGyro}}
+\index{readGyro@{readGyro}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{readGyro()}{readGyro()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+read\+Gyro (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 147 of file Drive\+Train.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a17d2e7177847272a04ea3391dc56176c}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a17d2e7177847272a04ea3391dc56176c}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!setTolerances@{setTolerances}}
+\index{setTolerances@{setTolerances}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{setTolerances()}{setTolerances()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+set\+Tolerances (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 151 of file Drive\+Train.\+java.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_ab81cea65106ffd97ccd189b5d1f89d8c}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_ab81cea65106ffd97ccd189b5d1f89d8c}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!errSum@{errSum}}
+\index{errSum@{errSum}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{errSum}{errSum}}
+{\footnotesize\ttfamily double org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+err\+Sum}
+
+
+
+Definition at line 303 of file Drive\+Train.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a7d940c415d3810efea233a1c4d8419d4}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a7d940c415d3810efea233a1c4d8419d4}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!output@{output}}
+\index{output@{output}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily double org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+output = 0}
+
+
+
+Definition at line 302 of file Drive\+Train.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a7954d8aff6e4d46fc583b9db0d82b896}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1_drive_train_a7954d8aff6e4d46fc583b9db0d82b896}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}!swerve@{swerve}}
+\index{swerve@{swerve}!org.usfirst.frc3707.Creedence.subsystems.DriveTrain@{org.usfirst.frc3707.Creedence.subsystems.DriveTrain}}
+\subsubsection{\texorpdfstring{swerve}{swerve}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive}{Swerve\+Drive}} org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+Drive\+Train.\+swerve = new \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive}{Swerve\+Drive}}(front\+Right\+Wheel, front\+Left\+Wheel, back\+Left\+Wheel, back\+Right\+Wheel, null)}
+
+
+
+Definition at line 77 of file Drive\+Train.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Kyle/\+Developer/\+Creedence\+\_\+\+V1-\//src/main/java/org/usfirst/frc3707/\+Creedence/subsystems/\mbox{\hyperlink{_drive_train_8java}{Drive\+Train.\+java}}\end{DoxyCompactItemize}

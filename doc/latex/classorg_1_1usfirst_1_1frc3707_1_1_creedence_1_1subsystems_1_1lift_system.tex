@@ -1,0 +1,223 @@
+\hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system}{}\section{org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System Class Reference}
+\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system}\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+
+
+Inheritance diagram for org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a8f2867003fb845f46c4e727c27cc664a}{lift\+System}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aabf6aa218075c4dc8855437fb48bd5a9}{init\+Default\+Command}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a2d90a37ee48a025f8df67abb1e175ba6}{lift\+Up\+And\+Down}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a3d85f01aeecfc160f8e9e85be4f82915}{lift\+Up}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a88d53bbd332c0be694214aeaeee5e237}{lift\+Down}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_ad515efa130dc4606433c55954ca3f46d}{hold\+Lift}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a3280fa8a5a5df9f5f9f892a754e5bece}{lift\+Up\+Or\+Down}} (double power)
+\item 
+double \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aa8e633c4f1148b1b4d77e876d5d781b4}{get\+Target\+Height}} ()
+\item 
+double \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aabbda7f7ba1d5570aa899968b0d70ff7}{get\+Lift\+Height}} ()
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a9ddfb0eddd29188fda5a8852a20d7d5f}{periodic}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1lidar_1_1_lidar}{Lidar}} \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_ad9918d856041f6f3e540546f8b828293}{lidar\+Crab}} = new \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1lidar_1_1_lidar}{Lidar}}(new Digital\+Input(\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1_p_i_d_ints_1_1_constants_aea549567cdd9492736429691316d0c18}{Constants.\+lidar1}}))
+\item 
+P\+I\+D\+Controller \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_ae588002179642a367c03355d962fb41c}{lift\+Controller}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 34 of file lift\+System.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a8f2867003fb845f46c4e727c27cc664a}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a8f2867003fb845f46c4e727c27cc664a}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!liftSystem@{liftSystem}}
+\index{liftSystem@{liftSystem}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{liftSystem()}{liftSystem()}}
+{\footnotesize\ttfamily org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+lift\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file lift\+System.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aabbda7f7ba1d5570aa899968b0d70ff7}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aabbda7f7ba1d5570aa899968b0d70ff7}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!getLiftHeight@{getLiftHeight}}
+\index{getLiftHeight@{getLiftHeight}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{getLiftHeight()}{getLiftHeight()}}
+{\footnotesize\ttfamily double org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+get\+Lift\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 99 of file lift\+System.\+java.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aabbda7f7ba1d5570aa899968b0d70ff7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aa8e633c4f1148b1b4d77e876d5d781b4}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aa8e633c4f1148b1b4d77e876d5d781b4}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!getTargetHeight@{getTargetHeight}}
+\index{getTargetHeight@{getTargetHeight}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{getTargetHeight()}{getTargetHeight()}}
+{\footnotesize\ttfamily double org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+get\+Target\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 95 of file lift\+System.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_ad515efa130dc4606433c55954ca3f46d}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_ad515efa130dc4606433c55954ca3f46d}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!holdLift@{holdLift}}
+\index{holdLift@{holdLift}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{holdLift()}{holdLift()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+hold\+Lift (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file lift\+System.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aabf6aa218075c4dc8855437fb48bd5a9}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aabf6aa218075c4dc8855437fb48bd5a9}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!initDefaultCommand@{initDefaultCommand}}
+\index{initDefaultCommand@{initDefaultCommand}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{initDefaultCommand()}{initDefaultCommand()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+init\+Default\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file lift\+System.\+java.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_aabf6aa218075c4dc8855437fb48bd5a9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a88d53bbd332c0be694214aeaeee5e237}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a88d53bbd332c0be694214aeaeee5e237}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!liftDown@{liftDown}}
+\index{liftDown@{liftDown}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{liftDown()}{liftDown()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+lift\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file lift\+System.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a3d85f01aeecfc160f8e9e85be4f82915}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a3d85f01aeecfc160f8e9e85be4f82915}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!liftUp@{liftUp}}
+\index{liftUp@{liftUp}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{liftUp()}{liftUp()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+lift\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 79 of file lift\+System.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a2d90a37ee48a025f8df67abb1e175ba6}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a2d90a37ee48a025f8df67abb1e175ba6}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!liftUpAndDown@{liftUpAndDown}}
+\index{liftUpAndDown@{liftUpAndDown}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{liftUpAndDown()}{liftUpAndDown()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+lift\+Up\+And\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 71 of file lift\+System.\+java.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a2d90a37ee48a025f8df67abb1e175ba6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a3280fa8a5a5df9f5f9f892a754e5bece}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a3280fa8a5a5df9f5f9f892a754e5bece}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!liftUpOrDown@{liftUpOrDown}}
+\index{liftUpOrDown@{liftUpOrDown}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{liftUpOrDown()}{liftUpOrDown()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+lift\+Up\+Or\+Down (\begin{DoxyParamCaption}\item[{double}]{power }\end{DoxyParamCaption})}
+
+
+
+Definition at line 91 of file lift\+System.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a9ddfb0eddd29188fda5a8852a20d7d5f}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_a9ddfb0eddd29188fda5a8852a20d7d5f}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!periodic@{periodic}}
+\index{periodic@{periodic}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{periodic()}{periodic()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+periodic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 104 of file lift\+System.\+java.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_ad9918d856041f6f3e540546f8b828293}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_ad9918d856041f6f3e540546f8b828293}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!lidarCrab@{lidarCrab}}
+\index{lidarCrab@{lidarCrab}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{lidarCrab}{lidarCrab}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1lidar_1_1_lidar}{Lidar}} org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+lidar\+Crab = new \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1lidar_1_1_lidar}{Lidar}}(new Digital\+Input(\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1_p_i_d_ints_1_1_constants_aea549567cdd9492736429691316d0c18}{Constants.\+lidar1}}))}
+
+
+
+Definition at line 42 of file lift\+System.\+java.
+
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_ae588002179642a367c03355d962fb41c}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_ae588002179642a367c03355d962fb41c}} 
+\index{org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}!liftController@{liftController}}
+\index{liftController@{liftController}!org.usfirst.frc3707.Creedence.subsystems.liftSystem@{org.usfirst.frc3707.Creedence.subsystems.liftSystem}}
+\subsubsection{\texorpdfstring{liftController}{liftController}}
+{\footnotesize\ttfamily P\+I\+D\+Controller org.\+usfirst.\+frc3707.\+Creedence.\+subsystems.\+lift\+System.\+lift\+Controller}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{keyword}{new} PIDController(SmartDashboard.getNumber(\textcolor{stringliteral}{"P"}, .2),}
+\DoxyCodeLine{            SmartDashboard.getNumber(\textcolor{stringliteral}{"I"}, 0.0), SmartDashboard.getNumber(\textcolor{stringliteral}{"D"}, 0.0), \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1subsystems_1_1lift_system_ad9918d856041f6f3e540546f8b828293}{lidarCrab}}, elevator)}
+
+\end{DoxyCode}
+
+
+Definition at line 43 of file lift\+System.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Kyle/\+Developer/\+Creedence\+\_\+\+V1-\//src/main/java/org/usfirst/frc3707/\+Creedence/subsystems/\mbox{\hyperlink{lift_system_8java}{lift\+System.\+java}}\end{DoxyCompactItemize}

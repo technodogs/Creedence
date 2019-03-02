@@ -1,0 +1,168 @@
+\hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive}{}\section{org.\+usfirst.\+frc3707.\+Creedence.\+swerve.\+Swerve\+Drive Class Reference}
+\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive}\index{org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}}
+
+
+Inheritance diagram for org.\+usfirst.\+frc3707.\+Creedence.\+swerve.\+Swerve\+Drive\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\+usfirst.\+frc3707.\+Creedence.\+swerve.\+Swerve\+Drive\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_af25ca55f3b1ffbc9350b9729d770f7b7}{Swerve\+Drive}} (\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_wheel}{Swerve\+Wheel}} right\+Front, \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_wheel}{Swerve\+Wheel}} left\+Front, \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_wheel}{Swerve\+Wheel}} left\+Back, \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_wheel}{Swerve\+Wheel}} right\+Back, Gyro\+Base gyro)
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a7cc64894af097683d35c98c26dd7b002}{drive}} (double directionX, double directionY, double rotation, boolean use\+Gyro, boolean slow\+Speed, boolean no\+Push)
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a887fecd8715cfa4d5576a3ea829bf6cb}{pid\+Write}} (double output)
+\item 
+double \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a4a78f8451f4d7b85e3b88395a92a7218}{normalize\+Gyro\+Angle}} (double angle)
+\item 
+void \mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_aa3f4d7f38e0a6a511d5ea4fa1871dbe4}{drive\+Simple}} (double speed, double angle)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 9 of file Swerve\+Drive.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_af25ca55f3b1ffbc9350b9729d770f7b7}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_af25ca55f3b1ffbc9350b9729d770f7b7}} 
+\index{org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}!SwerveDrive@{SwerveDrive}}
+\index{SwerveDrive@{SwerveDrive}!org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}}
+\subsubsection{\texorpdfstring{SwerveDrive()}{SwerveDrive()}}
+{\footnotesize\ttfamily org.\+usfirst.\+frc3707.\+Creedence.\+swerve.\+Swerve\+Drive.\+Swerve\+Drive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_wheel}{Swerve\+Wheel}}}]{right\+Front,  }\item[{\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_wheel}{Swerve\+Wheel}}}]{left\+Front,  }\item[{\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_wheel}{Swerve\+Wheel}}}]{left\+Back,  }\item[{\mbox{\hyperlink{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_wheel}{Swerve\+Wheel}}}]{right\+Back,  }\item[{Gyro\+Base}]{gyro }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file Swerve\+Drive.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a7cc64894af097683d35c98c26dd7b002}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a7cc64894af097683d35c98c26dd7b002}} 
+\index{org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}!drive@{drive}}
+\index{drive@{drive}!org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}}
+\subsubsection{\texorpdfstring{drive()}{drive()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+swerve.\+Swerve\+Drive.\+drive (\begin{DoxyParamCaption}\item[{double}]{directionX,  }\item[{double}]{directionY,  }\item[{double}]{rotation,  }\item[{boolean}]{use\+Gyro,  }\item[{boolean}]{slow\+Speed,  }\item[{boolean}]{no\+Push }\end{DoxyParamCaption})}
+
+Drives the robot based on parameter values
+
+
+\begin{DoxyParams}{Parameters}
+{\em directionX} & Proportional speed at which to move left to right \\
+\hline
+{\em directionY} & Proportional speed at which to move front to back \\
+\hline
+{\em rotation} & Proportional speed at which to rotate \\
+\hline
+{\em use\+Gyro} & Boolean for field-\/oriented driving \\
+\hline
+{\em slow\+Speed} & Boolean for slow mode to make the robot drive slower. \\
+\hline
+{\em no\+Push} & Boolean to lock wheels at 45 degree angles, to prevent the robot from being pushed in any direction \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file Swerve\+Drive.\+java.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a7cc64894af097683d35c98c26dd7b002_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a7cc64894af097683d35c98c26dd7b002_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_aa3f4d7f38e0a6a511d5ea4fa1871dbe4}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_aa3f4d7f38e0a6a511d5ea4fa1871dbe4}} 
+\index{org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}!driveSimple@{driveSimple}}
+\index{driveSimple@{driveSimple}!org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}}
+\subsubsection{\texorpdfstring{driveSimple()}{driveSimple()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+swerve.\+Swerve\+Drive.\+drive\+Simple (\begin{DoxyParamCaption}\item[{double}]{speed,  }\item[{double}]{angle }\end{DoxyParamCaption})}
+
+
+
+Definition at line 180 of file Swerve\+Drive.\+java.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_aa3f4d7f38e0a6a511d5ea4fa1871dbe4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_aa3f4d7f38e0a6a511d5ea4fa1871dbe4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a4a78f8451f4d7b85e3b88395a92a7218}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a4a78f8451f4d7b85e3b88395a92a7218}} 
+\index{org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}!normalizeGyroAngle@{normalizeGyroAngle}}
+\index{normalizeGyroAngle@{normalizeGyroAngle}!org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}}
+\subsubsection{\texorpdfstring{normalizeGyroAngle()}{normalizeGyroAngle()}}
+{\footnotesize\ttfamily double org.\+usfirst.\+frc3707.\+Creedence.\+swerve.\+Swerve\+Drive.\+normalize\+Gyro\+Angle (\begin{DoxyParamCaption}\item[{double}]{angle }\end{DoxyParamCaption})}
+
+
+
+Definition at line 176 of file Swerve\+Drive.\+java.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a4a78f8451f4d7b85e3b88395a92a7218_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a887fecd8715cfa4d5576a3ea829bf6cb}\label{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a887fecd8715cfa4d5576a3ea829bf6cb}} 
+\index{org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}!pidWrite@{pidWrite}}
+\index{pidWrite@{pidWrite}!org.usfirst.frc3707.Creedence.swerve.SwerveDrive@{org.usfirst.frc3707.Creedence.swerve.SwerveDrive}}
+\subsubsection{\texorpdfstring{pidWrite()}{pidWrite()}}
+{\footnotesize\ttfamily void org.\+usfirst.\+frc3707.\+Creedence.\+swerve.\+Swerve\+Drive.\+pid\+Write (\begin{DoxyParamCaption}\item[{double}]{output }\end{DoxyParamCaption})}
+
+
+
+Definition at line 170 of file Swerve\+Drive.\+java.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1usfirst_1_1frc3707_1_1_creedence_1_1swerve_1_1_swerve_drive_a887fecd8715cfa4d5576a3ea829bf6cb_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Kyle/\+Developer/\+Creedence\+\_\+\+V1-\//src/main/java/org/usfirst/frc3707/\+Creedence/swerve/\mbox{\hyperlink{_swerve_drive_8java}{Swerve\+Drive.\+java}}\end{DoxyCompactItemize}

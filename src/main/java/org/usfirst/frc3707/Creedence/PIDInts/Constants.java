@@ -1,7 +1,6 @@
 package org.usfirst.frc3707.Creedence.PIDInts;
 
-public class Constants
-{
+public class Constants {
     public static int CargoSucc = 6;
     public static int Grabber = 7;
     public static int Winch = 8;
@@ -18,7 +17,7 @@ public class Constants
     public static int FLDrive = 19;
     public static int FREncoder = 3;
     public static int FLEncoder = 0;
-    public static int BLEncoder = 1; 
+    public static int BLEncoder = 1;
     public static int BREncoder = 2;
     public static int lidar1 = 0;
 }

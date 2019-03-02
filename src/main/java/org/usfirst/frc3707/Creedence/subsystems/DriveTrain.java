@@ -37,7 +37,7 @@ public class DriveTrain extends Subsystem {
     double error;
 
     NetworkTableInstance inst = NetworkTableInstance.getDefault();;
-    
+
     NetworkTable pixyData = inst.getTable("PixyData");;
     double[] defaultValue = { -1 };
     double[] lastError = new double[10];
@@ -111,9 +111,9 @@ public class DriveTrain extends Subsystem {
      */
     public void enable() {
         frontLeftTwist.enable();
-        frontRightWheel.enableRotation();
-        backLeftWheel.enableRotation();
-        backRightWheel.enableRotation();
+        frontRightTwist.enable();
+        backLeftTwist.enable();
+        backRightTwist.enable();
         System.out.println("Enable Twist");
     }
 
@@ -122,19 +122,21 @@ public class DriveTrain extends Subsystem {
      */
     public void disable() {
         frontLeftTwist.disable();
-        frontRightWheel.disableRotation();
-        backLeftWheel.disableRotation();
-        backRightWheel.disableRotation();
+        frontRightTwist.disable();
+        backLeftTwist.disable();
+        backRightTwist.disable();
     }
 
     /**
      * Drives the robot based on parameter values
+     * 
      * @param directionX Proportional speed at which to move left to right
      * @param directionY Proportional speed at which to move front to back
-     * @param rotation Proportional speed at which to rotate
-     * @param useGyro Boolean for field-oriented driving
-     * @param slowSpeed Boolean for slow mode to make the robot drive slower.
-     * @param noPush Boolean to lock wheels at 45 degree angles, to prevent the robot from being pushed in any direction
+     * @param rotation   Proportional speed at which to rotate
+     * @param useGyro    Boolean for field-oriented driving
+     * @param slowSpeed  Boolean for slow mode to make the robot drive slower.
+     * @param noPush     Boolean to lock wheels at 45 degree angles, to prevent the
+     *                   robot from being pushed in any direction
      */
     public void drive(double directionX, double directionY, double rotation, boolean useGyro, boolean slowSpeed,
             boolean noPush) {
@@ -177,6 +179,9 @@ public class DriveTrain extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
 
+    /**
+     * The function which executes periodically to run the DriveTrain subsystem
+     */
     @Override
     public void periodic() {
         // Put code here to be run every loop
@@ -191,8 +196,11 @@ public class DriveTrain extends Subsystem {
     }
 
     /**
-     * Indicates how much the robot needs to spin to align perpendicular to the white line.
-     * @return Rotational motor speed based on angle error. 0 if error is insignificant. 
+     * Indicates how much the robot needs to spin to align perpendicular to the
+     * white line.
+     * 
+     * @return Rotational motor speed based on angle error. 0 if error is
+     *         insignificant.
      */
     public double getSpinValue() {
         x0 = pixyData.getEntry("x0");
@@ -233,7 +241,9 @@ public class DriveTrain extends Subsystem {
 
     /**
      * Gets the error of robot position versus white line position.
-     * @return Translational motor speed based on the position error. 0 if the error is insignificant
+     * 
+     * @return Translational motor speed based on the position error. 0 if the error
+     *         is insignificant
      */
     public double getError() {
         x0 = pixyData.getEntry("x0");
@@ -274,6 +284,7 @@ public class DriveTrain extends Subsystem {
 
     /**
      * Checks to see if camera sees any objects
+     * 
      * @return Boolean. true if camera sees an object. false otherwise
      */
     public boolean getSee() {
