@@ -99,7 +99,7 @@ public class liftSystem extends Subsystem {
 
     @Override
     public void periodic() {
-        //SmartDashboard.putNumber("lidar #", lidarCrab.getDistance());
+        SmartDashboard.putNumber("lidar #", lidarCrab.getDistance());
         // Put code here to be run every loop
      
     }

@@ -112,9 +112,9 @@ public class DriveTrain extends Subsystem {
      */
     public void enable() {
         frontLeftTwist.enable();
-        frontRightWheel.enable();
-        backLeftWheel.enable();
-        backRightWheel.enable();
+        frontRightWheel.enableRotation();
+        backLeftWheel.enableRotation();
+        backRightWheel.enableRotation();
         System.out.println("Enable Twist");
     }
 
@@ -123,9 +123,9 @@ public class DriveTrain extends Subsystem {
      */
     public void disable() {
         frontLeftTwist.disable();
-        frontRightWheel.disable();
-        backLeftWheel.disable();
-        backRightWheel.disable();
+        frontRightWheel.disableRotation();
+        backLeftWheel.disableRotation();
+        backRightWheel.disableRotation();
     }
 
     /**
