@@ -10,10 +10,6 @@
 
 package org.usfirst.frc3707.Creedence.commands;
 
-<<<<<<< HEAD
-=======
-import edu.wpi.first.wpilibj.command.Command;
->>>>>>> 8223f3f24a808f2da73cd7c25284b1f5c4f41a91
 import org.usfirst.frc3707.Creedence.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
