@@ -44,16 +44,16 @@ public class liftUpAndDown extends Command {
     @Override
     protected void execute() {
         Robot.liftSystem.liftUpAndDown();
-        if (Robot.oi.joystick2.getRawButton(1) == true) {
-            Robot.roboClimb.grabOut();
-        } else {
-            Robot.roboClimb.grabStop();
-        }
-        if (Robot.oi.joystick2.getRawButton(3) == true) {
-            Robot.roboClimb.grabIn();
-        } else {
-            Robot.roboClimb.grabStop();
-        }
+        // if (Robot.oi.joystick2.getRawButton(1) == true) {
+        //     Robot.roboClimb.grabOut();
+        // } else {
+        //     Robot.roboClimb.grabStop();
+        // }
+        // if (Robot.oi.joystick2.getRawButton(3) == true) {
+        //     Robot.roboClimb.grabIn();
+        // } else {
+        //     Robot.roboClimb.grabStop();
+        // }
 
     }
 
