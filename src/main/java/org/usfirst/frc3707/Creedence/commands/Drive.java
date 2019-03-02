@@ -11,7 +11,6 @@
 package org.usfirst.frc3707.Creedence.commands;
 
 import org.usfirst.frc3707.Creedence.Robot;
-import org.usfirst.frc3707.Creedence.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 

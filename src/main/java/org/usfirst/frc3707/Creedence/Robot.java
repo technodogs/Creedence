@@ -10,18 +10,20 @@
 
 package org.usfirst.frc3707.Creedence;
 
+import org.usfirst.frc3707.Creedence.commands.AutonomousCommand;
+import org.usfirst.frc3707.Creedence.subsystems.DriveTrain;
+import org.usfirst.frc3707.Creedence.subsystems.ballIntake;
+import org.usfirst.frc3707.Creedence.subsystems.hatchGrabber;
+import org.usfirst.frc3707.Creedence.subsystems.liftSystem;
+import org.usfirst.frc3707.Creedence.subsystems.roboClimb;
+import org.usfirst.frc3707.Creedence.subsystems.shooter;
+
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import java.sql.Driver;
-
-import org.usfirst.frc3707.Creedence.commands.*;
-import org.usfirst.frc3707.Creedence.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the

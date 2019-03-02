@@ -1,7 +1,5 @@
 package org.usfirst.frc3707.Creedence.swerve;
 
-import org.usfirst.frc3707.Creedence.Robot;
-
 import edu.wpi.first.wpilibj.GyroBase;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
