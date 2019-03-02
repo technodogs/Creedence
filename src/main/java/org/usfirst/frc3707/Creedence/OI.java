@@ -70,16 +70,12 @@ public class OI {
         b.whenPressed(new thrustInAndOut());
         joystick1 = new Joystick(0);
         y.whenPressed(new spread());
-        a.whileHeld(new climbGrabIn());
-        x.whileHeld(new climbGrabOut());
 
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("Drive", new Drive());
-        SmartDashboard.putData("liftUpAndDown", new liftUpAndDown());
         SmartDashboard.putData("succ", new succ());
         SmartDashboard.putData("Shoot", new Shoot());
-        SmartDashboard.putData("climb", new climb());
         SmartDashboard.putData("spread", new spread());
         // SmartDashboard.putData("RaiseToHeight", new RaiseToHeight());
         // SmartDashboard.putData("Lower Position", new hatchToPStation());
