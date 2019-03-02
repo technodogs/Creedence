@@ -14,7 +14,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3707.Creedence.Robot;
 
 /**
- *
+ * This class defines the command for the teleop control of the 
+ * game piece lift mechanism
  */
 public class liftUpAndDown extends Command {
 
@@ -44,17 +45,6 @@ public class liftUpAndDown extends Command {
     @Override
     protected void execute() {
         Robot.liftSystem.liftUpAndDown();
-        // if (Robot.oi.joystick2.getRawButton(1) == true) {
-        //     Robot.roboClimb.grabOut();
-        // } else {
-        //     Robot.roboClimb.grabStop();
-        // }
-        // if (Robot.oi.joystick2.getRawButton(3) == true) {
-        //     Robot.roboClimb.grabIn();
-        // } else {
-        //     Robot.roboClimb.grabStop();
-        // }
-
     }
 
     // Make this return true when this Command no longer needs to run execute()
