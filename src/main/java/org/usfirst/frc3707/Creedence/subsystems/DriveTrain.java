@@ -10,6 +10,7 @@
 
 package org.usfirst.frc3707.Creedence.subsystems;
 
+import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.PIDInts.Constants;
 import org.usfirst.frc3707.Creedence.commands.Drive;
 import org.usfirst.frc3707.Creedence.swerve.SwerveDrive;
@@ -71,7 +72,7 @@ public class DriveTrain extends Subsystem {
 
     private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive, 117);
     private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, 302);
-    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, 312);
+    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, 55);
     private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, 278);
     public SwerveDrive swerve = new SwerveDrive(frontRightWheel, frontLeftWheel, backLeftWheel, backRightWheel, null);
 
@@ -98,9 +99,10 @@ public class DriveTrain extends Subsystem {
         backRightTwist.setContinuous(true);
 
         backRightSwerve.isAlive();
-        backLeftSwerve.isAlive();
+        backLeftSwerve.isAlive();        
 
         // gyro.reset();
+        
 
     }
 
@@ -189,6 +191,8 @@ public class DriveTrain extends Subsystem {
         SmartDashboard.putNumber("Front Left Encoder", frontLeftEncoder.get());
         SmartDashboard.putNumber("Back Right Encoder", backRightEncoder.get());
         SmartDashboard.putNumber("Back Left Encoder", backLeftEncoder.get());
+
+        
 
         // lidarInches = lidarCrab.getDistance()*.4162533814 - 2.108536219;
         // System.out.println(lidarInches);
@@ -280,6 +284,20 @@ public class DriveTrain extends Subsystem {
         }
         System.out.println(error);
         return 0;
+    }
+
+    public boolean centerOnLine()
+    {
+        if (getError() != 0 && getSpinValue() != 0)
+        {
+            return true;
+        }
+        else
+        {
+            Robot.driveTrain.drive(-Robot.driveTrain.getError(), -Robot.oi.joystick1.getRawAxis(1), -Robot.driveTrain.getSpinValue(), false, false, false);
+        }
+
+        return false;
     }
 
     /**

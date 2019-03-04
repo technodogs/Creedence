@@ -74,24 +74,34 @@ public class Lidar implements PIDSource {
 
 		}
 
-		Collections.sort(distanceArray);
-		double sum = 0;
+		try {
+			Collections.sort(distanceArray);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+			double sum = 0;
 		for (int i = 0; i < distanceArray.size(); i++) {
-			sum += distanceArray.get(i);
+			try {
+				sum += distanceArray.get(i);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		double average = sum / distanceArray.size();
 		return average;
 	}
 
 	public ArrayDeque<Double> errorArrayDeque = new ArrayDeque<Double>();
-
+// hey guys finish this later
 	public double getLidarError() {
 		errorArrayDeque.push(getDistance());
 		if (errorArrayDeque.size() > 10) {
 			errorArrayDeque.pop();
 
 		}
-		return (Math.abs(errorArrayDeque.getFirst() - errorArrayDeque.getLast()));
+		if (Math.abs(errorArrayDeque.getFirst() - errorArrayDeque.getLast()) > 5){
+			return errorArrayDeque.getFirst();
+		}else return getLidarError();
 
 	}
 

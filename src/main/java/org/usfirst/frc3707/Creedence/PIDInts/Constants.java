@@ -11,7 +11,7 @@ public class Constants {
     public static int BLDrive = 13;
     public static int BrSwerve = 14;
     public static int BRDrive = 15;
-    public static int FRSwerve = 5;
+    public static int FRSwerve = 5; //16;
     public static int FRDrive = 17;
     public static int FLSwerve = 18;
     public static int FLDrive = 19;
@@ -20,4 +20,7 @@ public class Constants {
     public static int BLEncoder = 1;
     public static int BREncoder = 2;
     public static int lidar1 = 0;
+    public static int climbBar = 8;
+    public static int climbGrab = 7;
+
 }
