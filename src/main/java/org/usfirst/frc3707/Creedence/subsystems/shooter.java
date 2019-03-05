@@ -69,6 +69,12 @@ public class shooter extends Subsystem {
         rightSpit.set(org.usfirst.frc3707.Creedence.Robot.oi.joystick2.getRawAxis(2));
 
     }
+    public void slowSpit(){
+        if(org.usfirst.frc3707.Creedence.Robot.oi.joystick2.getRawButton(6) == true){
+            leftSpit.set(.4);
+            rightSpit.set(-.4);
+        }
+    }
 
     @Override
     public void periodic() {

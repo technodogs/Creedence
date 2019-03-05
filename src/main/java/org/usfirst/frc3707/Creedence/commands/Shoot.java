@@ -48,6 +48,7 @@ public class Shoot extends Command {
         } else {
             Robot.shooter.reSucc();
         }
+        Robot.shooter.slowSpit();
 
     }
 

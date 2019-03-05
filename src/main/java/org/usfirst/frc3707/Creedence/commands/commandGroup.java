@@ -10,10 +10,7 @@
 
 package org.usfirst.frc3707.Creedence.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-
-import org.usfirst.frc3707.Creedence.Robot;
 
 /**
  *
@@ -37,7 +34,8 @@ public class commandGroup extends CommandGroup {
         addSequential(new hatchToPStation());
         // addSequential(new lineUpToTape());
         addSequential(new thrustForward());
-        addSequential(new openClaw());
+        //timer right here
+        addSequential(new openClawTimed());
 
 
 

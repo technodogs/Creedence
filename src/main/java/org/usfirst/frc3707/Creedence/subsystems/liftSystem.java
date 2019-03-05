@@ -12,6 +12,7 @@ package org.usfirst.frc3707.Creedence.subsystems;
 
 import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.PIDInts.Constants;
+import org.usfirst.frc3707.Creedence.commands.hatchToMid;
 import org.usfirst.frc3707.Creedence.commands.liftUpAndDown;
 import org.usfirst.frc3707.Creedence.lidar.Lidar;
 
@@ -99,9 +100,12 @@ public class liftSystem extends Subsystem {
         return lidarCrab.getDistance();
     }
 
+
     @Override
     public void periodic() {
         SmartDashboard.putNumber("lidar #", lidarCrab.getDistance());
+        SmartDashboard.putNumber("POV", Robot.oi.joystick2.getPOV());
+        
         // Put code here to be run every loop
     }
 

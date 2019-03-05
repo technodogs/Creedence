@@ -41,7 +41,7 @@ public class hatchToBot extends Command {
     @Override
     protected void initialize() {
         Robot.liftSystem.liftController.enable();
-        Robot.liftSystem.liftController.setSetpoint(34);
+        Robot.liftSystem.liftController.setSetpoint(34.5);
 
     }
 
