@@ -46,10 +46,8 @@ public class liftSystem extends Subsystem {
 
     public liftSystem() {
         liftController.setAbsoluteTolerance(0.5);
-        SmartDashboard.putNumber("Lift Height Value", 40);
-        SmartDashboard.putNumber("P", .2);
-        SmartDashboard.putNumber("I", 0);
-        SmartDashboard.putNumber("D", 0);
+        //SmartDashboard.putNumber("Lift Height Value", 40);
+
         
     }
 
