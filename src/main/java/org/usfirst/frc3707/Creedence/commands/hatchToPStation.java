@@ -52,7 +52,7 @@ public class hatchToPStation extends Command {
     @Override
     protected void execute() {
         Robot.liftSystem.getLiftHeight();
-        SmartDashboard.putNumber("Lidar error", Robot.liftSystem.liftController.getError());
+        //SmartDashboard.putNumber("Lidar error", Robot.liftSystem.liftController.getError());
     }
 
     // Make this return true when this Command no longer needs to run execute()
