@@ -16,6 +16,11 @@ public class SwerveDrive implements PIDOutput {
     private double wheelbase = 22.5;
     private double trackwidth = 24.5;
 
+    private double directionStickDeadZone = 0.15;
+    private double rotateStickDeadZone = 0.2;
+
+    private double slowModeSpeedMultiplier = 0.5;
+
     public SwerveDrive(SwerveWheel rightFront, SwerveWheel leftFront, SwerveWheel leftBack, SwerveWheel rightBack,
             GyroBase gyro) {
         this.rightFrontWheel = rightFront;
@@ -42,9 +47,9 @@ public class SwerveDrive implements PIDOutput {
     public void drive(double directionX, double directionY, double rotation, boolean useGyro, boolean slowSpeed,
             boolean noPush) {
 
-        SmartDashboard.putNumber("directionX", directionX);
-        SmartDashboard.putNumber("directionY", directionY);
-        SmartDashboard.putNumber("rotation", rotation);
+        // SmartDashboard.putNumber("directionX", directionX);
+        // SmartDashboard.putNumber("directionY", directionY);
+        // SmartDashboard.putNumber("rotation", rotation);
         // System.out.println(rotation);
         // System.out.println(directionX);
         // System.out.println(directionY);
@@ -64,8 +69,8 @@ public class SwerveDrive implements PIDOutput {
         }
 
         // Deadzone if BOTH joysticks are in the center
-        if ((directionX < 0.15 && directionX > -0.15) && (directionY < 0.15 && directionY > -0.15)
-                && (rotation < 0.2 && rotation > -0.2)) {
+        if ((directionX < directionStickDeadZone && directionX > directionStickDeadZone*-1) && (directionY < directionStickDeadZone && directionY > directionStickDeadZone*-1)
+                && (rotation < rotateStickDeadZone && rotation > rotateStickDeadZone*-1)) {
             this.rightFrontWheel.updateSpeed(0);
             this.leftFrontWheel.updateSpeed(0);
             this.leftBackWheel.updateSpeed(0);
@@ -74,7 +79,7 @@ public class SwerveDrive implements PIDOutput {
         }
         // Deadzone if ROTATION joystick only near the center (this fixes the rotation
         // drift)
-        else if (rotation < 0.2 && rotation > -0.2) {
+        else if (rotation < rotateStickDeadZone && rotation > rotateStickDeadZone*-1) {
             rotation = 0;
         }
 
@@ -135,10 +140,10 @@ public class SwerveDrive implements PIDOutput {
 
         // Slow mode
         if (slowSpeed) {
-            backRightSpeed *= 0.5;
-            backLeftSpeed *= 0.5;
-            frontRightSpeed *= 0.5;
-            frontLeftSpeed *= 0.5;
+            backRightSpeed *= slowModeSpeedMultiplier;
+            backLeftSpeed *= slowModeSpeedMultiplier;
+            frontRightSpeed *= slowModeSpeedMultiplier;
+            frontLeftSpeed *= slowModeSpeedMultiplier;
         }
 
         // Prevents robot from being pushed.
