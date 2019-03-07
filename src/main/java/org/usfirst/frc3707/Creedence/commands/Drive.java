@@ -48,7 +48,7 @@ public class Drive extends Command {
     @Override
     protected void execute() {
         //DRIVE BY PIXY
-        if (Robot.oi.joystick1.getRawButton(5)) {
+        /*if (Robot.oi.joystick1.getRawButton(5)) {
             Robot.driveTrain.drive(-Robot.driveTrain.getError(), -Robot.oi.joystick1.getRawAxis(1),
                     -Robot.driveTrain.getSpinValue(), Robot.oi.joystick1.getRawButton(3),
                     Robot.oi.joystick1.getRawButton(6), Robot.oi.joystick1.getRawButton(3));
@@ -58,10 +58,11 @@ public class Drive extends Command {
             Robot.driveTrain.drive(-Robot.oi.joystick1.getRawAxis(0), -Robot.oi.joystick1.getRawAxis(1),
                     -Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawButton(3),
                     Robot.oi.joystick1.getRawButton(6), Robot.oi.joystick1.getRawButton(3));
-        }
-        // Robot.driveTrain.drive(Robot.oi.joystick1.getRawAxis(4),
-        // Robot.oi.joystick1.getRawAxis(1), Robot.oi.joystick1.getRawAxis(0),
-        // Robot.oi.joystick1.getRawButton(3), Robot.oi.joystick1.getRawButton(2));
+        }*/
+
+        Robot.driveTrain.drive(-Robot.oi.joystick1.getRawAxis(0), -Robot.oi.joystick1.getRawAxis(1),
+                    -Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawButton(3),
+                    Robot.oi.joystick1.getRawButton(6), Robot.oi.joystick1.getRawButton(3));
     }
 
     // Make this return true when this Command no longer needs to run execute()
