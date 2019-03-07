@@ -43,8 +43,15 @@ public class climbBarMove extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.climbSystem.controlBar();
         Robot.climbSystem.controlGrab();
+        if(Math.abs(Robot.oi.joystick2.getRawAxis(5)) > Math.abs(Robot.oi.joystick2.getRawAxis(4))){
+            Robot.climbSystem.controlBar();
+
+        }
+        if(Math.abs(Robot.oi.joystick2.getRawAxis(4)) > Math.abs(Robot.oi.joystick2.getRawAxis(5))){
+                    Robot.climbSystem.controlPullForward();
+
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

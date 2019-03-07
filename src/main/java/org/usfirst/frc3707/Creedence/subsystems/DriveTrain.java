@@ -100,7 +100,6 @@ public class DriveTrain extends Subsystem {
 
         backRightSwerve.isAlive();
         backLeftSwerve.isAlive();        
-
         // gyro.reset();
         
 
@@ -344,5 +343,29 @@ public class DriveTrain extends Subsystem {
         lastTime = now;
 
         return output;
+    }
+    public void disableFRD(){
+        frontRightDrive.disable();
+    }
+    public void disableFLD(){
+        frontLeftDrive.disable();
+    }
+    public void disableBRD(){
+        backRightDrive.disable();
+    }
+    public void disableBLD(){
+        backLeftDrive.disable();
+    }
+    public void disableFRT(){
+        frontRightSwerve.disable();
+    }
+    public void disableFLT(){
+        frontLeftSwerve.disable();
+    }
+    public void disableBRT(){
+        backRightSwerve.disable();
+    }
+    public void disableBLT(){
+        backLeftSwerve.disable();
     }
 }

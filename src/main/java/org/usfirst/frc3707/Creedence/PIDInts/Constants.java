@@ -22,5 +22,6 @@ public class Constants {
     public static int lidar1 = 0;
     public static int climbBar = 8;
     public static int climbGrab = 7;
+    public static int climbPullForward = 4;
 
 }
