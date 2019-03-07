@@ -65,15 +65,22 @@ public class DriveTrain extends Subsystem {
 
     // private ADXRS450_Gyro gyro = new ADXRS450_Gyro();
     // Practice Bot Offsets
-    // double FRO = 302;
-    // double FLO = 117;
-    // double BRP = 278;
-    // double BLO = 312;
+    // double frontRightOffset = 302;
+    // double frontLeftOffset = 117;
+    // double backRightOffset = 278;
+    // double backLeftOffset = 312;
 
-    private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive, 117);
-    private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, 302);
-    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, 55);
-    private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, 278);
+    // COMP Bot Offsets
+    double frontRightOffset = 235;
+    double frontLeftOffset = 137;
+    double backRightOffset = 271;
+    double backLeftOffset = 276;
+
+    
+    private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, frontRightOffset);
+    private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive, frontLeftOffset);
+    private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, backRightOffset);
+    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, backLeftOffset);
     public SwerveDrive swerve = new SwerveDrive(frontRightWheel, frontLeftWheel, backLeftWheel, backRightWheel, null);
 
     // LiveWindow.addSensor("Sensors", "gyro", gyro);
@@ -81,7 +88,6 @@ public class DriveTrain extends Subsystem {
     double lidarInches = 0;
 
     public void init() {
-
         frontRightTwist.setInputRange(0.0, 360.0);
         frontRightTwist.setOutputRange(-1.0, 1.0);
         frontRightTwist.setContinuous(true);
@@ -186,10 +192,10 @@ public class DriveTrain extends Subsystem {
     @Override
     public void periodic() {
         // Put code here to be run every loop
-        SmartDashboard.putNumber("Front Right Encoder", frontRightEncoder.get());
-        SmartDashboard.putNumber("Front Left Encoder", frontLeftEncoder.get());
-        SmartDashboard.putNumber("Back Right Encoder", backRightEncoder.get());
-        SmartDashboard.putNumber("Back Left Encoder", backLeftEncoder.get());
+        //SmartDashboard.putNumber("Front Right Encoder", frontRightEncoder.get());
+        //SmartDashboard.putNumber("Front Left Encoder", frontLeftEncoder.get());
+        // SmartDashboard.putNumber("Back Right Encoder", backRightEncoder.get());
+        // SmartDashboard.putNumber("Back Left Encoder", backLeftEncoder.get());
 
         
 
