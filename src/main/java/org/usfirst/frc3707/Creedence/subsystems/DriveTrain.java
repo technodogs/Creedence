@@ -107,7 +107,6 @@ public class DriveTrain extends Subsystem {
         backRightSwerve.isAlive();
         backLeftSwerve.isAlive();        
         // gyro.reset();
-        
 
     }
 
@@ -224,7 +223,7 @@ public class DriveTrain extends Subsystem {
         for (int x = 0; x < real_x0Array.length; x++) {
             if (x == 0) {
                 mid0 = real_x0Array[0];
-            } else if (Math.abs(real_x0Array[x] - 50) < Math.abs(mid0 - 50)) {
+            } else if (Math.abs(real_x0Array[x] - 46) < Math.abs(mid0 - 46)) {
                 mid0 = real_x0Array[x];
             }
         }
@@ -232,7 +231,7 @@ public class DriveTrain extends Subsystem {
         for (int x = 0; x < real_x1Array.length; x++) {
             if (x == 0) {
                 mid1 = real_x1Array[0];
-            } else if (Math.abs(real_x1Array[x] - 50) < Math.abs(mid1 - 50)) {
+            } else if (Math.abs(real_x1Array[x] - 46) < Math.abs(mid1 - 46)) {
                 mid1 = real_x1Array[x];
             }
         }
@@ -267,7 +266,7 @@ public class DriveTrain extends Subsystem {
         for (int x = 0; x < real_x0Array.length; x++) {
             if (x == 0) {
                 mid0 = real_x0Array[0];
-            } else if (Math.abs(real_x0Array[x] - 50) < Math.abs(mid0 - 50)) {
+            } else if (Math.abs(real_x0Array[x] - 46) < Math.abs(mid0 - 46)) {
                 mid0 = real_x0Array[x];
             }
         }
@@ -275,7 +274,7 @@ public class DriveTrain extends Subsystem {
         for (int x = 0; x < real_x1Array.length; x++) {
             if (x == 0) {
                 mid1 = real_x1Array[0];
-            } else if (Math.abs(real_x1Array[x] - 50) < Math.abs(mid1 - 50)) {
+            } else if (Math.abs(real_x1Array[x] - 46) < Math.abs(mid1 - 46)) {
                 mid1 = real_x1Array[x];
             }
         }
@@ -283,7 +282,7 @@ public class DriveTrain extends Subsystem {
         double x_difference = ((mid0 + mid1) / 2);
 
         if (x_difference > 3) {
-            error = computePIDPower(x_difference, 50);
+            error = computePIDPower(x_difference, 46);
             System.out.println(-error * 3);
             return -error * 3.75;
         }
