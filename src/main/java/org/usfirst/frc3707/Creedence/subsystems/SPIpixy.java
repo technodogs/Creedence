@@ -36,7 +36,7 @@ public class SPIpixy extends Subsystem {
     //setDefaultCommand(new TargetMode());
   }
   public Vector[] findVectors() {
-    pixy.getLine().getAllFeatures();
+    pixy.getLine().getAllFeatures(); //for some reason we need this because the guy couldn't get it correct himself
     return(pixy.getLine().getVectors());
   }
 }

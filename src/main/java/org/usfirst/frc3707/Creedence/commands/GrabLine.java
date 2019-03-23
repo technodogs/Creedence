@@ -40,12 +40,12 @@ public class GrabLine extends Command {
 
     if (vectors != null)
     {
-      for (Vector block : this.vectors)
+      for (Vector vector : this.vectors)
       {
-        System.out.print("X0: " + block.getX0() + "\n");
-        System.out.print("Y0: " + block.getY0() + "\n");
-        System.out.print("X1: " + block.getX1() + "\n");
-        System.out.print("Y1: " + block.getY1() + "\n");
+        System.out.print("X0: " + vector.getX0() + "\n");
+        System.out.print("Y0: " + vector.getY0() + "\n");
+        System.out.print("X1: " + vector.getX1() + "\n");
+        System.out.print("Y1: " + vector.getY1() + "\n");
       }
     }
   }

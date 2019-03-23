@@ -13,6 +13,7 @@ package org.usfirst.frc3707.Creedence.subsystems;
 import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.PIDInts.Constants;
 import org.usfirst.frc3707.Creedence.commands.Drive;
+import org.usfirst.frc3707.Creedence.pixy2API.Pixy2Line.Vector;
 import org.usfirst.frc3707.Creedence.swerve.SwerveDrive;
 import org.usfirst.frc3707.Creedence.swerve.SwerveWheel;
 
@@ -254,7 +255,7 @@ public class DriveTrain extends Subsystem {
      *         is insignificant
      */
     public double getError() {
-        x0 = pixyData.getEntry("x0");
+        /*x0 = pixyData.getEntry("x0");
         x1 = pixyData.getEntry("x1");
 
         real_x0Array = x0.getDoubleArray(defaultValue);
@@ -279,7 +280,11 @@ public class DriveTrain extends Subsystem {
             }
         }
 
-        double x_difference = ((mid0 + mid1) / 2);
+        double x_difference = ((mid0 + mid1) / 2);*/
+
+        Vector[] vectors = Robot.m_pixy.findVectors();
+
+        double x_difference = (vectors[0].getX0() - vectors[0].getX1()) / 2;
 
         if (x_difference > 3) {
             error = computePIDPower(x_difference, 46);

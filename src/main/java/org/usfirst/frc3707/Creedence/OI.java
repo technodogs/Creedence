@@ -11,7 +11,9 @@
 package org.usfirst.frc3707.Creedence;
 
 import org.usfirst.frc3707.Creedence.commands.GrabLine;
+import org.usfirst.frc3707.Creedence.commands.autoGrab;
 import org.usfirst.frc3707.Creedence.commands.closeClaw;
+import org.usfirst.frc3707.Creedence.commands.commandGroup;
 import org.usfirst.frc3707.Creedence.commands.hatchToBot;
 import org.usfirst.frc3707.Creedence.commands.openClaw;
 import org.usfirst.frc3707.Creedence.commands.thrustBackward;
@@ -21,6 +23,7 @@ import org.usfirst.frc3707.Creedence.commands.thrustForward;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.POVButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -107,6 +110,7 @@ public class OI {
         // SmartDashboard.putData("Middle Position", new hatchToMid());
         // SmartDashboard.putData("Bottom Position", new hatchToBot());
         // SmartDashboard.putData("Grab Disk And Line up n stuff", new commandGroup());
+        SmartDashboard.putData("Auto hatch snag Test", new commandGroup());
 
         // SmartDashboard.putData("Disable Back Left Angle", new swerve_disableBLAngle());
         // SmartDashboard.putData("Disable Back Left Drive", new swerve_disableBLDrive());
