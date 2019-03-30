@@ -1,4 +1,4 @@
-package org.usfirst.frc3707.Creedence.PIDInts;
+package org.usfirst.frc3707.Creedence.Configuration;
 
 public class Constants {
     public static int CargoSucc = 6;
