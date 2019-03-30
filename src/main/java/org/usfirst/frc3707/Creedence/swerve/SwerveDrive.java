@@ -2,7 +2,6 @@ package org.usfirst.frc3707.Creedence.swerve;
 
 import edu.wpi.first.wpilibj.GyroBase;
 import edu.wpi.first.wpilibj.PIDOutput;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class SwerveDrive implements PIDOutput {
 

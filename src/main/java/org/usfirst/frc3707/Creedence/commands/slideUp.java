@@ -7,8 +7,6 @@
 
 package org.usfirst.frc3707.Creedence.commands;
 
-import org.usfirst.frc3707.Creedence.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 public class slideUp extends Command {

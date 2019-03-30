@@ -11,14 +11,13 @@
 package org.usfirst.frc3707.Creedence;
 
 
-import org.usfirst.frc3707.Creedence.commands.visionCommands.GrabLine;
-import org.usfirst.frc3707.Creedence.commands.autonomousCommands.autoGrab;
-import org.usfirst.frc3707.Creedence.commands.hatchCommands.closeClaw;
 import org.usfirst.frc3707.Creedence.commands.autonomousCommands.commandGroup;
-import org.usfirst.frc3707.Creedence.commands.liftCommands.hatchToBot;
+import org.usfirst.frc3707.Creedence.commands.hatchCommands.closeClaw;
 import org.usfirst.frc3707.Creedence.commands.hatchCommands.openClaw;
 import org.usfirst.frc3707.Creedence.commands.hatchCommands.thrustBackward;
 import org.usfirst.frc3707.Creedence.commands.hatchCommands.thrustForward;
+import org.usfirst.frc3707.Creedence.commands.liftCommands.hatchToBot;
+import org.usfirst.frc3707.Creedence.commands.visionCommands.GrabLine;
 
 //import org.usfirst.frc3707.Creedence.commands.slideUp;
 

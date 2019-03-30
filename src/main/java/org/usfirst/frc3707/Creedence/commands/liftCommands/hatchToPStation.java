@@ -11,12 +11,10 @@
 package org.usfirst.frc3707.Creedence.commands.liftCommands;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 
 import org.usfirst.frc3707.Creedence.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
