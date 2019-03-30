@@ -1,4 +1,4 @@
-package org.usfirst.frc3707.Creedence.TunableParameters;
+package org.usfirst.frc3707.Creedence.Configuration;
 
 public class TunableParameters {
 
