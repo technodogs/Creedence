@@ -10,14 +10,16 @@
 
 package org.usfirst.frc3707.Creedence;
 
-import org.usfirst.frc3707.Creedence.commands.GrabLine;
-import org.usfirst.frc3707.Creedence.commands.autoGrab;
-import org.usfirst.frc3707.Creedence.commands.closeClaw;
-import org.usfirst.frc3707.Creedence.commands.commandGroup;
-import org.usfirst.frc3707.Creedence.commands.hatchToBot;
-import org.usfirst.frc3707.Creedence.commands.openClaw;
-import org.usfirst.frc3707.Creedence.commands.thrustBackward;
-import org.usfirst.frc3707.Creedence.commands.thrustForward;
+
+import org.usfirst.frc3707.Creedence.commands.visionCommands.GrabLine;
+import org.usfirst.frc3707.Creedence.commands.autonomousCommands.autoGrab;
+import org.usfirst.frc3707.Creedence.commands.hatchCommands.closeClaw;
+import org.usfirst.frc3707.Creedence.commands.autonomousCommands.commandGroup;
+import org.usfirst.frc3707.Creedence.commands.liftCommands.hatchToBot;
+import org.usfirst.frc3707.Creedence.commands.hatchCommands.openClaw;
+import org.usfirst.frc3707.Creedence.commands.hatchCommands.thrustBackward;
+import org.usfirst.frc3707.Creedence.commands.hatchCommands.thrustForward;
+
 //import org.usfirst.frc3707.Creedence.commands.slideUp;
 
 import edu.wpi.first.wpilibj.Joystick;

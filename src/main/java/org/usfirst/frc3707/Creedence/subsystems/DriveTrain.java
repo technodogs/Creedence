@@ -12,7 +12,7 @@ package org.usfirst.frc3707.Creedence.subsystems;
 
 import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.Configuration.Constants;
-import org.usfirst.frc3707.Creedence.commands.Drive;
+import org.usfirst.frc3707.Creedence.commands.driveCommands.Drive;
 import org.usfirst.frc3707.Creedence.pixy2API.Pixy2Line.Vector;
 import org.usfirst.frc3707.Creedence.swerve.SwerveDrive;
 import org.usfirst.frc3707.Creedence.swerve.SwerveWheel;

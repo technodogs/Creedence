@@ -12,8 +12,8 @@ package org.usfirst.frc3707.Creedence.subsystems;
 
 import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.Configuration.Constants;
-import org.usfirst.frc3707.Creedence.commands.climbBarMove;
-import org.usfirst.frc3707.Creedence.commands.liftUpAndDown;
+import org.usfirst.frc3707.Creedence.commands.climbCommands.climbBarMove;
+import org.usfirst.frc3707.Creedence.commands.liftCommands.liftUpAndDown;
 import org.usfirst.frc3707.Creedence.lidar.Lidar;
 
 import edu.wpi.first.wpilibj.DigitalInput;
