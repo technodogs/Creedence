@@ -41,14 +41,14 @@ public class hatchToBot extends Command {
     @Override
     protected void initialize() {
         Robot.liftSystem.liftController.enable();
-        Robot.liftSystem.liftController.setSetpoint(29);
+        Robot.liftSystem.liftController.setSetpoint(30);
 
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.liftSystem.getLiftHeight();
+        //Robot.liftSystem.getLiftHeight();
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -40,7 +40,7 @@ public class hatchToMid extends Command {
     @Override
     protected void initialize() {
         Robot.liftSystem.liftController.enable();
-        Robot.liftSystem.liftController.setSetpoint(55);
+        Robot.liftSystem.liftController.setSetpoint(47.5);
 
     }
 
