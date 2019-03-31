@@ -173,53 +173,60 @@ public class Constants {
         }
     }
 
-    public static class CargoSystem {
+    public static class CargoDeliverySystem{
 
-        private static int CargoSucc = 6;
-        private static int LCargoSpit = 10;
-        private static int RCargoSpit = 11;
-        private static boolean CargoSuccInverted_CompBot = false;
-        private static boolean CargoSuccInverted_PracticeBot = false;
+        private static int LeftMotorControllerPWMChannel = 10;
+        private static int RightMotorControllerPWMChannel = 11;
 
-        private static boolean LSpitInverted_CompBot = false;
-        private static boolean LSpitInverted_PracticeBot = false;
+        private static boolean LeftMotorControllerInverted_CompBot = false;
+        private static boolean LeftMotorControllerInverted_PracticeBot = false;
 
-        private static boolean RSpitInverted_CompBot = false;
-        private static boolean RSpitInverted_PracticeBot = false;
+        private static boolean RightMotorControllerInverted_CompBot = false;
+        private static boolean RightMotorControllerInverted_PracticeBot = false;
 
-        public static int getCargoSucc() {
-            return CargoSucc;
+        public static int getLeftMotorControllerPWMChannel() {
+            return LeftMotorControllerPWMChannel;
         }
 
-        public static int getLCargoSpit() {
-            return LCargoSpit;
+        public static int getRightMotorControllerPWMChannel() {
+            return RightMotorControllerPWMChannel;
         }
 
-        public static int getRCargoSpit() {
-            return RCargoSpit;
-        }
-
-        public static boolean getCargoSuccInverted() {
+        public static boolean getLeftMotorControllerInverted() {
             if (robotType == RobotType.CompetitionRobot) {
-                return CargoSuccInverted_CompBot;
+                return LeftMotorControllerInverted_CompBot;
             } else {
-                return CargoSuccInverted_PracticeBot;
+                return LeftMotorControllerInverted_PracticeBot;
             }
         }
 
-        public static boolean getLSpitInverted() {
+        public static boolean getRightMotorControllerInverted() {
             if (robotType == RobotType.CompetitionRobot) {
-                return LSpitInverted_CompBot;
+                return RightMotorControllerInverted_CompBot;
             } else {
-                return LSpitInverted_PracticeBot;
+                return RightMotorControllerInverted_PracticeBot;
             }
         }
 
-        public static boolean getRSpitInverted() {
+    }
+
+    public static class CargoIntakeSystem {
+
+        private static int MotorControllerPWMChannel = 6;
+        
+        private static boolean MotorControllerInverted_CompBot = false;
+        private static boolean MotorControllerInverted_PracticeBot = false;
+
+
+        public static int getMotorControllerPWMChannel() {
+            return MotorControllerPWMChannel;
+        }
+
+        public static boolean getMotorControllerInverted() {
             if (robotType == RobotType.CompetitionRobot) {
-                return RSpitInverted_CompBot;
+                return MotorControllerInverted_CompBot;
             } else {
-                return RSpitInverted_PracticeBot;
+                return MotorControllerInverted_PracticeBot;
             }
         }
     }
