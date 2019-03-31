@@ -43,25 +43,25 @@ public class DriveTrain extends Subsystem {
     double[] defaultValue = { -1 };
     double[] lastError = new double[10];
 
-    private AnalogPotentiometer frontRightEncoder = new AnalogPotentiometer(Constants.FREncoder, 360.0, 0.0);
-    private VictorSP frontRightSwerve = new VictorSP(Constants.FRSwerve);
+    private AnalogPotentiometer frontRightEncoder = new AnalogPotentiometer(Constants.DriveSystem.FrontRight.getEncoder(), 360.0, 0.0);
+    private VictorSP frontRightSwerve = new VictorSP(Constants.DriveSystem.FrontRight.getSwerve());
     private PIDController frontRightTwist = new PIDController(0.05, 0.0, 0.0, 0.0, frontRightEncoder, frontRightSwerve,
             0.02);
-    private AnalogPotentiometer frontLeftEncoder = new AnalogPotentiometer(Constants.FLEncoder, 360.0, 0.0);;
-    private VictorSP frontLeftSwerve = new VictorSP(Constants.FLSwerve);
+    private AnalogPotentiometer frontLeftEncoder = new AnalogPotentiometer(Constants.DriveSystem.FrontLeft.getEncoder(), 360.0, 0.0);;
+    private VictorSP frontLeftSwerve = new VictorSP(Constants.DriveSystem.FrontLeft.getSwerve());
     private PIDController frontLeftTwist = new PIDController(0.05, 0.0, 0.0, 0.0, frontLeftEncoder, frontLeftSwerve,
             0.02);;
-    private AnalogPotentiometer backRightEncoder = new AnalogPotentiometer(Constants.BREncoder, 360.0, 0.0);
-    private VictorSP backRightSwerve = new VictorSP(Constants.BrSwerve);
+    private AnalogPotentiometer backRightEncoder = new AnalogPotentiometer(Constants.DriveSystem.BackRight.getEncoder(), 360.0, 0.0);
+    private VictorSP backRightSwerve = new VictorSP(Constants.DriveSystem.BackRight.getSwerve());
     private PIDController backRightTwist = new PIDController(0.05, 0.0, 0.0, 0.0, backRightEncoder, backRightSwerve,
             0.02);
-    private AnalogPotentiometer backLeftEncoder = new AnalogPotentiometer(Constants.BLEncoder, 360.0, 0.0);
-    private VictorSP backLeftSwerve = new VictorSP(Constants.BLSwerve);
+    private AnalogPotentiometer backLeftEncoder = new AnalogPotentiometer(Constants.DriveSystem.BackLeft.getEncoder(), 360.0, 0.0);
+    private VictorSP backLeftSwerve = new VictorSP(Constants.DriveSystem.BackLeft.getSwerve());
     private PIDController backLeftTwist = new PIDController(0.05, 0.0, 0.0, 0.0, backLeftEncoder, backLeftSwerve, 0.02);
-    private VictorSP frontRightDrive = new VictorSP(Constants.FRDrive);
-    private VictorSP frontLeftDrive = new VictorSP(Constants.FLDrive);
-    private VictorSP backRightDrive = new VictorSP(Constants.BRDrive);
-    private VictorSP backLeftDrive = new VictorSP(Constants.BLDrive);
+    private VictorSP frontRightDrive = new VictorSP(Constants.DriveSystem.FrontRight.getDrive());
+    private VictorSP frontLeftDrive = new VictorSP(Constants.DriveSystem.FrontLeft.getDrive());
+    private VictorSP backRightDrive = new VictorSP(Constants.DriveSystem.BackRight.getDrive());
+    private VictorSP backLeftDrive = new VictorSP(Constants.DriveSystem.BackLeft.getDrive());
 
     // private ADXRS450_Gyro gyro = new ADXRS450_Gyro();
     // Practice Bot Offsets
