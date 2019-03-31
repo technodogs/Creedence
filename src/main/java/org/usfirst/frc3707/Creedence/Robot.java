@@ -71,7 +71,7 @@ public class Robot extends TimedRobot {
         m_pixy = new SPIpixy();
 
         camera1 = CameraServer.getInstance().startAutomaticCapture(0); //use for camera on smart Dashboard
-        camera2 = CameraServer.getInstance().startAutomaticCapture(2);
+        camera2 = CameraServer.getInstance().startAutomaticCapture(1);
 
         server = CameraServer.getInstance().addSwitchedCamera("switched camera");
         

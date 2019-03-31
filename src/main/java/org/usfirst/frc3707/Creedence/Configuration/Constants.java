@@ -119,10 +119,10 @@ public class Constants {
             }
         }
 
-        public static DriveModule FrontLeft;
-        public static DriveModule FrontRight;
-        public static DriveModule BackLeft;
-        public static DriveModule BackRight;
+        public static DriveModule FrontLeft = new DriveSystem().new DriveModule();
+        public static DriveModule FrontRight = new DriveSystem().new DriveModule();
+        public static DriveModule BackLeft = new DriveSystem().new DriveModule();
+        public static DriveModule BackRight = new DriveSystem().new DriveModule();
 
         static {
 
