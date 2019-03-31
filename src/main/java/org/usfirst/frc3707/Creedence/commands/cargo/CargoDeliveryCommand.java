@@ -44,12 +44,17 @@ public class CargoDeliveryCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+
+        //TODO: This is very confusing... Does the left trigger need held to be able to deliver cargo?
         if (Robot.oi.operatorController.getLeftTriggerValue() > .1 || Robot.oi.operatorController.getLeftTriggerValue() < -.1) {
-            Robot.cargoDeliverySubsystem.deliverCargo();
+            Robot.cargoDeliverySubsystem.deliverCargo(org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getRightTriggerValue());
         } else {
-            Robot.cargoDeliverySubsystem.retrieveCargo();
+            Robot.cargoDeliverySubsystem.retrieveCargo(org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getLeftTriggerValue());
         }
-        Robot.cargoDeliverySubsystem.slowDeliverCargo();
+
+        if(org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getRightBumperPressed() == true){
+            Robot.cargoDeliverySubsystem.slowDeliverCargo();
+        }
 
     }
 

@@ -48,12 +48,10 @@ public class HatchSubsystem extends Subsystem {
     }
 
     public void thrust() {
-        if (Robot.oi.operatorController.getBButtonPressed() == true) {
-            if (thrust.get() == Value.kReverse) {
-                thrust.set(Value.kForward);
-            } else {
-                thrust.set(Value.kReverse);
-            }
+        if (thrust.get() == Value.kReverse) {
+            thrust.set(Value.kForward);
+        } else {
+            thrust.set(Value.kReverse);
         }
     }
 

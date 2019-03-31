@@ -54,12 +54,9 @@ public class CargoIntakeSubsystem extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
 
-    public void collectCargo() {
-        if (Robot.oi.operatorController.getLeftBumperPressed() == true) {
-            cargoSucc.set(1);
-        } else {
-            cargoSucc.set(0);
-        }
+    public void collectCargo(double value) {
+
+        cargoSucc.set(value);
     }
 
     @Override

@@ -11,6 +11,7 @@
 package org.usfirst.frc3707.Creedence.commands.cargo;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc3707.Creedence.subsystems.CargoIntakeSubsystem;
 import org.usfirst.frc3707.Creedence.Robot;
 
 /**
@@ -43,7 +44,11 @@ public class CargoIntakeCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.cargoIntakeSubsystem.collectCargo();
+        if (Robot.oi.operatorController.getLeftBumperPressed() == true) {
+            Robot.cargoIntakeSubsystem.collectCargo(1);
+        } else {
+            Robot.cargoIntakeSubsystem.collectCargo(0);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
