@@ -10,6 +10,7 @@
 
 package org.usfirst.frc3707.Creedence.subsystems;
 
+
 import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.Configuration.Constants;
 import org.usfirst.frc3707.Creedence.commands.cargoCommands.succ;
@@ -37,7 +38,7 @@ public class ballIntake extends Subsystem {
     public ballIntake() {
         cargoSucc = new PWMVictorSPX(Constants.CargoSystem.getCargoSucc());
         addChild("cargoSucc", cargoSucc);
-        cargoSucc.setInverted(false);
+        cargoSucc.setInverted(Constants.CargoSystem.getCargoSuccInverted());
 
     }
 

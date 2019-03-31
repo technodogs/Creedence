@@ -71,16 +71,16 @@ public class DriveTrain extends Subsystem {
     // double backLeftOffset = 312;
 
     // COMP Bot Offsets
-    double frontRightOffset = 235;
-    double frontLeftOffset = 137;
-    double backRightOffset = 271;
-    double backLeftOffset = 276;
+    // double frontRightOffset = 235;
+    // double frontLeftOffset = 137;
+    // double backRightOffset = 271;
+    // double backLeftOffset = 276;
 
     
-    private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, frontRightOffset);
-    private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive, frontLeftOffset);
-    private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, backRightOffset);
-    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, backLeftOffset);
+    private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, Constants.DriveSystem.FrontRight.getOffset());
+    private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive,Constants.DriveSystem.FrontLeft.getOffset());
+    private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, Constants.DriveSystem.BackRight.getOffset());
+    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, Constants.DriveSystem.BackLeft.getOffset());
     public SwerveDrive swerve = new SwerveDrive(frontRightWheel, frontLeftWheel, backLeftWheel, backRightWheel, null);
 
     // LiveWindow.addSensor("Sensors", "gyro", gyro);

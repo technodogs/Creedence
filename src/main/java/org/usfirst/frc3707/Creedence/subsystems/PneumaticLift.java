@@ -7,6 +7,8 @@
 
 package org.usfirst.frc3707.Creedence.subsystems;
 
+import org.usfirst.frc3707.Creedence.Configuration.Constants;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -18,7 +20,7 @@ public class PneumaticLift extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  private DoubleSolenoid pneumaticStage = new DoubleSolenoid(1, 4, 5);
+  private DoubleSolenoid pneumaticStage = new DoubleSolenoid(Constants.PneumaticSystem.getPcmCanId(), Constants.LiftSystem.getPneumaticLiftForward(), Constants.LiftSystem.getPneumaticLiftReverse());
 
   @Override
   public void initDefaultCommand() {

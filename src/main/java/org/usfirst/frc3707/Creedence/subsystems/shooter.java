@@ -10,6 +10,7 @@
 
 package org.usfirst.frc3707.Creedence.subsystems;
 
+
 import org.usfirst.frc3707.Creedence.Configuration.Constants;
 import org.usfirst.frc3707.Creedence.commands.cargoCommands.Shoot;
 
@@ -40,11 +41,11 @@ public class shooter extends Subsystem {
     public shooter() {
         leftSpit = new PWMVictorSPX(Constants.CargoSystem.getLCargoSpit());
         addChild("leftSpit", leftSpit);
-        leftSpit.setInverted(false);
+        leftSpit.setInverted(Constants.CargoSystem.getLSpitInverted());
 
         rightSpit = new PWMVictorSPX(Constants.CargoSystem.getRCargoSpit());
         addChild("rightSpit", rightSpit);
-        rightSpit.setInverted(false);
+        rightSpit.setInverted(Constants.CargoSystem.getRSpitInverted());
 
     }
 

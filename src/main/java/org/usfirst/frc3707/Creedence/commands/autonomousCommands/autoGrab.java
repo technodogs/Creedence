@@ -43,7 +43,7 @@ public class autoGrab extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if(Robot.hatchGrabber.getButton1() && Robot.hatchGrabber.getButton2()){
+        if (Robot.hatchGrabber.getButton1() && Robot.hatchGrabber.getButton2()) {
             Robot.hatchGrabber.openClaw();
         }
     }
