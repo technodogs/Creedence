@@ -48,9 +48,10 @@ public class DriveCommand extends Command {
     @Override
     protected void execute() {
 
-        Robot.driveSubsystem.drive(-Robot.oi.joystick1.getRawAxis(0), -Robot.oi.joystick1.getRawAxis(1),
-                    -Robot.oi.joystick1.getRawAxis(4), Robot.oi.joystick1.getRawButton(3),
-                    Robot.oi.joystick1.getRawButton(6), Robot.oi.joystick1.getRawButton(3));
+        Robot.driveSubsystem.drive(-Robot.oi.driverController.getLeftStickXValue(), -Robot.oi.driverController.getLeftStickYValue(),
+                    -Robot.oi.driverController.getRightStickXValue(), Robot.oi.driverController.getXButtonPressed(),
+                    Robot.oi.driverController.getRightBumperPressed(), Robot.oi.driverController.getXButtonPressed());
+                    //TODO: I don't think the X button is intened to be used for 3 things?
     }
 
     // Make this return true when this Command no longer needs to run execute()

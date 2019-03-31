@@ -120,10 +120,10 @@ public class Constants {
             }
         }
 
-        public static DriveModule FrontLeft;
-        public static DriveModule FrontRight;
-        public static DriveModule BackLeft;
-        public static DriveModule BackRight;
+        public static final DriveModule FrontLeft;
+        public static final DriveModule FrontRight;
+        public static final DriveModule BackLeft;
+        public static final DriveModule BackRight;
 
         static {
 

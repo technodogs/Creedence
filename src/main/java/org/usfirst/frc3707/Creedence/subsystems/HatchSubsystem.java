@@ -48,7 +48,7 @@ public class HatchSubsystem extends Subsystem {
     }
 
     public void thrust() {
-        if (Robot.oi.operatorController.getRawButton(2) == true) {
+        if (Robot.oi.operatorController.getBButtonPressed() == true) {
             if (thrust.get() == Value.kReverse) {
                 thrust.set(Value.kForward);
             } else {
@@ -58,7 +58,7 @@ public class HatchSubsystem extends Subsystem {
     }
 
     public void spread() {
-        if (Robot.oi.operatorController.getRawButton(4) == true) {
+        if (Robot.oi.operatorController.getYButtonPressed() == true) {
             if (clawClamp.get() == Value.kReverse) {
                 clawClamp.set(Value.kForward);
             } else {

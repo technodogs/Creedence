@@ -62,8 +62,8 @@ public class ClimbSubsystem extends Subsystem {
     }
 
     public void controlBar(){
-        if(Robot.oi.operatorController.getRawAxis(5) > 0.2 || Robot.oi.operatorController.getRawAxis(5) < -0.2) {
-            climbBar.set(Robot.oi.operatorController.getRawAxis(5));
+        if(Robot.oi.operatorController.getRightStickYValue() > 0.2 || Robot.oi.operatorController.getRightStickYValue() < -0.2) {
+            climbBar.set(Robot.oi.operatorController.getRightStickYValue());
         }
         else {
             climbBar.set(0);
@@ -71,15 +71,15 @@ public class ClimbSubsystem extends Subsystem {
 
     }
     public void controlGrab(){
-        if(Robot.oi.operatorController.getRawButton(7)){
+        if(Robot.oi.operatorController.getLeftMenuButtonPressed()){
 
             climbGrab.set(1);
-        } else if (Robot.oi.operatorController.getRawButton(8)){
+        } else if (Robot.oi.operatorController.getRightMenuButtonPressed()){
             climbGrab.set(-1);
         } else climbGrab.set(0);
     }
     public void controlPullForward(){
-        climbPullForward.set(Robot.oi.operatorController.getRawAxis(4));
+        climbPullForward.set(Robot.oi.operatorController.getRightStickXValue());
     }
 
     /**

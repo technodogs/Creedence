@@ -44,7 +44,7 @@ public class CargoDeliveryCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (Robot.oi.operatorController.getRawAxis(3) > .1 || Robot.oi.operatorController.getRawAxis(3) < -.1) {
+        if (Robot.oi.operatorController.getLeftTriggerValue() > .1 || Robot.oi.operatorController.getLeftTriggerValue() < -.1) {
             Robot.cargoDeliverySubsystem.deliverCargo();
         } else {
             Robot.cargoDeliverySubsystem.retrieveCargo();

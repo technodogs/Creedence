@@ -143,7 +143,6 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-<<<<<<< HEAD
 
         /*if (!lastButton)
         {
@@ -158,12 +157,8 @@ public class Robot extends TimedRobot {
                 server.setSource(camera2);
             }
         }*/
-        boolean joystickButton1 = oi.driverController.getRawButton(1);
-        boolean joystickButton2 = oi.driverController.getRawButton(2);
-=======
-        boolean joystickButton1 = oi.joystick1.getRawButton(1);
-        boolean joystickButton2 = oi.joystick1.getRawButton(2);
->>>>>>> 724a74027ee0e0ac8ea7ffeccd7eee7ad6747574
+        boolean joystickButton1 = oi.driverController.getAButtonPressed();
+        boolean joystickButton2 = oi.driverController.getBButtonPressed();
 
         if (joystickButton1 && lastButton != 1)
         {
