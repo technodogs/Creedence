@@ -11,13 +11,13 @@
 package org.usfirst.frc3707.Creedence;
 
 
-import org.usfirst.frc3707.Creedence.commands.autonomousCommands.commandGroup;
-import org.usfirst.frc3707.Creedence.commands.hatchCommands.closeClaw;
-import org.usfirst.frc3707.Creedence.commands.hatchCommands.openClaw;
-import org.usfirst.frc3707.Creedence.commands.hatchCommands.thrustBackward;
-import org.usfirst.frc3707.Creedence.commands.hatchCommands.thrustForward;
-import org.usfirst.frc3707.Creedence.commands.liftCommands.hatchToBot;
-import org.usfirst.frc3707.Creedence.commands.visionCommands.GrabLine;
+import org.usfirst.frc3707.Creedence.commands.autonomous.AutoGrabSequence;
+import org.usfirst.frc3707.Creedence.commands.hatch.closeClaw;
+import org.usfirst.frc3707.Creedence.commands.hatch.openClaw;
+import org.usfirst.frc3707.Creedence.commands.hatch.thrustBackward;
+import org.usfirst.frc3707.Creedence.commands.hatch.thrustForward;
+import org.usfirst.frc3707.Creedence.commands.lift.hatchToBot;
+import org.usfirst.frc3707.Creedence.commands.vision.GrabLine;
 
 //import org.usfirst.frc3707.Creedence.commands.slideUp;
 
@@ -111,7 +111,7 @@ public class OI {
         // SmartDashboard.putData("Middle Position", new hatchToMid());
         // SmartDashboard.putData("Bottom Position", new hatchToBot());
         // SmartDashboard.putData("Grab Disk And Line up n stuff", new commandGroup());
-        SmartDashboard.putData("Auto hatch snag Test", new commandGroup());
+        SmartDashboard.putData("Auto hatch snag Test", new AutoGrabSequence());
 
         // SmartDashboard.putData("Disable Back Left Angle", new swerve_disableBLAngle());
         // SmartDashboard.putData("Disable Back Left Drive", new swerve_disableBLDrive());
