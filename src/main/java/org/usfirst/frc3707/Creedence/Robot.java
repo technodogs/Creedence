@@ -164,8 +164,8 @@ public class Robot extends TimedRobot {
                 server.setSource(camera2);
             }
         }*/
-        boolean joystickButton1 = oi.joystick1.getRawButton(1);
-        boolean joystickButton2 = oi.joystick1.getRawButton(2);
+        boolean joystickButton1 = oi.driverController.getRawButton(1);
+        boolean joystickButton2 = oi.driverController.getRawButton(2);
 
         if (joystickButton1 && lastButton != 1)
         {

@@ -67,8 +67,8 @@ public class LiftSubsystem extends Subsystem {
      * This method operates the teleop control of the game piece mechanism
      */
     public void liftUpAndDown() {
-        if ((Robot.oi.joystick2.getRawAxis(1) > .3 || Robot.oi.joystick2.getRawAxis(1) < -.3)) {
-            elevator.set(Robot.oi.joystick2.getRawAxis(1));
+        if ((Robot.oi.operatorController.getRawAxis(1) > .3 || Robot.oi.operatorController.getRawAxis(1) < -.3)) {
+            elevator.set(Robot.oi.operatorController.getRawAxis(1));
         } else {
             holdLift();
         }

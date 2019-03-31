@@ -45,11 +45,11 @@ public class climbBarMove extends Command {
     protected void execute() {
         //commenting out controlGrab so that we can use 7 and 8 for the new stage that they are making
         //Robot.climbSystem.controlGrab();
-        if(Math.abs(Robot.oi.joystick2.getRawAxis(5)) > Math.abs(Robot.oi.joystick2.getRawAxis(4))){
+        if(Math.abs(Robot.oi.operatorController.getRawAxis(5)) > Math.abs(Robot.oi.operatorController.getRawAxis(4))){
             Robot.climbSubsystem.controlBar();
 
         }
-        if(Math.abs(Robot.oi.joystick2.getRawAxis(4)) > Math.abs(Robot.oi.joystick2.getRawAxis(5))){
+        if(Math.abs(Robot.oi.operatorController.getRawAxis(4)) > Math.abs(Robot.oi.operatorController.getRawAxis(5))){
                     Robot.climbSubsystem.controlPullForward();
 
         }
