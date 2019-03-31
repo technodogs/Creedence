@@ -59,8 +59,8 @@ public class CargoDeliverySubsystem extends Subsystem {
     }
 
     public void deliverCargo() {
-        cargoDeliveryLeftMotor.set(org.usfirst.frc3707.Creedence.Robot.oi.joystick2.getRawAxis(3));
-        cargoDeliveryRightMotor.set(-org.usfirst.frc3707.Creedence.Robot.oi.joystick2.getRawAxis(3));
+        cargoDeliveryLeftMotor.set(org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getRightTriggerValue());
+        cargoDeliveryRightMotor.set(-org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getRightTriggerValue());
 
         // This is my idea for handling motor inversion
         // Double stickVal = org.usfirst.frc3707.Creedence.Robot.oi.joystick2.getRawAxis(3);
@@ -69,10 +69,10 @@ public class CargoDeliverySubsystem extends Subsystem {
 
     }
 
-    public void reSucc() {
+    public void retrieveCargo() {
 
-        cargoDeliveryLeftMotor.set(-org.usfirst.frc3707.Creedence.Robot.oi.joystick2.getRawAxis(2));
-        cargoDeliveryRightMotor.set(org.usfirst.frc3707.Creedence.Robot.oi.joystick2.getRawAxis(2));
+        cargoDeliveryLeftMotor.set(-org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getLeftTriggerValue());
+        cargoDeliveryRightMotor.set(org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getLeftTriggerValue());
 
         // This is my idea for handling motor inversion
         // Double stickVal = org.usfirst.frc3707.Creedence.Robot.oi.joystick2.getRawAxis(2);
@@ -80,8 +80,8 @@ public class CargoDeliverySubsystem extends Subsystem {
         // rightSpit.set(invertRightMotor ? stickVal*-1 : stickVal);
 
     }
-    public void slowSpit(){
-        if(org.usfirst.frc3707.Creedence.Robot.oi.joystick2.getRawButton(6) == true){
+    public void slowDeliverCargo(){
+        if(org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getRightBumperPressed() == true){
             cargoDeliveryLeftMotor.set(.4);
             cargoDeliveryRightMotor.set(-.4);
         }

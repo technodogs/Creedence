@@ -10,7 +10,6 @@
 
 package org.usfirst.frc3707.Creedence;
 
-
 import org.usfirst.frc3707.Creedence.commands.autonomous.AutoGrabSequence;
 import org.usfirst.frc3707.Creedence.commands.hatch.closeClaw;
 import org.usfirst.frc3707.Creedence.commands.hatch.openClaw;
@@ -24,6 +23,7 @@ import org.usfirst.frc3707.Creedence.commands.vision.GrabLine;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.POVButton;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -31,6 +31,183 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+
+    public class XBoxController {
+        private Joystick controller;
+
+        // i think these are off by one
+        private static final int leftStickXAxis = 0;
+        private static final int leftStickYAxis = 1;
+        private static final int leftTriggerAxis = 2;
+        private static final int rightTriggerAxis = 3;
+        private static final int rightStickXAxis = 4;
+        private static final int rightStickYAxis = 5;
+        
+        private static final int aButtonNumber = 1;
+        private static final int bButtonNumber = 2;
+        private static final int xButtonNumber = 3;
+        private static final int yButtonNumber = 4;
+
+        private static final int leftBumperNumber = 5;
+        private static final int rightBumperNumber = 6;
+
+        private static final int leftMenuNumber = 7;
+        private static final int rightMenuNumber = 8;
+
+        private static final int leftStickPressNumber = 9;
+        private static final int rightStickPressNumber = 10;
+
+        private static final int upDPadAngle = 0;
+        private static final int rightDPadAngle = 90;
+        private static final int downDPadAngle = 180;
+        private static final int leftDPadAngle = 270;
+
+        private JoystickButton aButton;
+        private JoystickButton bButton;
+        private JoystickButton xButton;
+        private JoystickButton yButton;
+
+        private JoystickButton leftBumperButton;
+        private JoystickButton rightBumperButton;
+
+        private JoystickButton leftStickPressButton;
+        private JoystickButton rightStickPressButton;
+
+        private POVButton dpadUp;
+        private POVButton dpadRight;
+        private POVButton dpadDown;
+        private POVButton dpadLeft;
+
+        public XBoxController(int controllerPort){
+            controller = new Joystick(controllerPort);
+            aButton = new JoystickButton(controller, aButtonNumber);
+            bButton = new JoystickButton(controller, bButtonNumber);
+            xButton = new JoystickButton(controller, xButtonNumber);
+            yButton = new JoystickButton(controller, yButtonNumber);
+
+            leftBumperButton = new JoystickButton(controller, leftBumperNumber);
+            rightBumperButton = new JoystickButton(controller, rightBumperNumber);
+
+            leftStickPressButton =  new JoystickButton(controller, leftStickPressNumber);
+            rightStickPressButton = new JoystickButton(controller, rightStickPressNumber);
+
+            dpadUp = new POVButton(controller, upDPadAngle);
+            dpadRight = new POVButton(controller, rightDPadAngle);
+            dpadDown = new POVButton(controller, downDPadAngle);
+            dpadLeft = new POVButton(controller, leftDPadAngle);
+        }
+
+        public Joystick getController(){
+            return controller;
+        }
+
+        public JoystickButton getAButton(){
+            return aButton;
+        }
+
+        public JoystickButton getBButton(){
+            return bButton;
+        }
+
+        public JoystickButton getXButton(){
+            return xButton;
+        }
+
+        public JoystickButton getYButton(){
+            return yButton;
+        }
+
+        public JoystickButton getLeftBumper(){
+            return leftBumperButton;
+        }
+
+        public JoystickButton getRightBumper(){
+            return rightBumperButton;
+        }
+
+        public JoystickButton getLeftStickPress(){
+            return leftStickPressButton;
+        }
+
+        public JoystickButton getRightStickPress(){
+            return rightStickPressButton;
+        }
+
+        public POVButton getDPadUp(){
+            return dpadUp;
+        }
+
+        public POVButton getDPadRight(){
+            return dpadRight;
+        }
+
+        public POVButton getDPadDown(){
+            return dpadDown;
+        }
+
+        public POVButton getDPadLeft(){
+            return dpadLeft;
+        }
+
+        public double getLeftTriggerValue(){
+            return controller.getRawAxis(leftTriggerAxis);
+        }
+
+        public double getRightTriggerValue(){
+            return controller.getRawAxis(rightTriggerAxis);
+        }
+
+        public double getLeftStickXValue(){
+            return controller.getRawAxis(leftStickXAxis);
+        }
+
+        public double getLeftStickYValue(){
+            return controller.getRawAxis(leftStickYAxis);
+        }
+
+        public double getRightStickXValue(){
+            return controller.getRawAxis(rightStickXAxis);
+        }
+
+        public double getRightStickYValue(){
+            return controller.getRawAxis(rightStickYAxis);
+        }
+
+        public boolean getAButtonPressed(){
+            return controller.getRawButton(aButtonNumber);
+        }
+
+        public boolean getBButtonPressed(){
+            return controller.getRawButton(bButtonNumber);
+        }
+
+        public boolean getXButtonPressed(){
+            return controller.getRawButton(xButtonNumber);
+        }
+
+        public boolean getYButtonPressed(){
+            return controller.getRawButton(yButtonNumber);
+        }
+
+        public boolean getLeftBumperPressed(){
+            return controller.getRawButton(leftBumperNumber);
+        }
+
+        public boolean getRightBumperPressed(){
+            return controller.getRawButton(rightBumperNumber);
+        }
+
+        public boolean getLeftMenuButtonPressed(){
+            return controller.getRawButton(leftMenuNumber);
+        }
+
+        public boolean getRightMenuButtonPressed(){
+            return controller.getRawButton(rightMenuNumber);
+        }
+
+        
+    }
+    
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
@@ -59,13 +236,8 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 
     // BEGIN AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=DECLARATIONS
-    public Joystick joystick1;
-    public JoystickButton b;
-    public JoystickButton a;
-    public JoystickButton x;
-    public JoystickButton lb;
-    public Joystick joystick2;
-    public JoystickButton y;
+    public XBoxController driverController;
+    public XBoxController operatorController;
     public POVButton up; 
     public POVButton down; 
     public POVButton left;
@@ -76,62 +248,27 @@ public class OI {
     // END AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=DECLARATIONS
 
     public OI() {
+
         // BEGIN AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=CONSTRUCTORS
 
-        joystick2 = new Joystick(1);
-        //left = new POVButton(joystick2, 270, 0);
-        down = new POVButton(joystick2, 180, 0);
-        //up = new POVButton(joystick2, 0, 0);
-        b = new JoystickButton(joystick2, 2);
-        y = new JoystickButton(joystick2, 4);
-        a = new JoystickButton(joystick2, 1);
-        x = new JoystickButton(joystick2, 3);
-        b.whenPressed(new openClaw());
-        joystick1 = new Joystick(0);
-        y.whenPressed(new thrustForward());
-        x.whenPressed(new closeClaw());
-        a.whenPressed(new thrustBackward());
-        //up.whenPressed(new hatchToMid());
-        down.whenPressed(new hatchToBot());
-        //left.whenPressed(new ballToBottom());
+        driverController = new XBoxController(0);
+        operatorController = new XBoxController(1);
 
-        //select.whenPressed(new slideUp());
-        
-        lb = new JoystickButton(joystick1, 5);
+        operatorController.getAButton().whenPressed(new thrustBackward());
+        operatorController.getBButton().whenPressed(new openClaw());
+        operatorController.getXButton().whenPressed(new closeClaw());
+        operatorController.getYButton().whenPressed(new thrustForward());
 
-        lb.whenPressed(new GrabLine());
+        operatorController.getDPadDown().whenPressed(new hatchToBot());
 
-        // SmartDashboard Buttons
-        // SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
-        // SmartDashboard.putData("Drive", new Drive());
-        // SmartDashboard.putData("succ", new succ());
-        // SmartDashboard.putData("Shoot", new Shoot());
-        // SmartDashboard.putData("spread", new spread());
-        // SmartDashboard.putData("RaiseToHeight", new RaiseToHeight());
-        // SmartDashboard.putData("Middle Position", new hatchToMid());
-        // SmartDashboard.putData("Bottom Position", new hatchToBot());
-        // SmartDashboard.putData("Grab Disk And Line up n stuff", new commandGroup());
+        driverController.getLeftBumper().whenPressed(new GrabLine());
+
         SmartDashboard.putData("Auto hatch snag Test", new AutoGrabSequence());
 
-        // SmartDashboard.putData("Disable Back Left Angle", new swerve_disableBLAngle());
-        // SmartDashboard.putData("Disable Back Left Drive", new swerve_disableBLDrive());
-        // SmartDashboard.putData("Disable Back Right Angle", new swerve_disableBRAngle());
-        // SmartDashboard.putData("Disable Back Right Drive", new swerve_disableBRDrive());
-        // SmartDashboard.putData("Disable Front Right Angle", new swerve_disableFRAngle());
-
-        // SmartDashboard.putData("thrustInAndOut", new thrustInAndO
         // END AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=CONSTRUCTORS
     }
 
-    // BEGIN AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=FUNCTIONS
-    public Joystick getJoystick1() {
-        return joystick1;
-    }
-
-    public Joystick getJoystick2() {
-        return joystick2;
-    }
-    
+    // BEGIN AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=FUNCTIONS    
 
     // END AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=FUNCTIONS
 }

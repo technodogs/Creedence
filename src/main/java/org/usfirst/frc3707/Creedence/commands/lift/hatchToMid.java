@@ -56,7 +56,7 @@ public class hatchToMid extends Command {
         if (Robot.liftSubsystem.getLiftHeight() > 59) {
             return true;
         }
-        return Math.abs(Robot.oi.joystick2.getRawAxis(1)) > 0.2;
+        return Math.abs(Robot.oi.operatorController.getLeftStickYValue()) > 0.2;
     }
 
     // Called once after isFinished returns true

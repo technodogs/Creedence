@@ -15,6 +15,7 @@ public class Constants {
 
     public static class HumanInputs {
         public static class DriverInputs {
+            private static int XBOXRightTrigger = 3;
 
         }
 

@@ -55,7 +55,7 @@ public class CargoIntakeSubsystem extends Subsystem {
     }
 
     public void collectCargo() {
-        if (Robot.oi.joystick2.getRawButton(5) == true) {
+        if (Robot.oi.operatorController.getLeftBumperPressed() == true) {
             cargoSucc.set(1);
         } else {
             cargoSucc.set(0);
