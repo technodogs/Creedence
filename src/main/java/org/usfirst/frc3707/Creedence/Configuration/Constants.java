@@ -15,7 +15,6 @@ public class Constants {
 
     public static class HumanInputs {
         public static class DriverInputs {
-            private static int XBOXRightTrigger = 3;
 
         }
 
@@ -299,6 +298,63 @@ public class Constants {
 
     }
 
+    public static class CameraSystem{
+        private static int frontCamera_CompBot = 0;
+        private static int frontCamera_PracticeBot = 0;
+
+        private static int rearCamera_CompBot = 1;
+        private static int rearCamera_PracticeBot = 1;
+
+        private static int frontCameraResolutionX = 160;
+        private static int frontCameraResolutionY = 120;
+        private static int frontCameraFPS = 30;
+
+        private static int rearCameraResolutionX = 160;
+        private static int rearCameraResolutionY = 120;
+        private static int rearCameraFPS = 30;
+
+        public static int getFrontCamera(){
+            if (robotType == RobotType.CompetitionRobot) {
+                return frontCamera_CompBot;
+            } else if (robotType == RobotType.PracticeRobot) {
+                return frontCamera_PracticeBot;
+            } else {
+                return -1;
+            }
+        }
+        public static int getRearCamera(){
+            if (robotType == RobotType.CompetitionRobot) {
+                return rearCamera_CompBot;
+            } else if (robotType == RobotType.PracticeRobot) {
+                return rearCamera_PracticeBot;
+            } else {
+                return -1;
+            }
+        }
+
+        public static int getFrontCameraResolutionX(){
+            return frontCameraResolutionX;
+        }
+        public static int getFrontCameraResolutionY(){
+            return frontCameraResolutionY;
+        }
+        public static int getFrontCameraFPS(){
+            return frontCameraFPS;
+        }
+
+        public static int getRearCameraFPS(){
+            return rearCameraFPS;
+        }
+
+        public static int getRearCameraResolutionX(){
+            return rearCameraResolutionX;
+        }
+        public static int getRearCameraResolutionY(){
+            return rearCameraResolutionY;
+        }
+
+
+    }
     // the following should be placed into sub-classes of Constants
     public static int Grabber = 7;
     public static int Winch = 8;

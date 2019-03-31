@@ -16,6 +16,7 @@ import org.usfirst.frc3707.Creedence.subsystems.CargoIntakeSubsystem;
 import org.usfirst.frc3707.Creedence.subsystems.ClimbSubsystem;
 import org.usfirst.frc3707.Creedence.subsystems.HatchSubsystem;
 import org.usfirst.frc3707.Creedence.subsystems.LiftSubsystem;
+import org.usfirst.frc3707.Creedence.Configuration.Constants;
 import org.usfirst.frc3707.Creedence.commands.drive.DriveCommand;
 import org.usfirst.frc3707.Creedence.subsystems.CargoDeliverySubsystem;
 
@@ -52,8 +53,8 @@ public class Robot extends TimedRobot {
     public static ClimbSubsystem climbSubsystem;
 
     private static VideoSink server;
-    private static UsbCamera camera1;
-    private static UsbCamera camera2;
+    private static UsbCamera frontCamera;
+    private static UsbCamera rearCamera;
 
     private int lastButton = 1;
 
@@ -70,21 +71,21 @@ public class Robot extends TimedRobot {
 
         m_pixy = new SPIpixy();
 
-        camera1 = CameraServer.getInstance().startAutomaticCapture(0); //use for camera on smart Dashboard
-        camera2 = CameraServer.getInstance().startAutomaticCapture(1);
+        frontCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getFrontCamera());//use for camera on smart Dashboard
+        rearCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getRearCamera());
 
         server = CameraServer.getInstance().addSwitchedCamera("switched camera");
         
-        camera1.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
-        camera2.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
+        frontCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
+        rearCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
 
 
 
-        camera1.setResolution(160, 120);
-        camera1.setFPS(30);
+        frontCamera.setResolution(Constants.CameraSystem.getFrontCameraResolutionX(), Constants.CameraSystem.getFrontCameraResolutionY());
+        frontCamera.setFPS(Constants.CameraSystem.getFrontCameraFPS());
 
-        camera2.setResolution(160, 120);
-        camera2.setFPS(30);
+        rearCamera.setResolution(Constants.CameraSystem.getRearCameraResolutionX(), Constants.CameraSystem.getRearCameraResolutionY());
+        rearCamera.setFPS(Constants.CameraSystem.getRearCameraFPS());
 
 
         driveSubsystem = new DriveSubsystem();
@@ -162,12 +163,12 @@ public class Robot extends TimedRobot {
 
         if (joystickButton1 && lastButton != 1)
         {
-            server.setSource(camera1);
+            server.setSource(frontCamera);
             System.out.println("Switching to Camea One");
         }
         else if (joystickButton2 && lastButton != 2)
         {
-            server.setSource(camera2);
+            server.setSource(rearCamera);
             System.out.println("Switching to Camera Two");
         }
 
