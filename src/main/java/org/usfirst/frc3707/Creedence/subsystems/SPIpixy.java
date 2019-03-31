@@ -7,11 +7,10 @@
 
 package org.usfirst.frc3707.Creedence.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc3707.Creedence.pixy2API.*;
-import java.util.ArrayList;
+import org.usfirst.frc3707.Creedence.pixy2API.Pixy2;
 import org.usfirst.frc3707.Creedence.pixy2API.Pixy2Line.Vector;
-import org.usfirst.frc3707.Creedence.commands.GrabLine;
+
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  * Add your docs here.

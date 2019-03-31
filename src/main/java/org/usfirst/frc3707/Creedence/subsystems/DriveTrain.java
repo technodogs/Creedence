@@ -11,8 +11,8 @@
 package org.usfirst.frc3707.Creedence.subsystems;
 
 import org.usfirst.frc3707.Creedence.Robot;
-import org.usfirst.frc3707.Creedence.PIDInts.Constants;
-import org.usfirst.frc3707.Creedence.commands.Drive;
+import org.usfirst.frc3707.Creedence.Configuration.Constants;
+import org.usfirst.frc3707.Creedence.commands.driveCommands.Drive;
 import org.usfirst.frc3707.Creedence.pixy2API.Pixy2Line.Vector;
 import org.usfirst.frc3707.Creedence.swerve.SwerveDrive;
 import org.usfirst.frc3707.Creedence.swerve.SwerveWheel;
@@ -24,7 +24,6 @@ import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveTrain extends Subsystem {
 
@@ -44,25 +43,25 @@ public class DriveTrain extends Subsystem {
     double[] defaultValue = { -1 };
     double[] lastError = new double[10];
 
-    private AnalogPotentiometer frontRightEncoder = new AnalogPotentiometer(Constants.FREncoder, 360.0, 0.0);
-    private VictorSP frontRightSwerve = new VictorSP(Constants.FRSwerve);
+    private AnalogPotentiometer frontRightEncoder = new AnalogPotentiometer(Constants.DriveSystem.FrontRight.getEncoder(), 360.0, 0.0);
+    private VictorSP frontRightSwerve = new VictorSP(Constants.DriveSystem.FrontRight.getSwerve());
     private PIDController frontRightTwist = new PIDController(0.05, 0.0, 0.0, 0.0, frontRightEncoder, frontRightSwerve,
             0.02);
-    private AnalogPotentiometer frontLeftEncoder = new AnalogPotentiometer(Constants.FLEncoder, 360.0, 0.0);;
-    private VictorSP frontLeftSwerve = new VictorSP(Constants.FLSwerve);
+    private AnalogPotentiometer frontLeftEncoder = new AnalogPotentiometer(Constants.DriveSystem.FrontLeft.getEncoder(), 360.0, 0.0);;
+    private VictorSP frontLeftSwerve = new VictorSP(Constants.DriveSystem.FrontLeft.getSwerve());
     private PIDController frontLeftTwist = new PIDController(0.05, 0.0, 0.0, 0.0, frontLeftEncoder, frontLeftSwerve,
             0.02);;
-    private AnalogPotentiometer backRightEncoder = new AnalogPotentiometer(Constants.BREncoder, 360.0, 0.0);
-    private VictorSP backRightSwerve = new VictorSP(Constants.BrSwerve);
+    private AnalogPotentiometer backRightEncoder = new AnalogPotentiometer(Constants.DriveSystem.BackRight.getEncoder(), 360.0, 0.0);
+    private VictorSP backRightSwerve = new VictorSP(Constants.DriveSystem.BackRight.getSwerve());
     private PIDController backRightTwist = new PIDController(0.05, 0.0, 0.0, 0.0, backRightEncoder, backRightSwerve,
             0.02);
-    private AnalogPotentiometer backLeftEncoder = new AnalogPotentiometer(Constants.BLEncoder, 360.0, 0.0);
-    private VictorSP backLeftSwerve = new VictorSP(Constants.BLSwerve);
+    private AnalogPotentiometer backLeftEncoder = new AnalogPotentiometer(Constants.DriveSystem.BackLeft.getEncoder(), 360.0, 0.0);
+    private VictorSP backLeftSwerve = new VictorSP(Constants.DriveSystem.BackLeft.getSwerve());
     private PIDController backLeftTwist = new PIDController(0.05, 0.0, 0.0, 0.0, backLeftEncoder, backLeftSwerve, 0.02);
-    private VictorSP frontRightDrive = new VictorSP(Constants.FRDrive);
-    private VictorSP frontLeftDrive = new VictorSP(Constants.FLDrive);
-    private VictorSP backRightDrive = new VictorSP(Constants.BRDrive);
-    private VictorSP backLeftDrive = new VictorSP(Constants.BLDrive);
+    private VictorSP frontRightDrive = new VictorSP(Constants.DriveSystem.FrontRight.getDrive());
+    private VictorSP frontLeftDrive = new VictorSP(Constants.DriveSystem.FrontLeft.getDrive());
+    private VictorSP backRightDrive = new VictorSP(Constants.DriveSystem.BackRight.getDrive());
+    private VictorSP backLeftDrive = new VictorSP(Constants.DriveSystem.BackLeft.getDrive());
 
     // private ADXRS450_Gyro gyro = new ADXRS450_Gyro();
     // Practice Bot Offsets
@@ -72,16 +71,16 @@ public class DriveTrain extends Subsystem {
     // double backLeftOffset = 312;
 
     // COMP Bot Offsets
-    double frontRightOffset = 235;
-    double frontLeftOffset = 137;
-    double backRightOffset = 271;
-    double backLeftOffset = 276;
+    // double frontRightOffset = 235;
+    // double frontLeftOffset = 137;
+    // double backRightOffset = 271;
+    // double backLeftOffset = 276;
 
     
-    private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, frontRightOffset);
-    private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive, frontLeftOffset);
-    private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, backRightOffset);
-    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, backLeftOffset);
+    private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, Constants.DriveSystem.FrontRight.getOffset());
+    private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive,Constants.DriveSystem.FrontLeft.getOffset());
+    private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, Constants.DriveSystem.BackRight.getOffset());
+    private SwerveWheel backLeftWheel = new SwerveWheel(backLeftTwist, backLeftDrive, Constants.DriveSystem.BackLeft.getOffset());
     public SwerveDrive swerve = new SwerveDrive(frontRightWheel, frontLeftWheel, backLeftWheel, backRightWheel, null);
 
     // LiveWindow.addSensor("Sensors", "gyro", gyro);

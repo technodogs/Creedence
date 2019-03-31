@@ -10,7 +10,7 @@
 
 package org.usfirst.frc3707.Creedence;
 
-import org.usfirst.frc3707.Creedence.commands.AutonomousCommand;
+import org.usfirst.frc3707.Creedence.commands.autonomousCommands.AutonomousCommand;
 import org.usfirst.frc3707.Creedence.subsystems.DriveTrain;
 import org.usfirst.frc3707.Creedence.subsystems.SPIpixy;
 import org.usfirst.frc3707.Creedence.subsystems.ballIntake;

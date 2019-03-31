@@ -5,13 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc3707.Creedence.commands;
+package org.usfirst.frc3707.Creedence.commands.cameraCommands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class slideUp extends Command {
-  public slideUp() {
+public class ChangeCamera extends Command {
+  public ChangeCamera() {
     // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
@@ -23,7 +24,7 @@ public class slideUp extends Command {
   @Override
   protected void execute() {
 
-    //Robot.pneumaticLift.slideUp(); dont use untill pneumatic lift is installed
+    
 
   }
 

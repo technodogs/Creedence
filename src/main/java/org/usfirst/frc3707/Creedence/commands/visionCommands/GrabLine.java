@@ -5,13 +5,26 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc3707.Creedence.commands;
+package org.usfirst.frc3707.Creedence.commands.visionCommands;
+
+import org.usfirst.frc3707.Creedence.Robot;
+import org.usfirst.frc3707.Creedence.pixy2API.Pixy2Line.Vector;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class slideUp extends Command {
-  public slideUp() {
+public class GrabLine extends Command {
+
+  private boolean haveBlocks;
+  private int blocksInQuestion;
+  private static final int maxBadBlockCycles = 10;
+  private Vector[] vectors;
+
+  public GrabLine() {
     // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    requires(Robot.m_pixy);
+    this.haveBlocks = false;
+    this.blocksInQuestion = 0;
   }
 
   // Called just before this Command runs the first time
@@ -23,14 +36,24 @@ public class slideUp extends Command {
   @Override
   protected void execute() {
 
-    //Robot.pneumaticLift.slideUp(); dont use untill pneumatic lift is installed
+    this.vectors= Robot.m_pixy.findVectors();
 
+    if (vectors != null)
+    {
+      for (Vector vector : this.vectors)
+      {
+        System.out.print("X0: " + vector.getX0() + "\n");
+        System.out.print("Y0: " + vector.getY0() + "\n");
+        System.out.print("X1: " + vector.getX1() + "\n");
+        System.out.print("Y1: " + vector.getY1() + "\n");
+      }
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true

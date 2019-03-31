@@ -9,8 +9,6 @@ package org.usfirst.frc3707.Creedence.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc3707.Creedence.Robot;
-
 public class slideDown extends Command {
   public slideDown() {
     // Use requires() here to declare subsystem dependencies
