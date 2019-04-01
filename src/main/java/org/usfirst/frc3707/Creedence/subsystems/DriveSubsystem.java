@@ -1,5 +1,9 @@
 package org.usfirst.frc3707.Creedence.subsystems;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.Configuration.Constants;
 import org.usfirst.frc3707.Creedence.commands.drive.DriveCommand;
@@ -14,6 +18,7 @@ import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveSubsystem extends Subsystem {
 
@@ -29,10 +34,16 @@ public class DriveSubsystem extends Subsystem {
     private AnalogPotentiometer backLeftEncoder = new AnalogPotentiometer(Constants.DriveSystem.BackLeft.getEncoder(), 360.0, 0.0);
     private VictorSP backLeftSwerve = new VictorSP(Constants.DriveSystem.BackLeft.getSwerve());
     private PIDController backLeftTwist = new PIDController(0.05, 0.0, 0.0, 0.0, backLeftEncoder, backLeftSwerve, 0.02);
+    
     private VictorSP frontRightDrive = new VictorSP(Constants.DriveSystem.FrontRight.getDrive());
     private VictorSP frontLeftDrive = new VictorSP(Constants.DriveSystem.FrontLeft.getDrive());
     private VictorSP backRightDrive = new VictorSP(Constants.DriveSystem.BackRight.getDrive());
     private VictorSP backLeftDrive = new VictorSP(Constants.DriveSystem.BackLeft.getDrive());
+
+    // private CANSparkMax frontRightDrive = new CANSparkMax(Constants.DriveSystem.FrontRight.getDrive(), MotorType.kBrushless);
+    // private CANSparkMax frontLeftDrive = new CANSparkMax(Constants.DriveSystem.FrontLeft.getDrive(), MotorType.kBrushless);
+    // private CANSparkMax backRightDrive = new CANSparkMax(Constants.DriveSystem.BackRight.getDrive(), MotorType.kBrushless);
+    // private CANSparkMax backLeftDrive = new CANSparkMax(Constants.DriveSystem.BackLeft.getDrive(), MotorType.kBrushless);
     
     private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, Constants.DriveSystem.FrontRight.getOffset());
     private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive,Constants.DriveSystem.FrontLeft.getOffset());
@@ -105,6 +116,10 @@ public class DriveSubsystem extends Subsystem {
      */
     @Override
     public void periodic() {
+        SmartDashboard.putNumber("Front Right Encoder", frontRightEncoder.get());
+        SmartDashboard.putNumber("Front Left Encoder", frontLeftEncoder.get());
+        SmartDashboard.putNumber("Back Right Encoder", backRightEncoder.get());
+        SmartDashboard.putNumber("Back Left Encoder", backLeftEncoder.get());
     }
 
     public void disableFrontRightWheelRotation(){
