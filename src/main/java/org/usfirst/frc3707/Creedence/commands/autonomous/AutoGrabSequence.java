@@ -38,6 +38,7 @@ public class AutoGrabSequence extends CommandGroup {
         addSequential(new hatchToPStation());
         addSequential(new hatchToPStation());
         //timer right here
+        //addSequential(new closeClaw(), 4000); example of timers for sequentials
         addSequential(new AutoGrabCommand());
         addSequential(new timedThrustBackward());
 
