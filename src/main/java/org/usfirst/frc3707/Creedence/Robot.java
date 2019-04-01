@@ -69,23 +69,23 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
 
-        m_pixy = new SPIpixy();
+        // m_pixy = new SPIpixy();
 
-        frontCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getFrontCamera());//use for camera on smart Dashboard
-        rearCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getRearCamera());
+        // frontCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getFrontCamera());//use for camera on smart Dashboard
+        // rearCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getRearCamera());
 
-        server = CameraServer.getInstance().addSwitchedCamera("switched camera");
+        // server = CameraServer.getInstance().addSwitchedCamera("switched camera");
         
-        frontCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
-        rearCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
+        // frontCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
+        // rearCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
 
 
 
-        frontCamera.setResolution(Constants.CameraSystem.getFrontCameraResolutionX(), Constants.CameraSystem.getFrontCameraResolutionY());
-        frontCamera.setFPS(Constants.CameraSystem.getFrontCameraFPS());
+        // frontCamera.setResolution(Constants.CameraSystem.getFrontCameraResolutionX(), Constants.CameraSystem.getFrontCameraResolutionY());
+        // frontCamera.setFPS(Constants.CameraSystem.getFrontCameraFPS());
 
-        rearCamera.setResolution(Constants.CameraSystem.getRearCameraResolutionX(), Constants.CameraSystem.getRearCameraResolutionY());
-        rearCamera.setFPS(Constants.CameraSystem.getRearCameraFPS());
+        // rearCamera.setResolution(Constants.CameraSystem.getRearCameraResolutionX(), Constants.CameraSystem.getRearCameraResolutionY());
+        // rearCamera.setFPS(Constants.CameraSystem.getRearCameraFPS());
 
 
         driveSubsystem = new DriveSubsystem();
@@ -158,32 +158,32 @@ public class Robot extends TimedRobot {
                 server.setSource(camera2);
             }
         }*/
-        boolean joystickButton1 = oi.driverController.getAButtonPressed();
-        boolean joystickButton2 = oi.driverController.getBButtonPressed();
+        // boolean joystickButton1 = oi.driverController.getAButtonPressed();
+        // boolean joystickButton2 = oi.driverController.getBButtonPressed();
 
-        if (joystickButton1 && lastButton != 1)
-        {
-            server.setSource(frontCamera);
-            System.out.println("Switching to Camea One");
-        }
-        else if (joystickButton2 && lastButton != 2)
-        {
-            server.setSource(rearCamera);
-            System.out.println("Switching to Camera Two");
-        }
+        // if (joystickButton1 && lastButton != 1)
+        // {
+        //     server.setSource(frontCamera);
+        //     System.out.println("Switching to Camea One");
+        // }
+        // else if (joystickButton2 && lastButton != 2)
+        // {
+        //     server.setSource(rearCamera);
+        //     System.out.println("Switching to Camera Two");
+        // }
 
-        if (joystickButton1)
-        {
-            lastButton = 1;
-        }
-        else if (joystickButton2)
-        {
-            lastButton = 2;
-        }
-        else
-        {
-            lastButton = 0;
-        }
+        // if (joystickButton1)
+        // {
+        //     lastButton = 1;
+        // }
+        // else if (joystickButton2)
+        // {
+        //     lastButton = 2;
+        // }
+        // else
+        // {
+        //     lastButton = 0;
+        // }
 
 
         
