@@ -10,10 +10,12 @@
 
 package org.usfirst.frc3707.Creedence.subsystems;
 
-
 import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.Configuration.Constants;
 import org.usfirst.frc3707.Creedence.commands.cargo.CargoIntakeCommand;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -23,6 +25,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class CargoIntakeSubsystem extends Subsystem {
 
     private PWMVictorSPX cargoSucc;
+    private DoubleSolenoid tonguePneumatic = new DoubleSolenoid(Constants.PneumaticSystem.getPcmCanId(), Constants.CargoIntakeSystem.getTongueSolenoidForward(), Constants.CargoIntakeSystem.getTongueSolenoidReverse());
 
     public CargoIntakeSubsystem() {
         cargoSucc = new PWMVictorSPX(Constants.CargoIntakeSystem.getMotorControllerPWMChannel());
@@ -35,6 +38,13 @@ public class CargoIntakeSubsystem extends Subsystem {
     public void initDefaultCommand() {
 
         setDefaultCommand(new CargoIntakeCommand());
+    }
+
+    public void moveTongueOut() {
+        tonguePneumatic.set(Value.kForward);
+    }
+    public void moveTongueIn() {
+        tonguePneumatic.set(Value.kReverse);
     }
 
     public void collectCargo(double value) {
