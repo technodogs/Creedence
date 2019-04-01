@@ -12,14 +12,14 @@ import org.usfirst.frc3707.Creedence.pixy2API.Pixy2Line.Vector;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class GrabLine extends Command {
+public class GrabLineCommand extends Command {
 
   private boolean haveBlocks;
   private int blocksInQuestion;
   private static final int maxBadBlockCycles = 10;
   private Vector[] vectors;
 
-  public GrabLine() {
+  public GrabLineCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_pixy);

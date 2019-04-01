@@ -11,19 +11,18 @@
 package org.usfirst.frc3707.Creedence;
 
 import org.usfirst.frc3707.Creedence.commands.autonomous.AutoGrabSequence;
-import org.usfirst.frc3707.Creedence.commands.hatch.closeClaw;
-import org.usfirst.frc3707.Creedence.commands.hatch.openClaw;
-import org.usfirst.frc3707.Creedence.commands.hatch.thrustBackward;
-import org.usfirst.frc3707.Creedence.commands.hatch.thrustForward;
-import org.usfirst.frc3707.Creedence.commands.lift.hatchToBot;
-import org.usfirst.frc3707.Creedence.commands.vision.GrabLine;
+import org.usfirst.frc3707.Creedence.commands.hatch.closeClawCommand;
+import org.usfirst.frc3707.Creedence.commands.hatch.openClawCommand;
+import org.usfirst.frc3707.Creedence.commands.hatch.thrustBackwardCommand;
+import org.usfirst.frc3707.Creedence.commands.hatch.thrustForwardCommand;
+import org.usfirst.frc3707.Creedence.commands.lift.hatchToBotCommand;
+import org.usfirst.frc3707.Creedence.commands.vision.GrabLineCommand;
 
 //import org.usfirst.frc3707.Creedence.commands.slideUp;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.POVButton;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -254,14 +253,14 @@ public class OI {
         driverController = new XBoxController(0);
         operatorController = new XBoxController(1);
 
-        operatorController.getAButton().whenPressed(new thrustBackward());
-        operatorController.getBButton().whenPressed(new openClaw());
-        operatorController.getXButton().whenPressed(new closeClaw());
-        operatorController.getYButton().whenPressed(new thrustForward());
+        operatorController.getAButton().whenPressed(new thrustBackwardCommand());
+        operatorController.getBButton().whenPressed(new openClawCommand());
+        operatorController.getXButton().whenPressed(new closeClawCommand());
+        operatorController.getYButton().whenPressed(new thrustForwardCommand());
 
-        operatorController.getDPadDown().whenPressed(new hatchToBot());
+        operatorController.getDPadDown().whenPressed(new hatchToBotCommand());
 
-        driverController.getLeftBumper().whenPressed(new GrabLine());
+        driverController.getLeftBumper().whenPressed(new GrabLineCommand());
 
         SmartDashboard.putData("Auto hatch snag Test", new AutoGrabSequence());
 

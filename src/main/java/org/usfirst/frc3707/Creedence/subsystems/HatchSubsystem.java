@@ -42,16 +42,6 @@ public class HatchSubsystem extends Subsystem {
             thrust.set(Value.kReverse);
         }
     }
-
-    public void spread() {
-        if (Robot.oi.operatorController.getYButtonPressed() == true) {
-            if (clawClamp.get() == Value.kReverse) {
-                clawClamp.set(Value.kForward);
-            } else {
-                clawClamp.set(Value.kReverse);
-            }
-        }
-    }
     public void openClaw(){
         clawClamp.set(Value.kForward);
     }
