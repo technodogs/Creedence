@@ -162,7 +162,7 @@ public class Constants {
             BackLeft.setCompBotSwerve(12);
             BackLeft.setCompBotEncoder(1);
             BackLeft.setCompBotOffset(276);
-            // Back Left - Competition Robot
+            // Back Left - Practice Robot
             BackLeft.setPracticeBotDrive(13);
             BackLeft.setPracticeBotSwerve(12);
             BackLeft.setPracticeBotEncoder(1);
