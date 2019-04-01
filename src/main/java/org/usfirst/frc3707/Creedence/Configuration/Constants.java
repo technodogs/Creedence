@@ -34,50 +34,60 @@ public class Constants {
 
     public static class DriveSystem {
 
-        public class DriveModule {
+
+        public static class DriveModule {
+            // NOTE: This class is declared static. This means it is a "nested class". It
+            // cannot access any particular instance of the enclosing class (DriveSystem).
+            // in this case, this does not matter, because there are no instances of DriveSystem
+            // anyway.
+
+            // All of the variables in this class, however, must be non-static. This is because
+            // there will be multiple instances of this class within the DriveSystem class.
             private int drive_CompBot;
             private int swerve_CompBot;
             private int encoder_CompBot;
-
+        
             private int drive_PracticeBot;
             private int swerve_PracticeBot;
             private int encoder_PracticeBot;
-
+        
             private double offset_CompBot;
             private double offset_PracticeBot;
-
+        
+            private RobotType robotType;
+        
             public void setCompBotDrive(int drive) {
                 this.drive_CompBot = drive;
             }
-
+        
             public void setCompBotSwerve(int swerve) {
                 this.swerve_CompBot = swerve;
             }
-
+        
             public void setCompBotEncoder(int encoder) {
                 this.encoder_CompBot = encoder;
             }
-
+        
             public void setPracticeBotDrive(int drive) {
                 this.drive_PracticeBot = drive;
             }
-
+        
             public void setPracticeBotSwerve(int swerve) {
                 this.swerve_PracticeBot = swerve;
             }
-
+        
             public void setPracticeBotEncoder(int encoder) {
                 this.encoder_PracticeBot = encoder;
             }
-
+        
             public void setCompBotOffset(double offset) {
                 this.offset_CompBot = offset;
             }
-
+        
             public void setPracticeBotOffset(double offset) {
                 this.offset_PracticeBot = offset;
             }
-
+        
             public int getDrive() {
                 if (robotType == RobotType.CompetitionRobot) {
                     return drive_CompBot;
@@ -87,7 +97,7 @@ public class Constants {
                     return -1;
                 }
             }
-
+        
             public int getSwerve() {
                 if (robotType == RobotType.CompetitionRobot) {
                     return swerve_CompBot;
@@ -97,7 +107,7 @@ public class Constants {
                     return -1;
                 }
             }
-
+        
             public int getEncoder() {
                 if (robotType == RobotType.CompetitionRobot) {
                     return encoder_CompBot;
@@ -107,7 +117,7 @@ public class Constants {
                     return -1;
                 }
             }
-
+        
             public double getOffset() {
                 if (robotType == RobotType.CompetitionRobot) {
                     return offset_CompBot;
@@ -119,13 +129,12 @@ public class Constants {
             }
         }
 
-        public static DriveModule FrontLeft = new DriveSystem().new DriveModule();
-        public static DriveModule FrontRight = new DriveSystem().new DriveModule();
-        public static DriveModule BackLeft = new DriveSystem().new DriveModule();
-        public static DriveModule BackRight = new DriveSystem().new DriveModule();
+        public static DriveModule FrontLeft = new DriveModule();
+        public static DriveModule FrontRight = new DriveModule();
+        public static DriveModule BackLeft = new DriveModule();
+        public static DriveModule BackRight = new DriveModule();
 
         static {
-
             // Front Left - Competition Robot
             FrontLeft.setCompBotDrive(19);
             FrontLeft.setCompBotSwerve(18);
