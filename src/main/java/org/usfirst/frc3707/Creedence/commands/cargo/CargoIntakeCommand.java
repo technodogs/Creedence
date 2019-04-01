@@ -50,7 +50,7 @@ public class CargoIntakeCommand extends Command {
             Robot.cargoIntakeSubsystem.collectCargo(0);
         }
 
-        if(Robot.oi.driverController.getLeftBumperPressed() == true) {
+        if(Robot.oi.driverController.getLeftTriggerValue() > 0.5) {
             Robot.cargoIntakeSubsystem.moveTongueOut();
         }
         else {

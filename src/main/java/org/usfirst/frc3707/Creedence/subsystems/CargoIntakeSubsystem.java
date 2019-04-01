@@ -41,10 +41,14 @@ public class CargoIntakeSubsystem extends Subsystem {
     }
 
     public void moveTongueOut() {
-        tonguePneumatic.set(Value.kForward);
+        if(tonguePneumatic.get() != Value.kForward) {
+            tonguePneumatic.set(Value.kForward);
+        }
     }
     public void moveTongueIn() {
-        tonguePneumatic.set(Value.kReverse);
+        if(tonguePneumatic.get() != Value.kReverse) {
+            tonguePneumatic.set(Value.kReverse);
+        }
     }
 
     public void collectCargo(double value) {
