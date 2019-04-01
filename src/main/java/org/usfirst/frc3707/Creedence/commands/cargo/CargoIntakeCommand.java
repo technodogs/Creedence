@@ -49,6 +49,13 @@ public class CargoIntakeCommand extends Command {
         } else {
             Robot.cargoIntakeSubsystem.collectCargo(0);
         }
+
+        if(Robot.oi.driverController.getLeftBumperPressed() == true) {
+            Robot.cargoIntakeSubsystem.moveTongueOut();
+        }
+        else {
+            Robot.cargoIntakeSubsystem.moveTongueIn();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

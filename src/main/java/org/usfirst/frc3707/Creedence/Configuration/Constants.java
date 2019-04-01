@@ -226,6 +226,9 @@ public class Constants {
         private static boolean MotorControllerInverted_CompBot = false;
         private static boolean MotorControllerInverted_PracticeBot = false;
 
+        private static int tongueSolenoidForward = 4;
+        private static int tongueSolenoidReverse = 5;
+
 
         public static int getMotorControllerPWMChannel() {
             return MotorControllerPWMChannel;
@@ -237,6 +240,14 @@ public class Constants {
             } else {
                 return MotorControllerInverted_PracticeBot;
             }
+        }
+
+        public static int getTongueSolenoidForward() {
+            return tongueSolenoidForward;
+        }
+
+        public static int getTongueSolenoidReverse() {
+            return tongueSolenoidReverse;
         }
     }
 
