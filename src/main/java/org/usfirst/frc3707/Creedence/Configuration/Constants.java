@@ -7,7 +7,7 @@ public class Constants {
     }
 
     // Default to Competition Robot configuration
-    public static RobotType robotType = RobotType.CompetitionRobot;
+    public static RobotType robotType = RobotType.PracticeRobot;
 
     // public static void setRobotType(RobotType newRobotType) {
     // robotType = newRobotType;
@@ -54,7 +54,7 @@ public class Constants {
             private double offset_CompBot;
             private double offset_PracticeBot;
         
-            private RobotType robotType;
+            //private RobotType robotType;
         
             public void setCompBotDrive(int drive) {
                 this.drive_CompBot = drive;
@@ -139,45 +139,49 @@ public class Constants {
             FrontLeft.setCompBotDrive(19);
             FrontLeft.setCompBotSwerve(18);
             FrontLeft.setCompBotEncoder(0);
-            FrontLeft.setCompBotOffset(137);
             // Front Left - Practice Robot
             FrontLeft.setPracticeBotDrive(19);
             FrontLeft.setPracticeBotSwerve(18);
             FrontLeft.setPracticeBotEncoder(0);
-            FrontLeft.setPracticeBotOffset(117);
 
             // Front Right - Competition Robot
             FrontRight.setCompBotDrive(17);
             FrontRight.setCompBotSwerve(16);
             FrontRight.setCompBotEncoder(3);
-            FrontRight.setCompBotOffset(235);
             // Front Left - Practice Robot
             FrontRight.setPracticeBotDrive(17);
             FrontRight.setPracticeBotSwerve(16); // 5?
             FrontRight.setPracticeBotEncoder(3);
-            FrontRight.setPracticeBotOffset(302);
 
             // Back Left - Competition Robot
             BackLeft.setCompBotDrive(13);
             BackLeft.setCompBotSwerve(12);
             BackLeft.setCompBotEncoder(1);
-            BackLeft.setCompBotOffset(276);
             // Back Left - Competition Robot
             BackLeft.setPracticeBotDrive(13);
             BackLeft.setPracticeBotSwerve(12);
             BackLeft.setPracticeBotEncoder(1);
-            BackLeft.setPracticeBotOffset(312);
 
             // Back Right - Competition Robot
             BackRight.setCompBotDrive(15);
             BackRight.setCompBotSwerve(14);
             BackRight.setCompBotEncoder(2);
-            BackRight.setCompBotOffset(271);
             // Back Right - Practice Robot
             BackRight.setPracticeBotDrive(15);
             BackRight.setPracticeBotSwerve(14);
             BackRight.setPracticeBotEncoder(2);
-            BackRight.setPracticeBotOffset(278);
+            
+            //COMP BOT OFFSETS
+            FrontLeft.setCompBotOffset(137);
+            FrontRight.setCompBotOffset(235);
+            BackLeft.setCompBotOffset(276);
+            BackRight.setCompBotOffset(271);
+
+            //PRACTIVE BOT OFFSETS
+            FrontLeft.setPracticeBotOffset(197);
+            FrontRight.setPracticeBotOffset(192);
+            BackLeft.setPracticeBotOffset(207);
+            BackRight.setPracticeBotOffset(241);
 
         }
     }
