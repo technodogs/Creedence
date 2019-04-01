@@ -47,11 +47,17 @@ public class climbBarMove extends Command {
         //Robot.climbSystem.controlGrab();
         if(Math.abs(Robot.oi.operatorController.getRightStickYValue()) > Math.abs(Robot.oi.operatorController.getRightStickXValue())){
             Robot.climbSubsystem.controlBar();
-
         }
-        if(Math.abs(Robot.oi.operatorController.getRightStickXValue()) > Math.abs(Robot.oi.operatorController.getRightStickYValue())){
-                    Robot.climbSubsystem.controlPullForward();
+        else {
+            Robot.climbSubsystem.stopClimb();
+        }
 
+        
+        if(Robot.oi.operatorController.getRightMenuButtonPressed()) {
+            Robot.climbSubsystem.startVacuum();
+        }
+        else {
+            Robot.climbSubsystem.stopVacuum();
         }
     }
 
