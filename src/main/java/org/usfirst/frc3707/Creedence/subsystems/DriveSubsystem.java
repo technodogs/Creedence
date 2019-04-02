@@ -44,7 +44,8 @@ public class DriveSubsystem extends Subsystem {
     // private CANSparkMax frontLeftDrive = new CANSparkMax(Constants.DriveSystem.FrontLeft.getDrive(), MotorType.kBrushless);
     // private CANSparkMax backRightDrive = new CANSparkMax(Constants.DriveSystem.BackRight.getDrive(), MotorType.kBrushless);
     // private CANSparkMax backLeftDrive = new CANSparkMax(Constants.DriveSystem.BackLeft.getDrive(), MotorType.kBrushless);
-    
+
+
     private SwerveWheel frontRightWheel = new SwerveWheel(frontRightTwist, frontRightDrive, Constants.DriveSystem.FrontRight.getOffset());
     private SwerveWheel frontLeftWheel = new SwerveWheel(frontLeftTwist, frontLeftDrive,Constants.DriveSystem.FrontLeft.getOffset());
     private SwerveWheel backRightWheel = new SwerveWheel(backRightTwist, backRightDrive, Constants.DriveSystem.BackRight.getOffset());
@@ -52,6 +53,9 @@ public class DriveSubsystem extends Subsystem {
     public SwerveDrive swerve = new SwerveDrive(frontRightWheel, frontLeftWheel, backLeftWheel, backRightWheel, null);
 
     public void init() {
+        //this is how you set a parameter on the spark... this one sets it to PWM
+        //frontLeftDrive.setParameter(com.revrobotics.CANSparkMaxLowLevel.ConfigParameter.kInputMode, CANSparkMax.InputMode.kPWM.value);
+        
         frontRightTwist.setInputRange(0.0, 360.0);
         frontRightTwist.setOutputRange(-1.0, 1.0);
         frontRightTwist.setContinuous(true);
