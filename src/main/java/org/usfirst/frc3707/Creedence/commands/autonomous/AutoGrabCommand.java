@@ -43,7 +43,7 @@ public class AutoGrabCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (Robot.hatchSubsystem.getButton1() && Robot.hatchSubsystem.getButton2()) {
+        if (Robot.hatchSubsystem.getButton1() || Robot.hatchSubsystem.getButton2()) {
             Robot.hatchSubsystem.openClaw();
         }
     }
@@ -51,7 +51,7 @@ public class AutoGrabCommand extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return (Robot.hatchSubsystem.getButton1() && Robot.hatchSubsystem.getButton2());
+        return (Robot.hatchSubsystem.getButton1() || Robot.hatchSubsystem.getButton2());
     }
 
     // Called once after isFinished returns true
