@@ -7,6 +7,7 @@ public class SwerveWheel {
     private PIDController rotation;
     private SpeedController speed;
     private double offset;
+    private boolean enabled = true;
 
     public SwerveWheel(PIDController rotation, SpeedController speed, double offset) {
         System.out.println("wheel Initialized");
@@ -32,7 +33,9 @@ public class SwerveWheel {
      * @param newSpeed The speed at which to drive the drive wheel
      */
     public void updateSpeed(double newSpeed) {
-        speed.set(newSpeed);
+        if(enabled) {
+            speed.set(newSpeed);
+        }
     }
 
     /**
@@ -55,9 +58,11 @@ public class SwerveWheel {
 
     public void disableRotation() {
         rotation.disable();
+        enabled = false;
     }
 
     public void enableRotation() {
         rotation.enable();
+        enabled = true;
     }
 }
