@@ -50,7 +50,7 @@ public class ClimbSubsystem extends Subsystem {
     }
     
     public void startVacuum(){
-        climbPullForward.set(1);
+        climbPullForward.set(0.4);
     }
     public void stopVacuum(){
         climbPullForward.set(0);
