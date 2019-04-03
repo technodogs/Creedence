@@ -22,8 +22,6 @@ public class SPIpixySubsystem extends Subsystem {
   public final static int PixyResult = 0;
 
 
-  private static Vector[] vectors;
-  
   public SPIpixySubsystem() {
     pixy = Pixy2.createInstance(Pixy2.LinkType.SPI);
     pixy.init();
@@ -35,6 +33,7 @@ public class SPIpixySubsystem extends Subsystem {
     //setDefaultCommand(new TargetMode());
   }
   public Vector[] findVectors() {
+    //System.out.println("Finding Vectors");
     pixy.getLine().getAllFeatures(); //for some reason we need this because the guy couldn't get it correct himself
     return(pixy.getLine().getVectors());
   }

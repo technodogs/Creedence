@@ -22,6 +22,8 @@ public class GrabLineCommand extends Command {
   public GrabLineCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    setRunWhenDisabled(true);
+
     requires(Robot.m_pixy);
     this.haveBlocks = false;
     this.blocksInQuestion = 0;
@@ -36,9 +38,11 @@ public class GrabLineCommand extends Command {
   @Override
   protected void execute() {
 
-    System.out.println("Testing if command is reached");
+    //System.out.println("Testing if command is reached");
 
     this.vectors= Robot.m_pixy.findVectors();
+
+    System.out.println(vectors);
 
     if (vectors != null)
     {

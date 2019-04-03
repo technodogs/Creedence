@@ -38,9 +38,10 @@ public class DriveCommand extends Command {
     @Override
     protected void execute() {
 
-        Robot.driveSubsystem.drive(-Robot.oi.driverController.getLeftStickXValue(), -Robot.oi.driverController.getLeftStickYValue(),
-                    -Robot.oi.driverController.getRightStickXValue(), false,
-                    Robot.oi.driverController.getRightBumperPressed(), Robot.oi.driverController.getXButtonPressed());
+        Robot.oi.driveByJoystick(-Robot.oi.driverController.getLeftStickXValue());
+        // Robot.driveSubsystem.drive(-Robot.oi.driverController.getLeftStickXValue(), -Robot.oi.driverController.getLeftStickYValue(),
+        //             -Robot.oi.driverController.getRightStickXValue(), false,
+        //             Robot.oi.driverController.getRightBumperPressed(), Robot.oi.driverController.getXButtonPressed());
     }
 
     // Make this return true when this Command no longer needs to run execute()

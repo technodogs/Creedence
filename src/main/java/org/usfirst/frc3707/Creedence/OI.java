@@ -232,6 +232,13 @@ public class OI {
         SmartDashboard.putData("Disable Front Left Rotation", new DisableFrontLeftRotationCommand());
         SmartDashboard.putData("Disable Back Right Rotation", new DisableBackRightRotationCommand());
         SmartDashboard.putData("Disable Back Left Rotation", new DisableBackLeftRotationCommand());
+        SmartDashboard.putData("Grab", new GrabLineCommand());
         
+    }
+
+    public void driveByJoystick(double directionX) {
+        Robot.driveSubsystem.drive(directionX, -Robot.oi.driverController.getLeftStickYValue(),
+                    -Robot.oi.driverController.getRightStickXValue(), false,
+                    Robot.oi.driverController.getRightBumperPressed(), Robot.oi.driverController.getXButtonPressed());
     }
 }

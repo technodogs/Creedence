@@ -16,6 +16,13 @@ import edu.wpi.first.wpilibj.command.Command;
 public class PixyDriveAssist extends Command {
 
   double centerOfPixy = 50; //one sec
+  
+
+  long lastTime;
+  public double output = 0;
+  public double errSum, lastErr = 0;
+  double kp = 0.003;
+  double ki = 0;
 
   private Vector[] vectors;
 
@@ -23,9 +30,35 @@ public class PixyDriveAssist extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
 
-    requires(Robot.m_pixy);
+    requires(Robot.driveSubsystem);
     
   }
+  
+
+  /**
+   * A method to compute PID motor power.
+   * 
+   * @return A double indicating how much to power a motor
+   * @param input    This is the current value being received from the sensor
+   * @param setpoint The desired setpoint
+   */
+  public double computePIDPower(double input, double setpoint) {
+    /* How long since we last calculated */
+    long now = System.currentTimeMillis();
+    double timeChange = (double) (now - lastTime);
+    /* Compute all the working error variables */
+    double error = setpoint - input;
+    errSum += (error * timeChange);
+
+    /* Compute PID Output */
+    output = kp * error + ki * errSum;
+
+    /* Remember some variables for next time */
+    lastErr = error;
+    lastTime = now;
+
+    return output;
+}
 
   // Called just before this Command runs the first time
   @Override
@@ -38,6 +71,12 @@ public class PixyDriveAssist extends Command {
 
     this.vectors = Robot.m_pixy.findVectors();
 
+    //If we dont see the line, drive normal and return
+    if(this.vectors == null) {
+      Robot.oi.driveByJoystick(-Robot.oi.driverController.getLeftStickXValue());
+      return;
+    }
+
     double pixyDriveAssist = 0;
 
     double x0 = vectors[0].getX0();
@@ -47,13 +86,10 @@ public class PixyDriveAssist extends Command {
 
     if (x_difference > 3)
     {
-      double errorOutput = Robot.driveSubsystem.computePIDPower(x_difference, centerOfPixy);
+      double errorOutput = computePIDPower(x_difference, centerOfPixy);
       pixyDriveAssist = errorOutput * 3.75; //3.75 is the found value for nice movement
     }
-
-    Robot.driveSubsystem.driveAssist(pixyDriveAssist, -Robot.oi.driverController.getLeftStickYValue(),
-    -Robot.oi.driverController.getRightStickXValue(), 0,
-    Robot.oi.driverController.getRightBumperPressed(), Robot.oi.driverController.getXButtonPressed());
+    Robot.oi.driveByJoystick(pixyDriveAssist);
 
   }
 

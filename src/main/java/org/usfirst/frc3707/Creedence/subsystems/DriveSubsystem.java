@@ -111,44 +111,6 @@ public class DriveSubsystem extends Subsystem {
         swerve.drive(directionX, directionY, rotation, false, slowSpeed, noPush);
     }
 
-    public void driveAssist(double pixyDriveAssist, double directionY, double rotation, double useGyro, boolean slowSpeed,
-            boolean noPush){
-
-        swerve.drive(pixyDriveAssist, directionY, rotation, false, slowSpeed, noPush);
-
-    }
-
-    long lastTime;
-    public double output = 0;
-    public double errSum, lastErr = 0;
-    double kp = 0.003;
-    double ki = 0;
-
-    /**
-     * A method to compute PID motor power.
-     * 
-     * @return A double indicating how much to power a motor
-     * @param input    This is the current value being received from the sensor
-     * @param setpoint The desired setpoint
-     */
-    public double computePIDPower(double input, double setpoint) {
-        /* How long since we last calculated */
-        long now = System.currentTimeMillis();
-        double timeChange = (double) (now - lastTime);
-        /* Compute all the working error variables */
-        double error = setpoint - input;
-        errSum += (error * timeChange);
-
-        /* Compute PID Output */
-        output = kp * error + ki * errSum;
-
-        /* Remember some variables for next time */
-        lastErr = error;
-        lastTime = now;
-
-        return output;
-    }
-
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new DriveCommand());

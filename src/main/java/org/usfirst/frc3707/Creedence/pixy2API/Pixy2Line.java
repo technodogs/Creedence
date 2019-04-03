@@ -84,6 +84,7 @@ public class Pixy2Line {
 	 * @return Pixy2 error code
 	 */
 	public byte getAllFeatures() {
+		System.out.println("getting all features");
 		return getFeatures(LINE_GET_ALL_FEATURES, LINE_ALL_FEATURES, true);
 	}
 
@@ -200,6 +201,7 @@ public class Pixy2Line {
 	 * @return Pixy2 Lines
 	 */
 	public Vector[] getVectors() {
+		System.out.println("Getting Vectors the long way: " + vectors);
 		return vectors;
 	}
 
