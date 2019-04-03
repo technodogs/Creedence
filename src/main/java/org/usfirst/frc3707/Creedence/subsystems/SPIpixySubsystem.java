@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  * Add your docs here.
  */
-public class SPIpixy extends Subsystem {
+public class SPIpixySubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private final Pixy2 pixy; 
@@ -24,7 +24,7 @@ public class SPIpixy extends Subsystem {
 
   private static Vector[] vectors;
   
-  public SPIpixy() {
+  public SPIpixySubsystem() {
     pixy = Pixy2.createInstance(Pixy2.LinkType.SPI);
     pixy.init();
     pixy.changeProg("line_tracking".toCharArray());

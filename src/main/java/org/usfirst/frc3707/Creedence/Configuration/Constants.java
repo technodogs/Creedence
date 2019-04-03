@@ -7,7 +7,7 @@ public class Constants {
     }
 
     // Default to Competition Robot configuration
-    public static RobotType robotType = RobotType.PracticeRobot;
+    public static RobotType robotType = RobotType.CompetitionRobot;
 
     // public static void setRobotType(RobotType newRobotType) {
     // robotType = newRobotType;
@@ -157,7 +157,8 @@ public class Constants {
             BackLeft.setCompBotDrive(13);
             BackLeft.setCompBotSwerve(12);
             BackLeft.setCompBotEncoder(1);
-            // Back Left - Competition Robot
+            BackLeft.setCompBotOffset(276);
+            // Back Left - Practice Robot
             BackLeft.setPracticeBotDrive(13);
             BackLeft.setPracticeBotSwerve(12);
             BackLeft.setPracticeBotEncoder(1);
@@ -172,10 +173,10 @@ public class Constants {
             BackRight.setPracticeBotEncoder(2);
             
             //COMP BOT OFFSETS
-            FrontLeft.setCompBotOffset(137);
-            FrontRight.setCompBotOffset(235);
-            BackLeft.setCompBotOffset(276);
-            BackRight.setCompBotOffset(271);
+            FrontLeft.setCompBotOffset(60);
+            FrontRight.setCompBotOffset(28);
+            BackLeft.setCompBotOffset(11);
+            BackRight.setCompBotOffset(18);
 
             //PRACTIVE BOT OFFSETS
             FrontLeft.setPracticeBotOffset(197);

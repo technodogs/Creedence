@@ -5,26 +5,26 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc3707.Creedence.commands.vision;
+package org.usfirst.frc3707.Creedence.commands.autonomous;
 
 import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.pixy2API.Pixy2Line.Vector;
+import org.usfirst.frc3707.Creedence.subsystems.DriveSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class GrabLine extends Command {
+public class PixyDriveAssist extends Command {
 
-  private boolean haveBlocks;
-  private int blocksInQuestion;
-  private static final int maxBadBlockCycles = 10;
+  double centerOfPixy = 50; //one sec
+
   private Vector[] vectors;
 
-  public GrabLine() {
+  public PixyDriveAssist() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+
     requires(Robot.m_pixy);
-    this.haveBlocks = false;
-    this.blocksInQuestion = 0;
+    
   }
 
   // Called just before this Command runs the first time
@@ -36,24 +36,31 @@ public class GrabLine extends Command {
   @Override
   protected void execute() {
 
-    this.vectors= Robot.m_pixy.findVectors();
+    this.vectors = Robot.m_pixy.findVectors();
 
-    if (vectors != null)
+    double pixyDriveAssist = 0;
+
+    double x0 = vectors[0].getX0();
+    double x1 = vectors[0].getX1();
+
+    double x_difference = ((x0 + x1) / 2);
+
+    if (x_difference > 3)
     {
-      for (Vector vector : this.vectors)
-      {
-        System.out.print("X0: " + vector.getX0() + "\n");
-        System.out.print("Y0: " + vector.getY0() + "\n");
-        System.out.print("X1: " + vector.getX1() + "\n");
-        System.out.print("Y1: " + vector.getY1() + "\n");
-      }
+      double errorOutput = Robot.driveSubsystem.computePIDPower(x_difference, centerOfPixy);
+      pixyDriveAssist = errorOutput * 3.75; //3.75 is the found value for nice movement
     }
+
+    Robot.driveSubsystem.driveAssist(pixyDriveAssist, -Robot.oi.driverController.getLeftStickYValue(),
+    -Robot.oi.driverController.getRightStickXValue(), 0,
+    Robot.oi.driverController.getRightBumperPressed(), Robot.oi.driverController.getXButtonPressed());
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

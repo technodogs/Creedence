@@ -10,10 +10,11 @@
 
 package org.usfirst.frc3707.Creedence.commands.autonomous;
 
-import org.usfirst.frc3707.Creedence.commands.hatch.closeClaw;
-import org.usfirst.frc3707.Creedence.commands.hatch.thrustForward;
-import org.usfirst.frc3707.Creedence.commands.hatch.timedThrustBackward;
-import org.usfirst.frc3707.Creedence.commands.lift.hatchToPStation;
+import org.usfirst.frc3707.Creedence.commands.hatch.closeClawCommand;
+import org.usfirst.frc3707.Creedence.commands.hatch.thrustBackwardCommand;
+import org.usfirst.frc3707.Creedence.commands.hatch.thrustForwardCommand;
+import org.usfirst.frc3707.Creedence.commands.lift.hatchToBotCommand;
+import org.usfirst.frc3707.Creedence.commands.autonomous.*;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -25,16 +26,13 @@ public class AutoGrabSequence extends CommandGroup {
     
     public AutoGrabSequence() {
 
-        addSequential(new thrustForward());
-        addSequential(new closeClaw());
-        // addSequential(new hatchToPStation());
-        // addSequential(new hatchToPStation());
-        // addSequential(new hatchToPStation());
-        // addSequential(new hatchToPStation());
-        // addSequential(new hatchToPStation());
-        // addSequential(new hatchToPStation());
-        //timer right here
+
+        addSequential(new thrustForwardCommand());
+        addSequential(new closeClawCommand());
+        addParallel(new autoPStationCommand());
         addSequential(new AutoGrabCommand());
-        addSequential(new timedThrustBackward());
+        //the blank command is a timer, the code reaches it and waits for the timeout that you set
+        addSequential(new blankCommand(), .2 );
+        addSequential(new thrustBackwardCommand());
     }
 }

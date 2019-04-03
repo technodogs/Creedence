@@ -11,7 +11,7 @@
 package org.usfirst.frc3707.Creedence;
 
 import org.usfirst.frc3707.Creedence.subsystems.DriveSubsystem;
-import org.usfirst.frc3707.Creedence.subsystems.SPIpixy;
+import org.usfirst.frc3707.Creedence.subsystems.SPIpixySubsystem;
 import org.usfirst.frc3707.Creedence.subsystems.CargoIntakeSubsystem;
 import org.usfirst.frc3707.Creedence.subsystems.ClimbSubsystem;
 import org.usfirst.frc3707.Creedence.subsystems.HatchSubsystem;
@@ -58,7 +58,7 @@ public class Robot extends TimedRobot {
 
     private int lastButton = 1;
 
-    public static SPIpixy m_pixy;
+    public static SPIpixySubsystem m_pixy;
 
     //public static PneumaticLift pneumaticLift; dont use untill pneumatic lift is installed
 
@@ -69,7 +69,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
 
-        // m_pixy = new SPIpixy();
+        m_pixy = new SPIpixySubsystem();
 
         // frontCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getFrontCamera());//use for camera on smart Dashboard
         // rearCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getRearCamera());
