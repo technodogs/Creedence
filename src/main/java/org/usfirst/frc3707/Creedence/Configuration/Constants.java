@@ -7,7 +7,7 @@ public class Constants {
     }
 
     // Default to Competition Robot configuration
-    public static RobotType robotType = RobotType.CompetitionRobot;
+    public static RobotType robotType = RobotType.PracticeRobot;
 
     // public static void setRobotType(RobotType newRobotType) {
     // robotType = newRobotType;

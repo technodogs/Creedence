@@ -29,10 +29,11 @@ public class AutoGrabSequence extends CommandGroup {
 
         addSequential(new thrustForwardCommand());
         addSequential(new closeClawCommand());
-        addParallel(new autoPStationCommand());
-        addSequential(new AutoGrabCommand());
+        addParallel(new autoPStationCommand(), 10);
+        addSequential(new AutoGrabCommand(), 10);
+        
         //the blank command is a timer, the code reaches it and waits for the timeout that you set
-        addSequential(new blankCommand(), .2 );
-        addSequential(new thrustBackwardCommand());
+        //addSequential(new blankCommand(), .2 );
+        addSequential(new conditionalThrustBackward());
     }
 }

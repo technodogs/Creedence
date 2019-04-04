@@ -43,7 +43,7 @@ public class autoPStationCommand extends Command {
     @Override
     protected void initialize() {
         Robot.liftSubsystem.liftController.enable();
-        Robot.liftSubsystem.liftController.setSetpoint(34.0);
+        Robot.liftSubsystem.liftController.setSetpoint(29.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -60,7 +60,7 @@ public class autoPStationCommand extends Command {
         if (Robot.liftSubsystem.getLiftHeight() > 59) {
             return true;
         }
-        return false;
+        return Math.abs(Robot.oi.operatorController.getLeftStickYValue()) > 0.2;
     }
 
     // Called once after isFinished returns true
@@ -74,5 +74,6 @@ public class autoPStationCommand extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }

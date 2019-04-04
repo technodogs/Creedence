@@ -51,7 +51,7 @@ public class AutoGrabCommand extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return (Robot.hatchSubsystem.getButton1() || Robot.hatchSubsystem.getButton2());
+        return (Robot.hatchSubsystem.getButton1() || Robot.hatchSubsystem.getButton2() || Math.abs(Robot.oi.operatorController.getLeftStickYValue()) > 0.2);
     }
 
     // Called once after isFinished returns true

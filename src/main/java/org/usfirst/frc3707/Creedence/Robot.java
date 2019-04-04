@@ -71,21 +71,21 @@ public class Robot extends TimedRobot {
 
         m_pixy = new SPIpixySubsystem();
 
-        // frontCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getFrontCamera());//use for camera on smart Dashboard
-        // rearCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getRearCamera());
+        //frontCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getFrontCamera());//use for camera on smart Dashboard
+        rearCamera = CameraServer.getInstance().startAutomaticCapture(Constants.CameraSystem.getRearCamera());
 
-        // server = CameraServer.getInstance().addSwitchedCamera("switched camera");
+        //server = CameraServer.getInstance().addSwitchedCamera("switched camera");
         
         // frontCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
-        // rearCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
+        //rearCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
 
 
 
         // frontCamera.setResolution(Constants.CameraSystem.getFrontCameraResolutionX(), Constants.CameraSystem.getFrontCameraResolutionY());
         // frontCamera.setFPS(Constants.CameraSystem.getFrontCameraFPS());
 
-        // rearCamera.setResolution(Constants.CameraSystem.getRearCameraResolutionX(), Constants.CameraSystem.getRearCameraResolutionY());
-        // rearCamera.setFPS(Constants.CameraSystem.getRearCameraFPS());
+        rearCamera.setResolution(Constants.CameraSystem.getRearCameraResolutionX(), Constants.CameraSystem.getRearCameraResolutionY());
+        rearCamera.setFPS(Constants.CameraSystem.getRearCameraFPS());
 
 
         driveSubsystem = new DriveSubsystem();
