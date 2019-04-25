@@ -72,8 +72,8 @@ public class HatchSubsystem extends Subsystem {
     @Override
     public void periodic() {
         // Put code here to be run every loop
-        SmartDashboard.putBoolean("Butt1", clawButton1.get());
-        SmartDashboard.putBoolean("Butt2", clawButton2.get());
+        SmartDashboard.putBoolean("HatchButton1", !clawButton1.get());
+        SmartDashboard.putBoolean("HatchButton2", !clawButton2.get());
     }
 
 }

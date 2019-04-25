@@ -84,7 +84,7 @@ public class Pixy2Line {
 	 * @return Pixy2 error code
 	 */
 	public byte getAllFeatures() {
-		System.out.println("getting all features");
+		//System.out.println("getting all features");
 		return getFeatures(LINE_GET_ALL_FEATURES, LINE_ALL_FEATURES, true);
 	}
 
@@ -118,6 +118,8 @@ public class Pixy2Line {
 
 		long start = System.currentTimeMillis();
 
+		int limitedLength = 32;
+
 		while (true) {
 			// fill in request data
 			pixy.length = 2;
@@ -130,6 +132,12 @@ public class Pixy2Line {
 			if (pixy.receivePacket() == 0) {
 				if (pixy.type == LINE_RESPONSE_GET_FEATURES) {
 					// parse line response
+					// System.out.println("PIXY LENGTH " + pixy.length);
+					// if (pixy.length > 32)
+					// {
+					// 	//limitedLength = 32;
+					// 	return;
+					// }
 					for (offset = 0, res = 0; pixy.length > offset; offset += fsize + 2) {
 						ftype = pixy.buffer[offset];
 						fsize = pixy.buffer[offset + 1];
@@ -201,7 +209,7 @@ public class Pixy2Line {
 	 * @return Pixy2 Lines
 	 */
 	public Vector[] getVectors() {
-		System.out.println("Getting Vectors the long way: " + vectors);
+		//System.out.println("Getting Vectors the long way: " + vectors);
 		return vectors;
 	}
 

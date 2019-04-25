@@ -14,8 +14,10 @@ import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.Configuration.Constants;
 import org.usfirst.frc3707.Creedence.commands.climb.climbBarMove;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -25,10 +27,13 @@ public class ClimbSubsystem extends Subsystem {
     private PWMVictorSPX climbBar = new PWMVictorSPX(Constants.ClimbSystem.getClimbBar());
     //private PWMVictorSPX climbGrab = new PWMVictorSPX(Constants.ClimbSystem.getClimbGrab());
     private PWMVictorSPX climbPullForward = new PWMVictorSPX(Constants.ClimbSystem.getClimbPullForward());
+    private AnalogInput pressureSensor = new AnalogInput(Constants.ClimbSystem.getPressureSensor());
 
     public ClimbSubsystem() {
         climbBar.stopMotor();
         climbPullForward.set(0);
+        
+      SmartDashboard.putBoolean("Vacuum", false);
     }
 
     @Override
@@ -50,10 +55,15 @@ public class ClimbSubsystem extends Subsystem {
     }
     
     public void startVacuum(){
-        climbPullForward.set(0.4);
+        climbPullForward.set(0.5);
+        SmartDashboard.putBoolean("Vacuum", true);
     }
     public void stopVacuum(){
         climbPullForward.set(0);
+        SmartDashboard.putBoolean("Vacuum", false);
+    }
+    public double vacuumPressure(){
+        return pressureSensor.getVoltage();
     }
 
     /**
@@ -63,6 +73,9 @@ public class ClimbSubsystem extends Subsystem {
 
     @Override
     public void periodic() {
+        
+        
+     
         // Put code here to be run every loop
 
     }

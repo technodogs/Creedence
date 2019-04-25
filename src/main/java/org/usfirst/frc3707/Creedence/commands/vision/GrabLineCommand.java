@@ -11,6 +11,7 @@ import org.usfirst.frc3707.Creedence.Robot;
 import org.usfirst.frc3707.Creedence.pixy2API.Pixy2Line.Vector;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class GrabLineCommand extends Command {
 
@@ -42,17 +43,25 @@ public class GrabLineCommand extends Command {
 
     this.vectors= Robot.m_pixy.findVectors();
 
-    System.out.println(vectors);
+    //System.out.println(vectors);
+    SmartDashboard.putBoolean("Pixy", vectors != null);
 
     if (vectors != null)
     {
-      for (Vector vector : this.vectors)
+        System.out.print("X0: " + vectors[0].getX0() + "\n");
+        System.out.print("Y0: " + vectors[0].getY0() + "\n");
+        System.out.print("X1: " + vectors[0].getX1() + "\n");
+        System.out.print("Y1: " + vectors[0].getY1() + "\n");
+
+        SmartDashboard.putNumber("Midpoint", vectors[0].getX0() - vectors[0].getX1());
+
+      /*for (Vector vector : this.vectors)
       {
         System.out.print("X0: " + vector.getX0() + "\n");
         System.out.print("Y0: " + vector.getY0() + "\n");
         System.out.print("X1: " + vector.getX1() + "\n");
         System.out.print("Y1: " + vector.getY1() + "\n");
-      }
+      }*/
     }
   }
 

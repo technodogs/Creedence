@@ -406,6 +406,11 @@ public class Pixy2 {
 
 			csSerial = ((buffer[3] & 0xff) << 8) | (buffer[2] & 0xff);
 
+			if(length > 32) {
+				return PIXY_RESULT_ERROR;
+			}
+
+			//System.out.println("LINK LENGTH " + length);
 			res = link.receive(buffer, length, csCalc);
 
 			if (res < 0)
@@ -419,6 +424,10 @@ public class Pixy2 {
 
 			type = buffer[0];
 			length = buffer[1];
+
+			if(length > 32) {
+				return PIXY_RESULT_ERROR;
+			}
 
 			res = link.receive(buffer, length);
 

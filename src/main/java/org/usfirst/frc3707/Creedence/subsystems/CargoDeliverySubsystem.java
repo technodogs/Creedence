@@ -81,8 +81,8 @@ public class CargoDeliverySubsystem extends Subsystem {
 
     }
     public void slowDeliverCargo(){
-        cargoDeliveryLeftMotor.set(.4);
-        cargoDeliveryRightMotor.set(-.4);
+        cargoDeliveryLeftMotor.set(.45);
+        cargoDeliveryRightMotor.set(-.45);
     }
 
     @Override

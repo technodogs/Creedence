@@ -11,6 +11,7 @@
 package org.usfirst.frc3707.Creedence;
 
 import org.usfirst.frc3707.Creedence.commands.autonomous.AutoGrabSequence;
+import org.usfirst.frc3707.Creedence.commands.autonomous.PixyDriveAssist;
 import org.usfirst.frc3707.Creedence.commands.drive.*;
 import org.usfirst.frc3707.Creedence.commands.hatch.closeClawCommand;
 import org.usfirst.frc3707.Creedence.commands.hatch.openClawCommand;
@@ -225,20 +226,22 @@ public class OI {
         operatorController.getDPadDown().whenPressed(new hatchToBotCommand());
         operatorController.getDPadUp().whenPressed(new AutoGrabSequence());
 
-        driverController.getLeftBumper().whenPressed(new GrabLineCommand());
+        driverController.getLeftBumper().whileHeld(new PixyDriveAssist());
 
+        
         SmartDashboard.putData("Auto hatch snag Test", new AutoGrabSequence());
         SmartDashboard.putData("Disable Front Right Rotation", new DisableFrontRightRotationCommand());
         SmartDashboard.putData("Disable Front Left Rotation", new DisableFrontLeftRotationCommand());
         SmartDashboard.putData("Disable Back Right Rotation", new DisableBackRightRotationCommand());
         SmartDashboard.putData("Disable Back Left Rotation", new DisableBackLeftRotationCommand());
-        SmartDashboard.putData("Grab", new GrabLineCommand());
+        SmartDashboard.putData("Grab", new GrabLineCommand()); 
+        //SmartDashboard.putData("Grab", new PixyDriveAssist()); 
         
     }
 
-    public void driveByJoystick(double directionX) {
+    public void driveByJoystick(double directionX, double rotationX) {
         Robot.driveSubsystem.drive(directionX, -Robot.oi.driverController.getLeftStickYValue(),
-                    -Robot.oi.driverController.getRightStickXValue(), false,
+                    rotationX, false,
                     Robot.oi.driverController.getRightBumperPressed(), Robot.oi.driverController.getXButtonPressed());
     }
 }

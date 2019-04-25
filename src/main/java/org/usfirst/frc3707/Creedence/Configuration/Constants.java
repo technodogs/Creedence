@@ -7,7 +7,7 @@ public class Constants {
     }
 
     // Default to Competition Robot configuration
-    public static RobotType robotType = RobotType.PracticeRobot;
+    public static RobotType robotType = RobotType.CompetitionRobot;
 
     // public static void setRobotType(RobotType newRobotType) {
     // robotType = newRobotType;
@@ -157,7 +157,6 @@ public class Constants {
             BackLeft.setCompBotDrive(13);
             BackLeft.setCompBotSwerve(12);
             BackLeft.setCompBotEncoder(1);
-            BackLeft.setCompBotOffset(276);
             // Back Left - Practice Robot
             BackLeft.setPracticeBotDrive(13);
             BackLeft.setPracticeBotSwerve(12);
@@ -173,15 +172,15 @@ public class Constants {
             BackRight.setPracticeBotEncoder(2);
             
             //COMP BOT OFFSETS
-            FrontLeft.setCompBotOffset(60);
-            FrontRight.setCompBotOffset(28);
-            BackLeft.setCompBotOffset(11);
-            BackRight.setCompBotOffset(18);
+            FrontLeft.setCompBotOffset(80);
+            FrontRight.setCompBotOffset(186);
+            BackLeft.setCompBotOffset(37);
+            BackRight.setCompBotOffset(44);
 
             //PRACTIVE BOT OFFSETS
-            FrontLeft.setPracticeBotOffset(197);
-            FrontRight.setPracticeBotOffset(192);
-            BackLeft.setPracticeBotOffset(207);
+            FrontLeft.setPracticeBotOffset(198);
+            FrontRight.setPracticeBotOffset(195);
+            BackLeft.setPracticeBotOffset(10);
             BackRight.setPracticeBotOffset(241);
 
         }
@@ -295,6 +294,7 @@ public class Constants {
         private static int climbBar = 8;
         private static int climbGrab = 7;
         private static int climbPullForward = 4;
+        private static int pressureSensor = 4;
 
         public static int getClimbBar() {
             return climbBar;
@@ -306,6 +306,9 @@ public class Constants {
 
         public static int getClimbPullForward() {
             return climbPullForward;
+        }
+        public static int getPressureSensor(){
+            return pressureSensor;
         }
     }
 
@@ -330,12 +333,12 @@ public class Constants {
         private static int rearCamera_CompBot = 1;
         private static int rearCamera_PracticeBot = 1;
 
-        private static int frontCameraResolutionX = 160;
-        private static int frontCameraResolutionY = 120;
+        private static int frontCameraResolutionX = 320;
+        private static int frontCameraResolutionY = 240;
         private static int frontCameraFPS = 30;
 
-        private static int rearCameraResolutionX = 160;
-        private static int rearCameraResolutionY = 120;
+        private static int rearCameraResolutionX = 320;
+        private static int rearCameraResolutionY = 240;
         private static int rearCameraFPS = 30;
 
         public static int getFrontCamera(){

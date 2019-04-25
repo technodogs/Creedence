@@ -31,9 +31,14 @@ public class AutoGrabSequence extends CommandGroup {
         addSequential(new closeClawCommand());
         addParallel(new autoPStationCommand(), 10);
         addSequential(new AutoGrabCommand(), 10);
+        //addSequential(new PixyContrast(), 10);
         
         //the blank command is a timer, the code reaches it and waits for the timeout that you set
         //addSequential(new blankCommand(), .2 );
+        //addSequential(new ConditionalLiftUp(), 2);    dont use, this is for lifting after
+
+        //addSequential(new ConditionalDriveBackward(), 1);
+
         addSequential(new conditionalThrustBackward());
     }
 }

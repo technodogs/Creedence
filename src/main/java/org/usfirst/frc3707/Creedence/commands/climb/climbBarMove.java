@@ -11,12 +11,16 @@
 package org.usfirst.frc3707.Creedence.commands.climb;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc3707.Creedence.Robot;
 
 /**
  *
  */
 public class climbBarMove extends Command {
+
+    private double currentVacuumPressure = 0;
 
     public climbBarMove() {    
         requires(Robot.climbSubsystem);
@@ -43,9 +47,26 @@ public class climbBarMove extends Command {
         if(Robot.oi.operatorController.getRightMenuButtonPressed()) {
             Robot.climbSubsystem.startVacuum();
         }
-        else {
+        if(Robot.oi.operatorController.getLeftMenuButtonPressed()) {
             Robot.climbSubsystem.stopVacuum();
+            SmartDashboard.putBoolean("ClimbState", false);
         }
+        // if you want to make the green light trigger earlier, lower the number in the if statement
+        //if you want it to trigger later, increase the value
+
+        if(SmartDashboard.getBoolean("Vacuum", false)) {
+            currentVacuumPressure = Robot.climbSubsystem.vacuumPressure();
+
+            SmartDashboard.putNumber("vacuumPressure", currentVacuumPressure);
+
+            if(currentVacuumPressure < 1.5){
+                SmartDashboard.putBoolean("ClimbState", false);
+            }else if(currentVacuumPressure > 1.5){
+                SmartDashboard.putBoolean("ClimbState", true);
+            }
+        }
+
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()

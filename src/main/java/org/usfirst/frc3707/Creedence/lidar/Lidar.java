@@ -45,7 +45,7 @@ public class Lidar implements PIDSource {
 	 */
 	public double getDistance() {
 		distanceArray.clear();
-		for (int i = 0; i < 80; i++) {
+		for (int i = 0; i < 5; i++) {
 			double cm;
 			/*
 			 * If we haven't seen the first rising to falling pulse, then we have no

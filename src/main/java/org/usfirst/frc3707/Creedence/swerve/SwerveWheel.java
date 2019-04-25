@@ -57,6 +57,7 @@ public class SwerveWheel {
     }
 
     public void disableRotation() {
+        updateSpeed(0);
         rotation.disable();
         enabled = false;
     }

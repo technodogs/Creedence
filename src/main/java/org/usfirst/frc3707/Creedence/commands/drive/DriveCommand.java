@@ -37,11 +37,16 @@ public class DriveCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        if (Robot.oi.driverController.getRightTriggerValue() >= .3)
+        {
+            //Robot.driveSubsystem.driveSimple(-Robot.oi.driverController.getRightTriggerValue() * 0.5, 180);
+            Robot.driveSubsystem.driveSimple(0, 0);
+        }
+        else
+        {
+            Robot.oi.driveByJoystick(-Robot.oi.driverController.getLeftStickXValue(), -Robot.oi.driverController.getRightStickXValue());
+        }
 
-        Robot.oi.driveByJoystick(-Robot.oi.driverController.getLeftStickXValue());
-        // Robot.driveSubsystem.drive(-Robot.oi.driverController.getLeftStickXValue(), -Robot.oi.driverController.getLeftStickYValue(),
-        //             -Robot.oi.driverController.getRightStickXValue(), false,
-        //             Robot.oi.driverController.getRightBumperPressed(), Robot.oi.driverController.getXButtonPressed());
     }
 
     // Make this return true when this Command no longer needs to run execute()

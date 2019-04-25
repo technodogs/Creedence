@@ -48,7 +48,7 @@ public class CargoDeliveryCommand extends Command {
         if (Robot.oi.operatorController.getRightTriggerValue() > .1 || Robot.oi.operatorController.getRightTriggerValue() < -.1) {
             Robot.cargoDeliverySubsystem.deliverCargo(org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getRightTriggerValue());
         } else {
-            Robot.cargoDeliverySubsystem.retrieveCargo(org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getLeftTriggerValue());
+            Robot.cargoDeliverySubsystem.retrieveCargo(org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getLeftTriggerValue() * 0.35);
         }
 
         if(org.usfirst.frc3707.Creedence.Robot.oi.operatorController.getRightBumperPressed() == true){

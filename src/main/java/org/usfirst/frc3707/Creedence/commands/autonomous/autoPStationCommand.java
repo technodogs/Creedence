@@ -43,7 +43,7 @@ public class autoPStationCommand extends Command {
     @Override
     protected void initialize() {
         Robot.liftSubsystem.liftController.enable();
-        Robot.liftSubsystem.liftController.setSetpoint(29.0);
+        Robot.liftSubsystem.liftController.setSetpoint(36); //Originally 35, changed 4/13/2019
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -9,23 +9,38 @@ package org.usfirst.frc3707.Creedence.commands.drive;
 
 import org.usfirst.frc3707.Creedence.Robot;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.TimedCommand;
 
-public class DisableBackRightRotationCommand extends Command {
-  public DisableBackRightRotationCommand() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+public class DriveBackwardsCommand extends TimedCommand {
+
+  double speed = -.5;
+  double angle = 180;
+
+  public DriveBackwardsCommand() {
+
+    this(.5);
+  }
+
+  public DriveBackwardsCommand(double timeOut) {
+
+    super(timeOut);
+
+    requires(Robot.driveSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.driveSubsystem.disableBackRightWheelRotation();
+
+    Robot.driveSubsystem.enable();
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+
+    Robot.driveSubsystem.driveSimple(speed, angle);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -37,13 +52,11 @@ public class DisableBackRightRotationCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.driveSubsystem.enableBackRightWheelRotation();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }

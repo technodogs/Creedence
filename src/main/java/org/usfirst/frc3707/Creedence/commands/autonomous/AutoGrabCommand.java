@@ -43,7 +43,7 @@ public class AutoGrabCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (Robot.hatchSubsystem.getButton1() || Robot.hatchSubsystem.getButton2()) {
+        if (Robot.hatchSubsystem.getButton1() || Robot.hatchSubsystem.getButton2()) { //Get rid of the ! for non contrast sensors
             Robot.hatchSubsystem.openClaw();
         }
     }

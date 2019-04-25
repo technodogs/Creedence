@@ -29,7 +29,7 @@ public class hatchToBotCommand extends Command {
     @Override
     protected void initialize() {
         Robot.liftSubsystem.liftController.enable();
-        Robot.liftSubsystem.liftController.setSetpoint(30);
+        Robot.liftSubsystem.liftController.setSetpoint(36); //Originally 35, changed 4/13/2019
 
     }
 

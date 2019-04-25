@@ -111,6 +111,11 @@ public class DriveSubsystem extends Subsystem {
         swerve.drive(directionX, directionY, rotation, false, slowSpeed, noPush);
     }
 
+    public void driveSimple(double speed, double direction)
+    {
+        swerve.driveSimple(speed, direction);
+    }
+
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new DriveCommand());
@@ -121,10 +126,10 @@ public class DriveSubsystem extends Subsystem {
      */
     @Override
     public void periodic() {
-        SmartDashboard.putNumber("Front Right Encoder", frontRightEncoder.get());
-        SmartDashboard.putNumber("Front Left Encoder", frontLeftEncoder.get());
-        SmartDashboard.putNumber("Back Right Encoder", backRightEncoder.get());
-        SmartDashboard.putNumber("Back Left Encoder", backLeftEncoder.get());
+        // SmartDashboard.putNumber("Front Right Encoder", frontRightEncoder.get());
+        // SmartDashboard.putNumber("Front Left Encoder", frontLeftEncoder.get());
+        // SmartDashboard.putNumber("Back Right Encoder", backRightEncoder.get());
+        // SmartDashboard.putNumber("Back Left Encoder", backLeftEncoder.get());
     }
 
     public void disableFrontRightWheelRotation(){
